@@ -39,8 +39,8 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 </div>
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4CAF50;">
-<h3>AI-Assisted Workflows</h3>
-<p>Multi-agent system feeding a custom ML model for domain-specific predictions</p>
+<h3>Predictive Intelligence</h3>
+<p>Custom model trained on real student outcomes—knows what works in space lab education</p>
 </div>
 
 </div>
@@ -53,8 +53,8 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 |--------|-------|
 | **Partner Universities** | 8 institutions |
 | **Database Tables** | 37+ structured tables |
-| **AI Agents** | 3 specialized agents (Interpreter, Builder, Validator) |
-| **Custom ML Model** | Domain-specific predictions for engineering education |
+| **AI Agents** | 3 specialized agents feeding structured observations |
+| **Predictive Model** | Trained on actual student outcomes in space lab programs |
 | **Research Domains** | 4 theoretical foundations |
 
 **Partnering Universities:** Cal Poly Pomona (Lead), Columbia University, Texas State University, Virginia Tech, Washington State University, University of Illinois, Northeastern University, Mt. San Antonio College
@@ -85,32 +85,38 @@ With FRAMES, university programs can:
 
 ---
 
-## The Six-Layer Architecture
+## The Core Innovation: A Space Lab Predictive Model
+
+At the heart of FRAMES is a **custom predictive model trained on real student outcomes** from university space lab programs. This isn't a generic AI—it's a specialized system that learns what actually works in engineering education.
+
+### How It Works
 
 ```
-REAL WORLD LAYER
-   Actual engineering team activities
-              ↓
-DIGITAL OBSERVATION LAYER
-   Notion · GitHub · Manual Entry
-              ↓
-AGENT LAYER (LangChain + LangGraph)
-   Interpreter · Builder · Validator
-              ↓
-CANONICAL DATA + ML PIPELINE
-   Neon PostgreSQL · Custom Predictive Model
-              ↓
-┌──────────────┬──────────────┬──────────────┐
-│  Student     │  Team        │  Research    │
-│  LMS         │  Tools       │  Platform    │
-│  React PWA   │ Notion Space │ MLflow       │
-└──────────────┴──────────────┴──────────────┘
-              ↓
-GOVERNANCE LAYER
-   Audit Trails · FERPA Compliance
+REAL WORLD
+   Students complete modules, teams make decisions, projects succeed or fail
+                              ↓
+THREE AGENTS (Interpreter · Builder · Validator)
+   Structure observations into training data
+                              ↓
+SPACE LAB PREDICTIVE MODEL
+   Learns from outcomes: Who succeeded? What paths worked? Which content helped?
+                              ↓
+PREDICTIONS THAT MATTER
+   "This student needs Module 7 next"
+   "This learning path has 84% success rate for similar students"
+   "This module isn't working—here's why"
 ```
 
-**The ML Pivot:** FRAMES is developing a custom machine learning model trained specifically on student outcomes in engineering education. The three agents feed structured data into the canonical layer, which in turn trains and refines the predictive model. This domain-specific approach replaces dependency on external LLM APIs with a specialized system optimized for module recommendations, outcome predictions, and adaptive learning paths.
+### Why Build Our Own Model?
+
+| External LLM APIs | Space Lab Predictive Model |
+|-------------------|----------------------------|
+| Generic knowledge | Trained on *your* students, *your* outcomes |
+| Per-call costs | Runs locally, no API fees |
+| Black box reasoning | Explainable predictions tied to real data |
+| One-size-fits-all | Optimized for aerospace engineering education |
+
+The three agents don't make decisions—they feed the model. The model learns what works. The applications serve predictions back to students, team leads, and researchers.
 
 [Learn more about the architecture →]({{ site.baseurl }}/architecture)
 

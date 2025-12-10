@@ -6,7 +6,7 @@ permalink: /architecture/
 
 # System Architecture
 
-FRAMES employs a sophisticated six-layer architecture designed for scalability, security, and research utility. The system is undergoing a strategic ML pivot—transitioning from external LLM dependencies to a custom-trained model specialized for engineering education outcomes.
+FRAMES employs a six-layer architecture designed for scalability, security, and research utility. At its core is a **Space Lab Predictive Model**—a custom system trained on actual student outcomes from university aerospace programs, not a generic AI.
 
 ---
 
@@ -236,52 +236,68 @@ Features:
 
 ---
 
-## ML Pipeline Architecture
+## The Space Lab Predictive Model
 
-FRAMES is transitioning to a custom ML model specialized for engineering education outcomes. This reduces external API dependencies while improving prediction accuracy for our specific domain.
+This is the core innovation of FRAMES. Rather than relying on external LLM APIs that know nothing about aerospace engineering education, we're training a model on **real outcomes from real students in real space lab programs**.
 
-### Training Pipeline
+### What the Model Learns From
+
+| Data Source | What It Teaches the Model |
+|-------------|---------------------------|
+| **Module completions** | Which learning paths lead to success |
+| **Time-on-task patterns** | Where students struggle vs. breeze through |
+| **Assessment results** | What competencies actually stuck |
+| **Team outcomes** | Which missions succeeded and why |
+| **Cohort comparisons** | What distinguishes high-performing teams |
+
+### What the Model Predicts
 
 ```text
-┌─────────────────────────────────────────────────────────────────┐
-│                    FEATURE ENGINEERING                          │
-│     Student activity → Engineered features → Training data      │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                     MODEL TRAINING                              │
-│        Cross-validation · Hyperparameter tuning · MLflow        │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                    MODEL REGISTRY                               │
-│         Version control · A/B testing · Rollback capability     │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                    INFERENCE API                                │
-│       Module recommendations · Adaptive learning paths          │
-└─────────────────────────────────────────────────────────────────┘
+INPUT: Student's current progress, engagement patterns, background
+                              ↓
+         SPACE LAB PREDICTIVE MODEL
+                              ↓
+OUTPUT:
+  → "Start with Module 7—students like you succeed 84% more often"
+  → "You're likely to struggle with thermal analysis; here's extra prep"
+  → "Your learning path is taking longer than average—consider office hours"
+  → "This module isn't working for anyone—flagged for redesign"
 ```
 
-### Key ML Capabilities
+### Why Not Just Use ChatGPT?
 
-| Capability | Description |
-|------------|-------------|
-| **Module Generation** | Auto-generate learning modules from team activities |
-| **Outcome Prediction** | Predict student success based on engagement patterns |
-| **Adaptive Pathways** | Personalize learning sequences per student |
-| **Content Optimization** | Identify high-impact vs. low-engagement content |
+| External LLM | Space Lab Predictive Model |
+|--------------|----------------------------|
+| Trained on the internet | Trained on *your students' actual outcomes* |
+| Guesses what might work | Knows what *did* work |
+| Generic advice | "Students with your profile who took this path had 92% success" |
+| Can't explain why | Every prediction tied to real data points |
+| API costs per query | Runs locally, no ongoing fees |
+| Black box | Fully auditable for research |
 
-### The ML Pivot Vision
+### The Agents Feed the Model
 
-**Before:** Agents as builders, dependent on external LLM APIs
-**After:** Agents as ML model support, specialized model trained on actual student outcomes
+The three agents (Interpreter, Builder, Validator) don't make predictions—they structure observations into training data:
 
-This transition provides:
-
-- Lower latency for predictions
-- Reduced API costs
-- Domain-specific accuracy
-- Full control over model behavior
-- Research reproducibility
+```text
+REAL WORLD ACTIVITY
+   A student completes Module 5, struggles on Step 3, asks for hint
+                              ↓
+INTERPRETER AGENT
+   Extracts: completion_time, hint_requests, error_patterns
+                              ↓
+BUILDER AGENT
+   Structures into feature vector, links to student profile
+                              ↓
+VALIDATOR AGENT
+   Checks consistency, FERPA compliance, data quality
+                              ↓
+TRAINING DATA
+   Feeds the Space Lab Predictive Model
+                              ↓
+MODEL IMPROVES
+   Next prediction is more accurate because it learned from this outcome
+```
 
 ---
 
