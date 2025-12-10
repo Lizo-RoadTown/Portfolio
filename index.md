@@ -13,9 +13,17 @@ title: Home
 
 # What is FRAMES?
 
-**FRAMES** (Framework for Research & Analytics in Mission Engineering Systems) is a **multi-university research platform** designed to transform how university engineering teams—especially those in CubeSat and aerospace programs—learn, collaborate, and transfer knowledge.
+**FRAMES** (Framework for Research & Analytics in Mission Engineering Systems) is a **multi-university research platform** developing predictive models for **organizational mission success** in complex engineering environments.
 
-FRAMES captures how students and teams **actually think, collaborate, and solve problems** in university space labs, then transforms those practices into actionable resources.
+University space labs serve as the research environment—small enough to fully instrument, with clear mission outcomes and natural experiments in knowledge loss as students rotate. The insights apply far beyond education: any organization undertaking complex emergent technology missions faces the same structural risks.
+
+---
+
+## The Research Question
+
+> **Can we predict mission success or failure based on organizational structure?**
+
+FRAMES is building a predictive model grounded in Herbert Simon's work on near-decomposable systems. By mapping interfaces between people and subsystems, measuring bond strength, and tracking knowledge distribution, the model identifies structural vulnerabilities before they cause mission failure.
 
 ---
 
@@ -24,23 +32,23 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3776AB;">
-<h3>Onboarding Modules</h3>
-<p>Structured learning paths for new engineers built from real project experiences</p>
+<h3>Organizational Mapping</h3>
+<p>Instrument team structure: interfaces, bond strength, knowledge distribution</p>
 </div>
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #61DAFB;">
-<h3>Research Analytics</h3>
-<p>Data-driven insights into collaboration patterns and decision-making</p>
+<h3>Risk Prediction</h3>
+<p>Identify structural vulnerabilities before they cause mission failure</p>
 </div>
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4169E1;">
-<h3>Knowledge Transfer</h3>
-<p>Bridge cohort gaps and preserve institutional knowledge</p>
+<h3>Knowledge Continuity</h3>
+<p>Track where expertise lives and what breaks when people leave</p>
 </div>
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4CAF50;">
-<h3>Predictive Risk Analysis</h3>
-<p>Model predicts mission success based on organizational structure and knowledge vulnerability</p>
+<h3>Mission Success Modeling</h3>
+<p>Predictive model trained on real outcomes from complex engineering missions</p>
 </div>
 
 </div>
@@ -89,39 +97,49 @@ FRAMES exists to **give team leads their time back**:
 
 ---
 
-## The Core Innovation: A Space Lab Predictive Model
+## The Predictive Model: From Theory to Application
 
-At the heart of FRAMES is a **predictive model trained on organizational risk factors** derived from Herbert Simon's research on complex systems. This isn't a chatbot or a learning recommendation engine—it's a system that predicts **mission success based on where knowledge is vulnerable**.
+FRAMES is operationalizing Herbert Simon's research on complex organizations into a **predictive model for mission success**.
 
-### How It Works
+### The Molecular Model of Organizations
 
 ```
-REAL WORLD
-   Teams work, students rotate in/out, interfaces form and break
-                              ↓
-THREE AGENTS (Interpreter · Builder · Validator)
-   Map interfaces, measure bond strength, identify risk factors
-                              ↓
-SPACE LAB PREDICTIVE MODEL
-   Trained on Simon's molecular model of organizational structure
-                              ↓
-RISK PREDICTIONS
-   "Interface between power and comms is weak—single point of failure"
-   "Knowledge concentration risk: 80% of avionics expertise in one student"
-   "Graduation risk: 3 critical interfaces lost next semester"
+ORGANIZATIONAL STRUCTURE
+   Nodes = People holding localized knowledge
+   Bonds = Interfaces (communication, handoffs, dependencies)
+   Bond Strength = Frequency, reciprocity, error recovery
+   Subsystems = Functional clusters with strong internal bonds
 ```
 
-### What the Model Actually Predicts
+When someone leaves an organization, they don't just remove knowledge—they **break bonds**. The model predicts which bond breaks will cause structural failure.
 
-| Risk Factor | What It Tells You |
-|-------------|-------------------|
-| **Interface strength** | Which connections between subsystems are fragile |
-| **Knowledge concentration** | Where expertise is dangerously centralized |
-| **Graduation risk** | Which interfaces will break when students leave |
+### What the Model Predicts
+
+| Risk Factor | Prediction |
+|-------------|------------|
+| **Interface fragility** | Which connections between subsystems will fail under stress |
+| **Knowledge concentration** | Single points of failure where expertise is too centralized |
+| **Transition risk** | What breaks when key people leave |
 | **Subsystem isolation** | Which teams aren't communicating enough |
-| **Mission success probability** | Overall likelihood of project completion |
+| **Mission success probability** | Overall likelihood given current structure |
 
-The three agents don't make predictions—they map the organizational structure. The model learns which structural patterns lead to mission success or failure.
+### Why University Space Labs?
+
+They're the ideal research environment:
+
+- **Small enough to fully instrument** — Track every interface, every handoff
+- **Clear outcomes** — Missions succeed or fail; no ambiguity
+- **Natural experiments** — Student rotation creates controlled knowledge loss events
+- **High stakes** — Real satellites, real consequences
+
+### Broader Implications
+
+If the model works here, it applies to:
+
+- NASA and commercial space programs
+- Startup engineering teams
+- R&D laboratories
+- Any organization undertaking complex emergent technology missions
 
 [Learn more about the architecture →]({{ site.baseurl }}/architecture)
 

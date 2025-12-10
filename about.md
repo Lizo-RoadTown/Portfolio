@@ -6,22 +6,36 @@ permalink: /about/
 
 # About the FRAMES Project
 
-**FRAMES** (Framework for Research & Analytics in Mission Engineering Systems) is a comprehensive research-driven ecosystem that transforms real engineering work—especially in university CubeSat and aerospace programs—into structured learning, organizational insight, and research-grade data.
+**FRAMES** (Framework for Research & Analytics in Mission Engineering Systems) is a multi-university research platform developing **predictive models for organizational mission success** in complex engineering environments.
 
 ---
 
-## Our Mission
+## The Research Problem
 
-FRAMES exists to solve a fundamental challenge in university engineering education: **knowledge continuity**.
+Complex engineering missions fail not just because of technical problems—they fail because of **organizational structure problems**:
 
-Every semester, university engineering programs face the same problems:
+- Critical knowledge concentrated in too few people
+- Weak interfaces between subsystems
+- Expertise that walks out the door when people leave
+- Communication patterns that don't match dependency patterns
 
-- Graduating students take critical expertise with them
-- New students struggle with steep learning curves  
-- Teams repeatedly solve problems that predecessors already solved
-- Institutional memory fragments across cohort transitions
+FRAMES is building a predictive model, grounded in Herbert Simon's foundational work on complex systems, that can identify these structural vulnerabilities before they cause mission failure.
 
-**FRAMES addresses these challenges** by creating a persistent system that captures, organizes, and distributes knowledge across time and across teams.
+---
+
+## Why University Space Labs?
+
+University CubeSat programs are the ideal research environment:
+
+| Property | Research Value |
+|----------|----------------|
+| **Small teams** | Fully instrumentable—track every interface |
+| **Clear outcomes** | Missions succeed or fail; no ambiguity |
+| **Student rotation** | Natural experiments in knowledge loss |
+| **High stakes** | Real satellites with real consequences |
+| **Multi-institution** | Cross-validate across different contexts |
+
+The insights developed here apply far beyond education—to NASA, commercial space, R&D labs, and any organization undertaking complex emergent technology missions.
 
 ---
 

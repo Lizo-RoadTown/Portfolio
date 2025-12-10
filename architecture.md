@@ -6,7 +6,9 @@ permalink: /architecture/
 
 # System Architecture
 
-FRAMES employs a six-layer architecture designed for scalability, security, and research utility. At its core is a **Space Lab Predictive Model**—a custom system trained on actual student outcomes from university aerospace programs, not a generic AI.
+FRAMES is a research platform for developing **predictive models of organizational mission success**. The architecture is designed to instrument complex engineering teams, map their organizational structure, and identify risk factors that predict success or failure.
+
+University space labs serve as the research environment. The insights apply to any organization undertaking complex emergent technology missions.
 
 ---
 
