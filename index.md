@@ -40,7 +40,7 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4CAF50;">
 <h3>AI-Assisted Workflows</h3>
-<p>Controlled multi-agent system demonstrating human-AI collaboration</p>
+<p>Multi-agent system feeding a custom ML model for domain-specific predictions</p>
 </div>
 
 </div>
@@ -53,7 +53,8 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 |--------|-------|
 | **Partner Universities** | 8 institutions |
 | **Database Tables** | 37+ structured tables |
-| **AI Agents** | 3 controlled agents (Alpha, Beta, Gamma) |
+| **AI Agents** | 3 specialized agents (Interpreter, Builder, Validator) |
+| **Custom ML Model** | Domain-specific predictions for engineering education |
 | **Research Domains** | 4 theoretical foundations |
 
 **Partnering Universities:** Cal Poly Pomona (Lead), Columbia University, Texas State University, Virginia Tech, Washington State University, University of Illinois, Northeastern University, Mt. San Antonio College
@@ -84,24 +85,32 @@ With FRAMES, university programs can:
 
 ---
 
-## The Five-Layer Architecture
+## The Six-Layer Architecture
 
 ```
-REAL WORK LAYER
-   Team Leads document missions in Notion
+REAL WORLD LAYER
+   Actual engineering team activities
               ↓
-AI INTERPRETATION LAYER
-   Alpha · Beta · Gamma agents (safe, controlled)
+DIGITAL OBSERVATION LAYER
+   Notion · GitHub · Manual Entry
               ↓
-CANONICAL DATA LAYER
-   Neon PostgreSQL · 37+ Tables
+AGENT LAYER (LangChain + LangGraph)
+   Interpreter · Builder · Validator
+              ↓
+CANONICAL DATA + ML PIPELINE
+   Neon PostgreSQL · Custom Predictive Model
               ↓
 ┌──────────────┬──────────────┬──────────────┐
 │  Student     │  Team        │  Research    │
 │  LMS         │  Tools       │  Platform    │
-│  React PWA   │ Notion Space │ Jupyter+ML   │
+│  React PWA   │ Notion Space │ MLflow       │
 └──────────────┴──────────────┴──────────────┘
+              ↓
+GOVERNANCE LAYER
+   Audit Trails · FERPA Compliance
 ```
+
+**The ML Pivot:** FRAMES is developing a custom machine learning model trained specifically on student outcomes in engineering education. The three agents feed structured data into the canonical layer, which in turn trains and refines the predictive model. This domain-specific approach replaces dependency on external LLM APIs with a specialized system optimized for module recommendations, outcome predictions, and adaptive learning paths.
 
 [Learn more about the architecture →]({{ site.baseurl }}/architecture)
 
