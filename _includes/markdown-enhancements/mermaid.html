@@ -3,8 +3,15 @@
 <script>
   window.Lazyload.js('{{ _sources.mermaid }}', function() {
     mermaid.initialize({
-      startOnLoad: true
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose'
     });
-    mermaid.init(undefined, '.language-mermaid');
+    // Mermaid 10+ uses run() instead of init()
+    if (typeof mermaid.run === 'function') {
+      mermaid.run({ nodes: document.querySelectorAll('.language-mermaid') });
+    } else {
+      mermaid.init(undefined, '.language-mermaid');
+    }
   });
 </script>
