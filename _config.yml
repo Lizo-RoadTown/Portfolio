@@ -1,27 +1,32 @@
 # Site settings
-title: FRAMES - Framework for Research & Analytics in Mission Engineering Systems
+title: FRAMES
+subtitle: "Organizational Risk Prediction for Complex Engineering Missions"
 email: eosborn@cpp.edu
 description: >-
-  A multi-university research platform for space mission programs combining
-  educational research, systems theory, AI architecture, and engineering pedagogy.
-  Transforming how university engineering teams learn, collaborate, and transfer knowledge.
+  A multi-university research platform developing predictive models for mission success
+  in complex engineering organizations. Grounded in Herbert Simon's organizational theory.
 baseurl: "/Portfolio"
 url: "https://lizo-roadtown.github.io"
+repository: "Lizo-RoadTown/Portfolio"
 github_username: Lizo-RoadTown
 
 # Author info
 author:
   name: Elizabeth Osborn
+  bio: "Researcher in organizational systems and mission success prediction"
+  location: "Cal Poly Pomona"
   email: eosborn@cpp.edu
-  institution: Cal Poly Pomona
 
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-include-cache
 
 # Navigation
 header_pages:

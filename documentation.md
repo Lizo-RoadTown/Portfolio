@@ -1,10 +1,12 @@
 ---
-layout: page
-title: Documentation
+layout: single
+title: "Documentation & Resources"
 permalink: /documentation/
+author_profile: false
+toc: true
+toc_sticky: true
+classes: wide
 ---
-
-# Documentation & Resources
 
 This page provides links to technical documentation, developer resources, and research references for the FRAMES project.
 

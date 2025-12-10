@@ -1,6 +1,9 @@
 ---
-layout: home
-title: Home
+layout: single
+title: "FRAMES"
+permalink: /
+author_profile: false
+classes: wide
 ---
 
 <div style="text-align: center; margin-bottom: 2rem;">

@@ -1,10 +1,12 @@
 ---
-layout: page
-title: Applications
+layout: single
+title: "FRAMES Applications"
 permalink: /applications/
+author_profile: false
+toc: true
+toc_sticky: true
+classes: wide
 ---
-
-# FRAMES Applications
 
 FRAMES provides three distinct applications, each designed for a specific stakeholder group. Together, they form a comprehensive ecosystem for learning, coordination, and research.
 
