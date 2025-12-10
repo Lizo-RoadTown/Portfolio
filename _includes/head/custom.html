@@ -6,24 +6,26 @@
   document.addEventListener('DOMContentLoaded', function() {
     mermaid.initialize({
       startOnLoad: true,
-      theme: 'dark',
+      theme: 'base',
       securityLevel: 'loose',
-      flowchart: { useMaxWidth: true, htmlLabels: true },
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
       themeVariables: {
-        primaryColor: '#1a1a2e',
-        primaryTextColor: '#e0e0e0',
-        primaryBorderColor: '#4a4a6a',
-        lineColor: '#6a6a8a',
-        secondaryColor: '#16213e',
-        tertiaryColor: '#0f3460',
-        background: 'transparent',
-        mainBkg: '#1a1a2e',
-        secondBkg: '#16213e',
-        nodeBorder: '#4a4a6a',
-        clusterBkg: '#1a1a2e',
-        clusterBorder: '#4a4a6a',
-        titleColor: '#e0e0e0',
-        edgeLabelBackground: '#1a1a2e'
+        primaryColor: '#2a2a3e',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#fc6423',
+        lineColor: '#fc6423',
+        secondaryColor: '#1e1e2e',
+        tertiaryColor: '#252538',
+        background: '#1a1a2e',
+        mainBkg: '#2a2a3e',
+        secondBkg: '#1e1e2e',
+        nodeBorder: '#fc6423',
+        clusterBkg: '#1e1e2e',
+        clusterBorder: '#fc6423',
+        titleColor: '#ffffff',
+        edgeLabelBackground: '#2a2a3e',
+        textColor: '#ffffff',
+        nodeTextColor: '#ffffff'
       }
     });
     // Find all mermaid code blocks and render them
@@ -52,23 +54,35 @@
     max-width: 100%;
     background: transparent;
   }
-  /* Override mermaid default backgrounds */
+  /* Override mermaid colors - orange accents, white text */
   .mermaid .node rect,
   .mermaid .node polygon,
+  .mermaid .node circle {
+    fill: #2a2a3e !important;
+    stroke: #fc6423 !important;
+    stroke-width: 2px !important;
+  }
   .mermaid .cluster rect {
-    fill: #1a1a2e !important;
-    stroke: #4a4a6a !important;
+    fill: #1e1e2e !important;
+    stroke: #fc6423 !important;
+    stroke-width: 1px !important;
   }
   .mermaid .nodeLabel,
-  .mermaid .label {
-    color: #e0e0e0 !important;
-    fill: #e0e0e0 !important;
+  .mermaid .label,
+  .mermaid text {
+    fill: #ffffff !important;
+    color: #ffffff !important;
   }
   .mermaid .edgePath .path {
-    stroke: #6a6a8a !important;
+    stroke: #fc6423 !important;
+    stroke-width: 2px !important;
   }
   .mermaid .arrowheadPath {
-    fill: #6a6a8a !important;
+    fill: #fc6423 !important;
+  }
+  .mermaid .cluster-label text {
+    fill: #fc6423 !important;
+    font-weight: bold !important;
   }
 </style>
 
