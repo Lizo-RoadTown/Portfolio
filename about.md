@@ -29,13 +29,15 @@ University CubeSat programs are the ideal research environment:
 
 | Property | Research Value |
 |----------|----------------|
-| **Small teams** | Fully instrumentable—track every interface |
+| **NASA contracts** | Real deliverables, real deadlines, real consequences |
+| **Visible interfaces** | Small teams make every connection observable |
 | **Clear outcomes** | Missions succeed or fail; no ambiguity |
 | **Student rotation** | Natural experiments in knowledge loss |
-| **High stakes** | Real satellites with real consequences |
 | **Multi-institution** | Cross-validate across different contexts |
 
-The insights developed here apply far beyond education—to NASA, commercial space, R&D labs, and any organization undertaking complex emergent technology missions.
+These aren't classroom projects—they're NASA-contracted missions with actual deliverables. The teams are small enough to fully instrument, but the work is real enough that success and failure have consequences. This combination makes university space labs uniquely valuable for organizational research.
+
+The insights developed here apply directly to NASA centers, commercial space companies, R&D labs, and any organization undertaking complex emergent technology missions.
 
 ---
 

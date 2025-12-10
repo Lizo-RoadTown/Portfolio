@@ -125,18 +125,20 @@ When someone leaves an organization, they don't just remove knowledge—they **b
 
 ### Why University Space Labs?
 
-They're the ideal research environment:
+These aren't classroom projects—they're NASA-contracted missions with real deliverables:
 
-- **Small enough to fully instrument** — Track every interface, every handoff
+- **Real contracts** — Actual NASA deliverables with deadlines and consequences
+- **Visible interfaces** — Teams small enough to observe every connection
 - **Clear outcomes** — Missions succeed or fail; no ambiguity
 - **Natural experiments** — Student rotation creates controlled knowledge loss events
-- **High stakes** — Real satellites, real consequences
+
+The combination of real stakes and observable structure makes university space labs uniquely valuable for organizational research.
 
 ### Broader Implications
 
-If the model works here, it applies to:
+If the model works here, it applies directly to:
 
-- NASA and commercial space programs
+- NASA centers and commercial space programs
 - Startup engineering teams
 - R&D laboratories
 - Any organization undertaking complex emergent technology missions
