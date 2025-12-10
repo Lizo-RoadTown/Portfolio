@@ -6,13 +6,11 @@ author_profile: false
 classes: wide
 ---
 
-<div style="text-align: center; margin-bottom: 2rem;">
-  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/React-18+-61DAFB?logo=react&logoColor=black" alt="React">
-  <img src="https://img.shields.io/badge/Flask-3.0-000000?logo=flask&logoColor=white" alt="Flask">
-  <img src="https://img.shields.io/badge/PostgreSQL-15+-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Status-Active_Development-4CAF50" alt="Status">
-</div>
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)
+![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react&logoColor=black)
+![Flask](https://img.shields.io/badge/Flask-3.0-000000?logo=flask&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?logo=postgresql&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active_Development-4CAF50)
 
 # What is FRAMES?
 
@@ -32,29 +30,12 @@ FRAMES is building a predictive model grounded in Herbert Simon's work on near-d
 
 ## Key Capabilities
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-
-<div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3776AB;">
-<h3>Organizational Mapping</h3>
-<p>Instrument team structure: interfaces, bond strength, knowledge distribution</p>
-</div>
-
-<div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #61DAFB;">
-<h3>Risk Prediction</h3>
-<p>Identify structural vulnerabilities before they cause mission failure</p>
-</div>
-
-<div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4169E1;">
-<h3>Knowledge Continuity</h3>
-<p>Track where expertise lives and what breaks when people leave</p>
-</div>
-
-<div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4CAF50;">
-<h3>Mission Success Modeling</h3>
-<p>Predictive model trained on real outcomes from complex engineering missions</p>
-</div>
-
-</div>
+| Capability | Description |
+|------------|-------------|
+| **Organizational Mapping** | Instrument team structure: interfaces, bond strength, knowledge distribution |
+| **Risk Prediction** | Identify structural vulnerabilities before they cause mission failure |
+| **Knowledge Continuity** | Track where expertise lives and what breaks when people leave |
+| **Mission Success Modeling** | Predictive model trained on real outcomes from complex engineering missions |
 
 ---
 
@@ -170,6 +151,4 @@ FRAMES is built on established research:
 
 ---
 
-<div style="text-align: center; margin-top: 2rem; padding: 1rem; background: linear-gradient(135deg, #3776AB20 0%, #61DAFB20 100%); border-radius: 8px;">
-  <p><em>FRAMES: Transforming how university engineering teams learn, collaborate, and preserve knowledge.</em></p>
-</div>
+*FRAMES: Predicting mission success through organizational structure analysis.*
