@@ -98,14 +98,47 @@ As a Progressive Web App (PWA), students can:
 
 ## Team Lead Workspace
 
-**For:** Team leads and project managers  
+**For:** Team leads and project managers
 **Technology:** Notion with custom integrations
 
-### Overview
+### The Problem FRAMES Solves for Team Leads
 
-The Team Lead Workspace provides mission coordination tools built on Notion's flexible platform. It integrates with FRAMES while keeping familiar workflows.
+Team leads in university space labs face an impossible cycle: every semester, students rotate out and new ones arrive. Leads spend enormous time onboarding, explaining the same basics, recreating documentation—time that should go toward hands-on mentorship.
+
+**FRAMES changes this equation.** The more team leads document naturally, the smarter the system gets at handling the repetitive work.
 
 ### Key Features
+
+#### Auto-Generated Lab SOPs
+
+Team leads drop notes, meeting minutes, or quick voice memos. FRAMES agents extract procedures and generate formatted Standard Operating Procedures automatically:
+
+```text
+TEAM LEAD DROPS:
+   "Meeting notes: explained thermal vacuum testing to new team.
+    Steps: prep chamber, check seals, run 3-hour cycle, log results..."
+                              ↓
+FRAMES GENERATES:
+   Lab SOP: Thermal Vacuum Testing Procedure
+   1. Pre-Test Preparation
+      - Verify chamber seal integrity
+      - Confirm pressure gauge calibration
+   2. Test Execution
+      - Set chamber to target vacuum level
+      - Run 3-hour thermal cycle
+   3. Post-Test Documentation
+      - Log results in test database
+      - Flag anomalies for review
+```
+
+#### Automated Documentation
+
+No more manual documentation grind:
+
+- **Decision capture** — Meeting notes become structured records
+- **Process extraction** — Procedures emerge from natural documentation
+- **Knowledge preservation** — Expertise stays when students graduate
+- **Handoff generation** — Auto-create transition guides for new cohorts
 
 #### Mission Planning
 
@@ -114,54 +147,30 @@ The Team Lead Workspace provides mission coordination tools built on Notion's fl
 - **Resource allocation** — Team capacity and assignments
 - **Risk registers** — Tracked concerns with mitigation plans
 
+#### The Goal: Free Up Team Leads
+
+As the Space Lab Predictive Model learns from real outcomes:
+
+| What Gets Automated | What Team Leads Focus On |
+|---------------------|--------------------------|
+| Routine onboarding content | High-touch mentorship moments |
+| SOP documentation | Hands-on lab guidance |
+| Progress tracking | Connecting with struggling students |
+| Basic Q&A | Complex problem-solving discussions |
+| Administrative overhead | Building relationships |
+
+**The vision:** Team leads do what only humans can do—connect with students, guide projects, share expertise. FRAMES handles the rest.
+
 #### Cross-Team Visibility
 
-```
-┌─────────────────────────────────────────────────┐
-│  Mission Dashboard: BroncoSat-2                 │
-├─────────────────────────────────────────────────┤
-│                                                 │
-│  Phase: Design Review █████░░░░░ 52%           │
-│                                                 │
-│  Team Status:                                   │
-│  ├─ Avionics         ██████░░░░ On Track      │
-│  ├─ Power            ████████░░ Ahead         │
-│  ├─ Communications   ████░░░░░░ At Risk       │
-│  └─ Software         ██████░░░░ On Track      │
-│                                                 │
-│  Active Concerns: 2                             │
-│  Next Milestone: PDR (Dec 15)                  │
-│                                                 │
-└─────────────────────────────────────────────────┘
-```
-
-#### Documentation Flow
-
-When team leads document activities:
-
-1. Write naturally in Notion
-2. FRAMES agents process content
-3. Data flows to canonical database
-4. Insights surface in dashboards
-5. Learning content auto-updates
+Real-time dashboards show status across all teams without manual status updates.
 
 #### Integration Points
 
 - **GitHub** — Code repository sync
 - **Slack** — Notifications and updates
 - **Calendar** — Meeting and deadline sync
-- **JIRA** — For teams using traditional PM tools
-
-### Templates Available
-
-| Template | Purpose |
-|----------|---------|
-| **Mission Brief** | High-level project overview |
-| **Design Document** | Technical specifications |
-| **Test Plan** | Verification and validation |
-| **Risk Assessment** | Concern tracking |
-| **Meeting Notes** | Decisions and action items |
-| **Handoff Guide** | Knowledge transfer to next cohort |
+- **Notion** — Native workspace integration
 
 ---
 

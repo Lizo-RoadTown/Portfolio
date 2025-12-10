@@ -61,27 +61,31 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 
 ---
 
-## The Challenge
+## The Real Problem: Team Leads Are Overwhelmed
 
-University engineering programs face persistent challenges:
+In university space labs, **team leads carry an impossible burden**:
 
-- **Uneven Preparation** — Students arrive with vastly different skill levels
-- **Knowledge Loss** — Critical expertise disappears every semester with graduating students
-- **Steep Learning Curves** — New team members take too long to become productive
-- **Fragile Continuity** — Programs struggle to maintain momentum across cohorts
-- **Process Reinvention** — Teams constantly rediscover solutions their predecessors already found
+- **Constant rotation** — Students cycle in and out every semester; team leads start over constantly
+- **Onboarding consumes everything** — Hours spent teaching the same basics to each new cohort
+- **No time for mentorship** — Administrative burden crowds out hands-on guidance
+- **Knowledge walks out the door** — Graduating students take expertise with them
+- **Reinventing the wheel** — Each generation rediscovers what predecessors already solved
+
+Team leads want to connect with students, guide projects, and share hard-won expertise. Instead, they're buried in repetitive onboarding, documentation, and process management.
 
 ---
 
-## What FRAMES Enables
+## What FRAMES Does for Team Leads
 
-With FRAMES, university programs can:
+FRAMES exists to **give team leads their time back**:
 
-- **Retain Knowledge** — Capture and preserve expertise across student generations
-- **Coordinate Effectively** — Connect distributed teams with shared understanding
-- **Accelerate Onboarding** — Get new members productive faster
-- **Identify Vulnerabilities** — Understand where systems and knowledge are fragile
-- **Generate Research Data** — Produce datasets for studying team dynamics and learning
+- **Automated onboarding** — The model handles routine training; team leads handle the human stuff
+- **Auto-generated SOPs** — Drop your notes, get lab procedures; no manual documentation grind
+- **Smart module recommendations** — Students get the right content at the right time, automatically
+- **Knowledge preservation** — Expertise stays in the system when students graduate
+- **Workflow automation** — Less administrative overhead, more mentorship time
+
+**The goal:** As the model learns from real outcomes, it gets better at taking documentation burden off team leads—so they can focus on what only humans can do: connect with students and provide hands-on guidance.
 
 ---
 
