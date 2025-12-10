@@ -1,9 +1,7 @@
 ---
-layout: single
-title: "FRAMES"
-permalink: /
-author_profile: false
-classes: wide
+layout: article
+title: FRAMES
+key: page-home
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)

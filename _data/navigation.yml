@@ -1,11 +1,11 @@
-main:
-  - title: "Home"
+header:
+  - title: Home
     url: /
-  - title: "About"
+  - title: About
     url: /about/
-  - title: "Architecture"
+  - title: Architecture
     url: /architecture/
-  - title: "Applications"
+  - title: Applications
     url: /applications/
-  - title: "Documentation"
+  - title: Documentation
     url: /documentation/

@@ -1,11 +1,8 @@
 ---
-layout: single
-title: "System Architecture"
+layout: article
+title: System Architecture
+key: page-architecture
 permalink: /architecture/
-author_profile: false
-toc: true
-toc_sticky: true
-classes: wide
 ---
 
 FRAMES is a research platform for developing **predictive models of organizational mission success**. The architecture is designed to instrument complex engineering teams, map their organizational structure, and identify risk factors that predict success or failure.

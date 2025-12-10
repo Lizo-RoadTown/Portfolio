@@ -1,11 +1,8 @@
 ---
-layout: single
-title: "About FRAMES"
+layout: article
+title: About FRAMES
+key: page-about
 permalink: /about/
-author_profile: false
-toc: true
-toc_sticky: true
-classes: wide
 ---
 
 **FRAMES** (Framework for Research & Analytics in Mission Engineering Systems) is a multi-university research platform developing **predictive models for organizational mission success** in complex engineering environments.
