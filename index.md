@@ -28,6 +28,21 @@ FRAMES is building a predictive model grounded in Herbert Simon's work on near-d
 
 ## Key Capabilities
 
+```mermaid
+graph LR
+    subgraph FRAMES["FRAMES PLATFORM"]
+        A["Organizational<br/>Mapping"]
+        B["Risk<br/>Prediction"]
+        C["Knowledge<br/>Continuity"]
+        D["Mission Success<br/>Modeling"]
+    end
+    
+    A --> B
+    B --> C
+    C --> D
+    D --> A
+```
+
 | Capability | Description |
 |------------|-------------|
 | **Organizational Mapping** | Instrument team structure: interfaces, bond strength, knowledge distribution |
@@ -86,16 +101,60 @@ FRAMES is operationalizing Herbert Simon's research on complex organizations int
 ### The Molecular Model of Organizations
 
 ```mermaid
-graph LR
-    subgraph ORG["🏢 Organizational Structure"]
-        A((Person A)) -->|strong| B((Person B))
-        B -->|weak| C((Person C))
-        A -->|medium| C
-        B -->|strong| D((Person D))
+graph TB
+    subgraph POWER["⚡ POWER SUBSYSTEM"]
+        P1((Engineer A<br/>Lead))
+        P2((Engineer B))
+        P3((Engineer C))
+        P1 -->|strong| P2
+        P1 -->|strong| P3
+        P2 -->|moderate| P3
     end
+    
+    subgraph COMMS["📡 COMMUNICATIONS"]
+        C1((Engineer D<br/>Lead))
+        C2((Engineer E))
+        C3((Engineer F))
+        C1 -->|strong| C2
+        C2 -->|strong| C3
+        C1 -.->|weak| C3
+    end
+    
+    subgraph SOFTWARE["💻 SOFTWARE"]
+        S1((Engineer G<br/>Lead))
+        S2((Engineer H))
+        S3((Engineer I))
+        S1 -->|strong| S2
+        S1 -->|strong| S3
+        S2 -->|moderate| S3
+    end
+    
+    subgraph INTEGRATION["🔧 INTEGRATION"]
+        I1((Systems Lead))
+    end
+    
+    P1 -.->|interface| I1
+    C1 -.->|interface| I1
+    S1 -.->|interface| I1
+    
+    P2 -.->|weak interface| C2
+    C3 -.->|weak interface| S2
+    P3 -.->|CRITICAL GAP| S3
+    
+    style P1 fill:#2a5a2a,stroke:#fc6423,stroke-width:3px
+    style C1 fill:#2a5a2a,stroke:#fc6423,stroke-width:3px
+    style S1 fill:#2a5a2a,stroke:#fc6423,stroke-width:3px
+    style I1 fill:#4a4a2a,stroke:#fc6423,stroke-width:4px
+    style S3 fill:#5a2a2a,stroke:#ff0000,stroke-width:3px
+    style P3 fill:#5a2a2a,stroke:#ff0000,stroke-width:3px
 ```
 
-**Key Concepts:**
+**The visualization shows:**
+
+- **Strong internal bonds** (solid lines) within subsystems
+- **Weak interfaces** (dashed lines) between subsystems  
+- **Critical gaps** where knowledge transfer is at risk
+- **At-risk nodes** (red) where departure would break critical bonds
 - **Nodes** = People holding localized knowledge
 - **Bonds** = Interfaces (communication, handoffs, dependencies)  
 - **Bond Strength** = Frequency, reciprocity, error recovery
