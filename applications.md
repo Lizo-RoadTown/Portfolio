@@ -30,25 +30,15 @@ The Student LMS is the primary interface for learners joining university enginee
 
 Each learning module follows a consistent pedagogical approach:
 
-```
-Module: [Topic Name]
-├── Learning Objectives
-├── Core Content
-│   ├── Concepts & Theory
-│   ├── Real-World Context (from actual projects)
-│   └── Worked Examples
-├── Hint System
-│   ├── Progressive hints
-│   ├── Scaffolded support
-│   └── "Ask for help" integration
-├── Knowledge Checks
-│   ├── Self-assessment questions
-│   ├── Practical exercises
-│   └── Scenario-based challenges
-└── Module Completion
-    ├── Competency badge
-    └── Recommended next modules
-```
+**Learning Objectives** → **Core Content** → **Hint System** → **Knowledge Checks** → **Completion**
+
+| Component | Description |
+|-----------|-------------|
+| **Learning Objectives** | Clear goals for what students will master |
+| **Core Content** | Concepts, real-world context from actual projects, worked examples |
+| **Hint System** | Progressive hints, scaffolded support, "ask for help" integration |
+| **Knowledge Checks** | Self-assessment, practical exercises, scenario challenges |
+| **Module Completion** | Competency badge, recommended next modules |
 
 #### Research-Backed Pedagogy
 
@@ -70,28 +60,15 @@ As a Progressive Web App (PWA), students can:
 
 ### User Experience
 
-```
-┌────────────────────────────────────────────────┐
-│  Dashboard                                     │
-│  ┌──────────────────────────────────────────┐  │
-│  │ Your Progress: ████████░░░░ 67%          │  │
-│  │                                          │  │
-│  │ Current Module: Avionics Fundamentals    │  │
-│  │ Time to Complete: ~2 hours               │  │
-│  │                                          │  │
-│  │ [Continue Learning →]                    │  │
-│  └──────────────────────────────────────────┘  │
-│                                                │
-│  Your Achievements                             │
-│  • Systems Basics      Complete               │
-│  • Safety Protocols    Complete               │
-│  • Team Workflows      In Progress            │
-│                                                │
-│  Upcoming                                      │
-│  • Lab session: Thursday 2pm                  │
-│  • Design review: Friday 10am                 │
-└────────────────────────────────────────────────┘
-```
+The student dashboard provides:
+
+| Feature | Description |
+|---------|-------------|
+| **Progress Tracker** | Visual progress bar showing completion percentage |
+| **Current Module** | Active learning module with time estimate |
+| **Achievements** | Completed modules and competency badges |
+| **Schedule** | Upcoming lab sessions and reviews |
+| **Continue Learning** | One-click return to where you left off |
 
 ---
 
@@ -112,22 +89,22 @@ Team leads in university space labs face an impossible cycle: every semester, st
 
 Team leads drop notes, meeting minutes, or quick voice memos. FRAMES agents extract procedures and generate formatted Standard Operating Procedures automatically:
 
-```text
-TEAM LEAD DROPS:
-   "Meeting notes: explained thermal vacuum testing to new team.
-    Steps: prep chamber, check seals, run 3-hour cycle, log results..."
-                              ↓
-FRAMES GENERATES:
-   Lab SOP: Thermal Vacuum Testing Procedure
-   1. Pre-Test Preparation
-      - Verify chamber seal integrity
-      - Confirm pressure gauge calibration
-   2. Test Execution
-      - Set chamber to target vacuum level
-      - Run 3-hour thermal cycle
-   3. Post-Test Documentation
-      - Log results in test database
-      - Flag anomalies for review
+```mermaid
+flowchart LR
+    subgraph INPUT["📝 Team Lead Input"]
+        A["Meeting notes about thermal vacuum testing..."]
+    end
+    
+    subgraph FRAMES["⚙️ FRAMES Processing"]
+        B[Extract procedures]
+        C[Format SOP]
+    end
+    
+    subgraph OUTPUT["📄 Generated SOP"]
+        D["Thermal Vacuum Testing Procedure"]
+    end
+    
+    INPUT --> FRAMES --> OUTPUT
 ```
 
 #### Automated Documentation
@@ -309,24 +286,25 @@ module_performance = frames.query("""
 
 The three applications work together through the shared canonical data layer:
 
-```text
-┌───────────────┐     ┌───────────────┐     ┌───────────────┐
-│   Student     │     │   Team Lead   │     │   Researcher  │
-│     LMS       │     │   Workspace   │     │   Platform    │
-└───────┬───────┘     └───────┬───────┘     └───────┬───────┘
-        │                     │                     │
-        │    ┌────────────────┴────────────────┐    │
-        │    │                                 │    │
-        └────┤      FRAMES API Layer           ├────┘
-             │   (Authentication, RBAC)        │
-             └────────────────┬────────────────┘
-                              │
-          ┌──────────────────┴───────────────────┐
-          │                                      │
-          │   Canonical Database + ML Pipeline   │
-          │   (Neon PostgreSQL + MLflow)         │
-          │                                      │
-          └──────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph APPS["📱 Applications"]
+        S[Student LMS]
+        T[Team Lead Workspace]
+        R[Researcher Platform]
+    end
+    
+    API["🔐 FRAMES API Layer<br/>Authentication, RBAC"]
+    
+    subgraph DATA["💾 Data Layer"]
+        DB[(Canonical Database)]
+        ML[ML Pipeline + MLflow]
+    end
+    
+    S --> API
+    T --> API
+    R --> API
+    API --> DATA
 ```
 
 ### Data Flow Examples

@@ -13,31 +13,36 @@ University space labs serve as the research environment. The insights apply to a
 
 ## The Six-Layer Model
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      REAL WORLD LAYER                           │
-│            Actual engineering team activities                   │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                 DIGITAL OBSERVATION LAYER                       │
-│         Notion workspaces · GitHub · Manual entry               │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                INTERPRETATION / AGENT LAYER                     │
-│    LangChain orchestration · LangGraph workflows · MCP servers  │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                    CANONICAL DATA LAYER                         │
-│                Neon PostgreSQL · 37+ Tables                     │
-│                            ↓                                    │
-├──────────────────┬──────────────────┬──────────────────────────┤
-│    Student       │    Team          │    Research              │
-│    LMS           │    Tools         │    Platform              │
-│    React PWA     │    Notion Space  │    MLflow + Analytics    │
-├──────────────────┴──────────────────┴──────────────────────────┤
-│                   GOVERNANCE / LOGGING LAYER                    │
-│         Audit trails · FERPA compliance · Risk management       │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph RW["🌐 REAL WORLD LAYER"]
+        A[Actual engineering team activities]
+    end
+    
+    subgraph DO["📡 DIGITAL OBSERVATION LAYER"]
+        B[Notion workspaces · GitHub · Manual entry]
+    end
+    
+    subgraph INT["🤖 INTERPRETATION / AGENT LAYER"]
+        C[LangChain · LangGraph · MCP servers]
+    end
+    
+    subgraph CAN["💾 CANONICAL DATA LAYER"]
+        D[Neon PostgreSQL · 37+ Tables]
+    end
+    
+    subgraph APP["📱 APPLICATION LAYER"]
+        E[Student LMS]
+        F[Team Tools]
+        G[Research Platform]
+    end
+    
+    subgraph GOV["🔒 GOVERNANCE LAYER"]
+        H[Audit trails · FERPA · Risk management]
+    end
+    
+    RW --> DO --> INT --> CAN --> APP
+    APP --> GOV
 ```
 
 ---
@@ -180,13 +185,29 @@ FRAMES uses **Neon PostgreSQL** with 37+ tables organized into logical domains:
 
 ### Data Flow Principles
 
-```text
-Input Sources          Processing           Output Consumers
-─────────────          ──────────           ────────────────
-Notion Docs     ──┐                   ┌──→  Student LMS
-GitHub Events   ──┼──→  Validation   ──┼──→  Team Dashboards
-Manual Entry    ──┼──→  Enrichment   ──┼──→  Research Exports
-Agent Output    ──┘     ML Features  └──→  Analytics + MLflow
+```mermaid
+flowchart LR
+    subgraph Input["📥 Input Sources"]
+        N[Notion Docs]
+        G[GitHub Events]
+        M[Manual Entry]
+        A[Agent Output]
+    end
+    
+    subgraph Process["⚙️ Processing"]
+        V[Validation]
+        E[Enrichment]
+        F[ML Features]
+    end
+    
+    subgraph Output["📤 Output Consumers"]
+        S[Student LMS]
+        T[Team Dashboards]
+        R[Research Exports]
+        ML[Analytics + MLflow]
+    end
+    
+    Input --> Process --> Output
 ```
 
 ---
@@ -264,17 +285,20 @@ When a student graduates, they don't just remove a node—they **break bonds**. 
 
 ### What the Model Predicts
 
-```text
-INPUT: Current team structure, interface map, upcoming graduations
-                              ↓
-         SPACE LAB PREDICTIVE MODEL
-                              ↓
-OUTPUT:
-  → "Knowledge concentration risk: 80% of thermal expertise in one student"
-  → "Interface weakness: Power-Comms handoffs failing 40% of the time"
-  → "Graduation risk: 3 critical interfaces break next semester"
-  → "Subsystem isolation: Software team has weak external bonds"
-  → "Mission success probability: 67% given current structure"
+```mermaid
+flowchart TB
+    INPUT["📥 INPUT<br/>Current team structure, interface map, upcoming graduations"]
+    
+    MODEL["🧠 SPACE LAB PREDICTIVE MODEL"]
+    
+    subgraph OUTPUT["📤 OUTPUT"]
+        O1["Knowledge concentration risk: 80% of thermal expertise in one student"]
+        O2["Interface weakness: Power-Comms handoffs failing 40%"]
+        O3["Graduation risk: 3 critical interfaces break next semester"]
+        O4["Mission success probability: 67%"]
+    end
+    
+    INPUT --> MODEL --> OUTPUT
 ```
 
 ### Why This Matters for Team Leads
@@ -289,24 +313,21 @@ OUTPUT:
 
 The three agents (Interpreter, Builder, Validator) don't make predictions—they map the organizational topology:
 
-```text
-REAL WORLD ACTIVITY
-   Team members communicate, hand off work, make decisions
-                              ↓
-INTERPRETER AGENT
-   Identifies: who talks to whom, what flows across interfaces
-                              ↓
-BUILDER AGENT
-   Constructs: interface map, bond strength measurements, knowledge distribution
-                              ↓
-VALIDATOR AGENT
-   Checks: consistency, completeness, flags structural anomalies
-                              ↓
-ORGANIZATIONAL MODEL
-   Feeds the Space Lab Predictive Model
-                              ↓
-RISK PREDICTIONS
-   "This structure has 73% mission success probability; here's what's weak"
+```mermaid
+flowchart TB
+    RW["🌐 REAL WORLD ACTIVITY<br/>Team members communicate, hand off work, make decisions"]
+    
+    INT["🔍 INTERPRETER AGENT<br/>Identifies: who talks to whom, what flows across interfaces"]
+    
+    BUILD["🏗️ BUILDER AGENT<br/>Constructs: interface map, bond strength, knowledge distribution"]
+    
+    VAL["✅ VALIDATOR AGENT<br/>Checks: consistency, completeness, flags anomalies"]
+    
+    ORG["📊 ORGANIZATIONAL MODEL<br/>Feeds the Space Lab Predictive Model"]
+    
+    RISK["⚠️ RISK PREDICTIONS<br/>73% mission success probability; here's what's weak"]
+    
+    RW --> INT --> BUILD --> VAL --> ORG --> RISK
 ```
 
 ---
@@ -381,14 +402,13 @@ Agent operations are classified by risk level:
 
 ### Logging Architecture
 
-```text
-All Operations → Governance Layer → Audit Database
-                      ↓
-              Risk Assessment
-                      ↓
-         ┌──────────┴──────────┐
-    Auto-approve          Queue for
-    (low risk)          human review
+```mermaid
+flowchart TB
+    OP[All Operations] --> GOV[Governance Layer]
+    GOV --> AUDIT[(Audit Database)]
+    GOV --> RISK{Risk Assessment}
+    RISK -->|Low Risk| AUTO[Auto-approve]
+    RISK -->|Medium/High| QUEUE[Queue for human review]
 ```
 
 ---

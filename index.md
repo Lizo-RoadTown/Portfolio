@@ -85,13 +85,21 @@ FRAMES is operationalizing Herbert Simon's research on complex organizations int
 
 ### The Molecular Model of Organizations
 
+```mermaid
+graph LR
+    subgraph ORG["🏢 Organizational Structure"]
+        A((Person A)) -->|strong| B((Person B))
+        B -->|weak| C((Person C))
+        A -->|medium| C
+        B -->|strong| D((Person D))
+    end
 ```
-ORGANIZATIONAL STRUCTURE
-   Nodes = People holding localized knowledge
-   Bonds = Interfaces (communication, handoffs, dependencies)
-   Bond Strength = Frequency, reciprocity, error recovery
-   Subsystems = Functional clusters with strong internal bonds
-```
+
+**Key Concepts:**
+- **Nodes** = People holding localized knowledge
+- **Bonds** = Interfaces (communication, handoffs, dependencies)  
+- **Bond Strength** = Frequency, reciprocity, error recovery
+- **Subsystems** = Functional clusters with strong internal bonds
 
 When someone leaves an organization, they don't just remove knowledge—they **break bonds**. The model predicts which bond breaks will cause structural failure.
 
