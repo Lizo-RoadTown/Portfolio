@@ -186,28 +186,37 @@ FRAMES uses **Neon PostgreSQL** with 37+ tables organized into logical domains:
 ### Data Flow Principles
 
 ```mermaid
-flowchart LR
-    subgraph Input["📥 Input Sources"]
-        N[Notion Docs]
-        G[GitHub Events]
-        M[Manual Entry]
-        A[Agent Output]
+flowchart TB
+    subgraph Input["INPUT SOURCES"]
+        N["Notion Docs"]
+        G["GitHub Events"]
+        M["Manual Entry"]
+        A["Agent Output"]
     end
     
-    subgraph Process["⚙️ Processing"]
-        V[Validation]
-        E[Enrichment]
-        F[ML Features]
+    subgraph Process["PROCESSING PIPELINE"]
+        V["Validation Layer"]
+        E["Data Enrichment"]
+        F["ML Feature Extraction"]
     end
     
-    subgraph Output["📤 Output Consumers"]
-        S[Student LMS]
-        T[Team Dashboards]
-        R[Research Exports]
-        ML[Analytics + MLflow]
+    subgraph Output["OUTPUT CONSUMERS"]
+        S["Student LMS"]
+        T["Team Dashboards"]
+        R["Research Exports"]
+        ML["Analytics + MLflow"]
     end
     
-    Input --> Process --> Output
+    N --> V
+    G --> V
+    M --> V
+    A --> V
+    V --> E
+    E --> F
+    F --> S
+    F --> T
+    F --> R
+    F --> ML
 ```
 
 ---
