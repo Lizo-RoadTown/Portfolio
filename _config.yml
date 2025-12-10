@@ -1,0 +1,58 @@
+# Site settings
+title: FRAMES - Framework for Research & Analytics in Mission Engineering Systems
+email: eosborn@cpp.edu
+description: >-
+  A multi-university research platform for space mission programs combining
+  educational research, systems theory, AI architecture, and engineering pedagogy.
+  Transforming how university engineering teams learn, collaborate, and transfer knowledge.
+baseurl: "/Portfolio"
+url: "https://lizo-roadtown.github.io"
+github_username: Lizo-RoadTown
+
+# Author info
+author:
+  name: Elizabeth Osborn
+  email: eosborn@cpp.edu
+  institution: Cal Poly Pomona
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Navigation
+header_pages:
+  - about.md
+  - architecture.md
+  - applications.md
+  - documentation.md
+
+# Exclude files from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - PORTFOLIO_SETUP_HANDOFF.md
+  - "*.ps1"
+  - "*.bat"
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Minima theme settings
+minima:
+  skin: classic
+  social_links:
+    - { platform: github, user_url: "https://github.com/Lizo-RoadTown/Portfolio" }
