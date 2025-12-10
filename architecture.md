@@ -238,65 +238,74 @@ Features:
 
 ## The Space Lab Predictive Model
 
-This is the core innovation of FRAMES. Rather than relying on external LLM APIs that know nothing about aerospace engineering education, we're training a model on **real outcomes from real students in real space lab programs**.
+This is the core innovation of FRAMES. Rather than generic AI, we're building a model grounded in **Herbert Simon's molecular model of organizational structure**—predicting mission success based on where knowledge is vulnerable and which interfaces are at risk.
+
+### The Molecular Model (Simon's Theory in Practice)
+
+Teams are modeled as molecular structures:
+
+- **Nodes** — Individual team members holding localized knowledge
+- **Bonds** — Interfaces between people (communication, handoffs, dependencies)
+- **Bond strength** — Measured by frequency, reciprocity, error recovery
+- **Subsystems** — Functional clusters (power, comms, software) with strong internal bonds
+
+When a student graduates, they don't just remove a node—they **break bonds**. The model predicts which bond breaks will cause structural failure.
 
 ### What the Model Learns From
 
 | Data Source | What It Teaches the Model |
 |-------------|---------------------------|
-| **Module completions** | Which learning paths lead to success |
-| **Time-on-task patterns** | Where students struggle vs. breeze through |
-| **Assessment results** | What competencies actually stuck |
-| **Team outcomes** | Which missions succeeded and why |
-| **Cohort comparisons** | What distinguishes high-performing teams |
+| **Interface patterns** | Which connections are strong vs. fragile |
+| **Knowledge distribution** | Where expertise is concentrated or distributed |
+| **Handoff success rates** | Which subsystem boundaries are working |
+| **Historical mission outcomes** | What organizational structures led to success/failure |
+| **Cohort transitions** | What happens when students rotate out |
 
 ### What the Model Predicts
 
 ```text
-INPUT: Student's current progress, engagement patterns, background
+INPUT: Current team structure, interface map, upcoming graduations
                               ↓
          SPACE LAB PREDICTIVE MODEL
                               ↓
 OUTPUT:
-  → "Start with Module 7—students like you succeed 84% more often"
-  → "You're likely to struggle with thermal analysis; here's extra prep"
-  → "Your learning path is taking longer than average—consider office hours"
-  → "This module isn't working for anyone—flagged for redesign"
+  → "Knowledge concentration risk: 80% of thermal expertise in one student"
+  → "Interface weakness: Power-Comms handoffs failing 40% of the time"
+  → "Graduation risk: 3 critical interfaces break next semester"
+  → "Subsystem isolation: Software team has weak external bonds"
+  → "Mission success probability: 67% given current structure"
 ```
 
-### Why Not Just Use ChatGPT?
+### Why This Matters for Team Leads
 
-| External LLM | Space Lab Predictive Model |
-|--------------|----------------------------|
-| Trained on the internet | Trained on *your students' actual outcomes* |
-| Guesses what might work | Knows what *did* work |
-| Generic advice | "Students with your profile who took this path had 92% success" |
-| Can't explain why | Every prediction tied to real data points |
-| API costs per query | Runs locally, no ongoing fees |
-| Black box | Fully auditable for research |
+| Without FRAMES | With FRAMES |
+|----------------|-------------|
+| "We lost Sarah and now nobody knows thermal" | "Sarah's graduation will break 2 critical interfaces—document now" |
+| "The project stalled and we don't know why" | "Power-Comms interface strength dropped 60% last month" |
+| "New students take forever to ramp up" | "Onboarding priority: rebuild interfaces to avionics subsystem" |
 
-### The Agents Feed the Model
+### The Agents Map the Structure
 
-The three agents (Interpreter, Builder, Validator) don't make predictions—they structure observations into training data:
+The three agents (Interpreter, Builder, Validator) don't make predictions—they map the organizational topology:
 
 ```text
 REAL WORLD ACTIVITY
-   A student completes Module 5, struggles on Step 3, asks for hint
+   Team members communicate, hand off work, make decisions
                               ↓
 INTERPRETER AGENT
-   Extracts: completion_time, hint_requests, error_patterns
+   Identifies: who talks to whom, what flows across interfaces
                               ↓
 BUILDER AGENT
-   Structures into feature vector, links to student profile
+   Constructs: interface map, bond strength measurements, knowledge distribution
                               ↓
 VALIDATOR AGENT
-   Checks consistency, FERPA compliance, data quality
+   Checks: consistency, completeness, flags structural anomalies
                               ↓
-TRAINING DATA
+ORGANIZATIONAL MODEL
    Feeds the Space Lab Predictive Model
                               ↓
-MODEL IMPROVES
-   Next prediction is more accurate because it learned from this outcome
+RISK PREDICTIONS
+   "This structure has 73% mission success probability; here's what's weak"
 ```
 
 ---

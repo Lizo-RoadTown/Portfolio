@@ -116,35 +116,35 @@ FRAMES serves multiple communities:
 
 ---
 
-## AI Philosophy: Agents Feed the Model, Humans Stay in Control
+## AI Philosophy: Agents Map Structure, Model Predicts Risk
 
-FRAMES uses three specialized agents (Interpreter, Builder, Validator), but they don't make decisions—they structure observations into training data for the Space Lab Predictive Model.
+FRAMES uses three specialized agents (Interpreter, Builder, Validator), but they don't make predictions—they map the organizational structure so the model can assess risk.
 
 ### What Agents Do
 
-- **Interpreter** — Reads digital traces, identifies decisions and dependencies
-- **Builder** — Structures observations into module candidates and feature vectors
-- **Validator** — Checks consistency, flags issues, ensures FERPA compliance
+- **Interpreter** — Reads digital traces, identifies interfaces and communication patterns
+- **Builder** — Constructs the organizational topology: who connects to whom, bond strengths
+- **Validator** — Checks consistency, flags structural anomalies, ensures data quality
 
-### What the Model Does
+### What the Model Predicts
 
-The Space Lab Predictive Model learns from real student outcomes:
+The Space Lab Predictive Model is trained on Simon's molecular model of organizations:
 
-- Which learning paths led to success
-- Where students struggled
-- What content actually helped
-- Which interfaces are weak or strong
+- **Interface strength** — Which connections between people/subsystems are fragile
+- **Knowledge concentration** — Where expertise is dangerously centralized in one person
+- **Graduation risk** — Which bonds will break when students leave
+- **Mission success probability** — Overall likelihood based on current structure
 
 ### Human-First Principles
 
 Agents and model operate under strict constraints:
 
-- **Risk-based autonomy** — Low-risk actions proceed; high-risk actions require human approval
+- **Risk-based autonomy** — Low-risk observations proceed; high-risk flags require human review
 - **No invention** — Modules are *extracted* from real work, never fabricated
 - **Surfaces are sacred** — Agents observe Notion; they don't restructure it
 - **Full audit trail** — Every agent action logged for research and accountability
 
-The goal: automate the repetitive burden so team leads can focus on what only humans can do—connect with students, guide projects, share hard-won expertise.
+The goal: give team leads visibility into organizational risk so they can act before knowledge walks out the door.
 
 ---
 

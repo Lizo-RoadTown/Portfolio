@@ -39,8 +39,8 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 </div>
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4CAF50;">
-<h3>Predictive Intelligence</h3>
-<p>Custom model trained on real student outcomes—knows what works in space lab education</p>
+<h3>Predictive Risk Analysis</h3>
+<p>Model predicts mission success based on organizational structure and knowledge vulnerability</p>
 </div>
 
 </div>
@@ -53,8 +53,8 @@ FRAMES captures how students and teams **actually think, collaborate, and solve 
 |--------|-------|
 | **Partner Universities** | 8 institutions |
 | **Database Tables** | 37+ structured tables |
-| **AI Agents** | 3 specialized agents feeding structured observations |
-| **Predictive Model** | Trained on actual student outcomes in space lab programs |
+| **AI Agents** | 3 specialized agents mapping organizational structure |
+| **Predictive Model** | Mission risk prediction based on Simon's molecular model |
 | **Research Domains** | 4 theoretical foundations |
 
 **Partnering Universities:** Cal Poly Pomona (Lead), Columbia University, Texas State University, Virginia Tech, Washington State University, University of Illinois, Northeastern University, Mt. San Antonio College
@@ -91,36 +91,37 @@ FRAMES exists to **give team leads their time back**:
 
 ## The Core Innovation: A Space Lab Predictive Model
 
-At the heart of FRAMES is a **custom predictive model trained on real student outcomes** from university space lab programs. This isn't a generic AI—it's a specialized system that learns what actually works in engineering education.
+At the heart of FRAMES is a **predictive model trained on organizational risk factors** derived from Herbert Simon's research on complex systems. This isn't a chatbot or a learning recommendation engine—it's a system that predicts **mission success based on where knowledge is vulnerable**.
 
 ### How It Works
 
 ```
 REAL WORLD
-   Students complete modules, teams make decisions, projects succeed or fail
+   Teams work, students rotate in/out, interfaces form and break
                               ↓
 THREE AGENTS (Interpreter · Builder · Validator)
-   Structure observations into training data
+   Map interfaces, measure bond strength, identify risk factors
                               ↓
 SPACE LAB PREDICTIVE MODEL
-   Learns from outcomes: Who succeeded? What paths worked? Which content helped?
+   Trained on Simon's molecular model of organizational structure
                               ↓
-PREDICTIONS THAT MATTER
-   "This student needs Module 7 next"
-   "This learning path has 84% success rate for similar students"
-   "This module isn't working—here's why"
+RISK PREDICTIONS
+   "Interface between power and comms is weak—single point of failure"
+   "Knowledge concentration risk: 80% of avionics expertise in one student"
+   "Graduation risk: 3 critical interfaces lost next semester"
 ```
 
-### Why Build Our Own Model?
+### What the Model Actually Predicts
 
-| External LLM APIs | Space Lab Predictive Model |
-|-------------------|----------------------------|
-| Generic knowledge | Trained on *your* students, *your* outcomes |
-| Per-call costs | Runs locally, no API fees |
-| Black box reasoning | Explainable predictions tied to real data |
-| One-size-fits-all | Optimized for aerospace engineering education |
+| Risk Factor | What It Tells You |
+|-------------|-------------------|
+| **Interface strength** | Which connections between subsystems are fragile |
+| **Knowledge concentration** | Where expertise is dangerously centralized |
+| **Graduation risk** | Which interfaces will break when students leave |
+| **Subsystem isolation** | Which teams aren't communicating enough |
+| **Mission success probability** | Overall likelihood of project completion |
 
-The three agents don't make decisions—they feed the model. The model learns what works. The applications serve predictions back to students, team leads, and researchers.
+The three agents don't make predictions—they map the organizational structure. The model learns which structural patterns lead to mission success or failure.
 
 [Learn more about the architecture →]({{ site.baseurl }}/architecture)
 
