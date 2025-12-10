@@ -6,20 +6,24 @@ permalink: /architecture/
 
 # System Architecture
 
-FRAMES employs a sophisticated five-layer architecture designed for scalability, security, and research utility. This page provides a technical deep dive into how the system works.
+FRAMES employs a sophisticated six-layer architecture designed for scalability, security, and research utility. The system is undergoing a strategic ML pivot—transitioning from external LLM dependencies to a custom-trained model specialized for engineering education outcomes.
 
 ---
 
-## The Five-Layer Model
+## The Six-Layer Model
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                      REAL WORK LAYER                            │
-│           Team Leads document missions in Notion                │
+│                      REAL WORLD LAYER                           │
+│            Actual engineering team activities                   │
 │                            ↓                                    │
 ├─────────────────────────────────────────────────────────────────┤
-│                   AI INTERPRETATION LAYER                       │
-│         Alpha · Beta · Gamma agents (safe, controlled)          │
+│                 DIGITAL OBSERVATION LAYER                       │
+│         Notion workspaces · GitHub · Manual entry               │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                INTERPRETATION / AGENT LAYER                     │
+│    LangChain orchestration · LangGraph workflows · MCP servers  │
 │                            ↓                                    │
 ├─────────────────────────────────────────────────────────────────┤
 │                    CANONICAL DATA LAYER                         │
@@ -28,72 +32,125 @@ FRAMES employs a sophisticated five-layer architecture designed for scalability,
 ├──────────────────┬──────────────────┬──────────────────────────┤
 │    Student       │    Team          │    Research              │
 │    LMS           │    Tools         │    Platform              │
-│    React PWA     │    Notion Space  │    Jupyter + MLflow      │
-└──────────────────┴──────────────────┴──────────────────────────┘
+│    React PWA     │    Notion Space  │    MLflow + Analytics    │
+├──────────────────┴──────────────────┴──────────────────────────┤
+│                   GOVERNANCE / LOGGING LAYER                    │
+│         Audit trails · FERPA compliance · Risk management       │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Layer 1: Real Work Layer
+## Layer 1: Real World Layer
 
-**Purpose:** Capture authentic engineering activities as they happen
+**Purpose:** Where authentic engineering activities occur
 
-This layer is where actual project work occurs. Team leads and members document their activities, decisions, and progress using familiar tools like Notion. The key principle is **minimal friction**—teams shouldn't have to change how they work just to feed the FRAMES system.
+This layer represents actual project work as it happens—design reviews, code commits, team meetings, and technical decisions. FRAMES observes this layer without interfering with natural workflows.
 
-**Key Components:**
+---
 
-- Notion workspaces for each team
-- Mission documentation templates
-- Activity logging protocols
-- Meeting notes and decisions
+## Layer 2: Digital Observation Layer
+
+**Purpose:** Capture team activities through digital touchpoints
+
+Team leads and members document their work using familiar tools. The key principle is **minimal friction**—teams work naturally while FRAMES captures structured and unstructured data.
+
+**Data Sources:**
+
+- **Notion workspaces** — Mission documentation, meeting notes, decisions
+- **GitHub repositories** — Code commits, pull requests, issues
+- **Manual entry** — Structured forms for specific data points
+- **LlamaIndex integration** — Content indexing for semantic search (planned)
 
 **Design Philosophy:** FRAMES adapts to teams, not the other way around.
 
 ---
 
-## Layer 2: AI Interpretation Layer
+## Layer 3: Interpretation / Agent Layer
 
-**Purpose:** Transform unstructured documentation into structured data
+**Purpose:** Transform observations into structured, actionable data
 
-Three specialized AI agents process work documentation:
+This layer employs a multi-agent system orchestrated through **LangChain** with **LangGraph** for workflow state management. Agents operate with risk-based autonomy levels.
 
-### Agent Alpha — The Extractor
+### Agent Architecture
 
-Reads team documentation and extracts:
+Three specialized roles with distinct responsibilities:
+
+#### The Interpreter
+
+Analyzes incoming data to identify:
 
 - Key decisions and their rationale
 - Technical specifications and requirements
 - Task assignments and dependencies
 - Risk factors and concerns
 
-### Agent Beta — The Connector
+**Autonomy Level:** High — can read and analyze without human approval
 
-Links extracted information to:
+#### The Builder
 
-- Database schema elements
-- Learning module content
-- Cross-team relationships
-- Historical patterns
+Constructs and modifies system artifacts:
 
-### Agent Gamma — The Validator
+- Creates new database records
+- Links information across domains
+- Generates learning module content
+- Updates cross-team relationships
 
-Ensures data quality through:
+**Autonomy Level:** Medium — requires human approval for significant changes
 
-- Consistency checking
-- Completeness verification
-- Conflict detection
-- Human review flagging
+#### The Validator
+
+Ensures data quality and system consistency:
+
+- Consistency and completeness checking
+- Conflict detection and resolution
+- FERPA compliance verification
+- Human review queue management
+
+**Autonomy Level:** Low — flags issues for human decision
+
+### Workflow Orchestration (LangGraph)
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                     EXPLORATION MODE                            │
+│          Interpreter reads, analyzes, suggests                  │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                      DRAFTING MODE                              │
+│        Builder proposes changes (staged, not committed)         │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                     EXECUTION MODE                              │
+│         Human approves → Changes applied to database            │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                       COMMIT MODE                               │
+│       Validator verifies → Audit log → Finalization             │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### MCP Server Integration (LangChain)
+
+Model Context Protocol servers provide secure, controlled access to external systems:
+
+| MCP Server | Purpose | Risk Surface |
+|------------|---------|--------------|
+| **Notion** | Read team documentation | Low |
+| **GitHub** | Read repositories, issues | Low |
+| **Filesystem** | Access local resources | Medium |
+| **PostgreSQL** | Database operations | High (gated) |
 
 **Safety Principles:**
 
-- All agents operate in controlled scopes
-- Human review required for significant actions
-- Full audit trail of agent decisions
-- No autonomous changes to production data
+- All operations logged to governance layer
+- Risk-based approval workflows
+- No autonomous changes to production data without human approval
+- Circuit breakers for runaway operations
 
 ---
 
-## Layer 3: Canonical Data Layer
+## Layer 4: Canonical Data Layer
 
 **Purpose:** Single source of truth for all FRAMES data
 
@@ -110,69 +167,121 @@ FRAMES uses **Neon PostgreSQL** with 37+ tables organized into logical domains:
 | **Missions** | missions, phases, milestones | Project tracking |
 | **Learning** | modules, steps, assessments | Educational content |
 | **Analytics** | events, metrics, reports | Research data |
+| **ML Pipeline** | training_data, model_versions, predictions | Machine learning |
 
 #### Key Schema Features
 
 - **Temporal tracking** — All entities track creation/modification times
 - **Soft deletion** — Records marked inactive, never truly deleted
-- **Audit logging** — Every change recorded for research
+- **Audit logging** — Every change recorded for research and compliance
 - **Flexible metadata** — JSONB fields for evolving requirements
+- **ML-ready** — Feature columns optimized for model training
 
 ### Data Flow Principles
 
-```
+```text
 Input Sources          Processing           Output Consumers
 ─────────────          ──────────           ────────────────
 Notion Docs     ──┐                   ┌──→  Student LMS
-Manual Entry    ──┼──→  Validation   ──┼──→  Team Dashboards
-API Imports     ──┼──→  Enrichment   ──┼──→  Research Exports
-Agent Output    ──┘     Storage      └──→  Analytics Tools
+GitHub Events   ──┼──→  Validation   ──┼──→  Team Dashboards
+Manual Entry    ──┼──→  Enrichment   ──┼──→  Research Exports
+Agent Output    ──┘     ML Features  └──→  Analytics + MLflow
 ```
 
 ---
 
-## Layer 4: Application Layer
+## Layer 5: Application Layer
 
 Three distinct applications serve different stakeholder needs:
 
 ### Student Learning Management System
 
-**Technology:** React 18+ PWA  
+**Technology:** React 18+ PWA
 **Purpose:** Personalized learning for individual contributors
 
 Features:
 
-- Module-based learning paths
+- Module-based learning paths generated from team activities
 - Progress tracking and visualization
-- Hint systems and scaffolding
-- Assessment and validation
-- Offline capability (PWA)
+- Adaptive hint systems and scaffolding
+- Assessment and competency validation
+- Offline capability (Progressive Web App)
 
 ### Team Lead Workspace
 
-**Technology:** Notion + Integrations  
+**Technology:** Notion + Integrations
 **Purpose:** Mission coordination and documentation
 
 Features:
 
 - Mission planning templates
-- Status dashboards
+- Real-time status dashboards
 - Cross-team visibility
-- Integration with external tools
-- Automated reporting
+- Automated progress reporting
+- Bi-directional sync with FRAMES
 
 ### Researcher Platform
 
-**Technology:** Jupyter + MLflow + Superset  
-**Purpose:** Data analysis and research workflows
+**Technology:** MLflow + Jupyter + Analytics Dashboard
+**Purpose:** Data analysis, ML experimentation, and research workflows
 
 Features:
 
 - Secure data access (anonymized by default)
 - Pre-built analysis notebooks
-- Custom query capabilities
+- MLflow experiment tracking and model registry
+- Prediction API for module recommendations
 - Visualization dashboards
 - Export tools for publication
+
+---
+
+## ML Pipeline Architecture
+
+FRAMES is transitioning to a custom ML model specialized for engineering education outcomes. This reduces external API dependencies while improving prediction accuracy for our specific domain.
+
+### Training Pipeline
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                    FEATURE ENGINEERING                          │
+│     Student activity → Engineered features → Training data      │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                     MODEL TRAINING                              │
+│        Cross-validation · Hyperparameter tuning · MLflow        │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                    MODEL REGISTRY                               │
+│         Version control · A/B testing · Rollback capability     │
+│                            ↓                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                    INFERENCE API                                │
+│       Module recommendations · Adaptive learning paths          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Key ML Capabilities
+
+| Capability | Description |
+|------------|-------------|
+| **Module Generation** | Auto-generate learning modules from team activities |
+| **Outcome Prediction** | Predict student success based on engagement patterns |
+| **Adaptive Pathways** | Personalize learning sequences per student |
+| **Content Optimization** | Identify high-impact vs. low-engagement content |
+
+### The ML Pivot Vision
+
+**Before:** Agents as builders, dependent on external LLM APIs
+**After:** Agents as ML model support, specialized model trained on actual student outcomes
+
+This transition provides:
+
+- Lower latency for predictions
+- Reduced API costs
+- Domain-specific accuracy
+- Full control over model behavior
+- Research reproducibility
 
 ---
 
@@ -197,7 +306,7 @@ Features:
 | **TanStack Query** | 5+ | Data fetching |
 | **Tailwind CSS** | 3+ | Styling |
 
-### Data & Infrastructure
+### Data and Infrastructure
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
@@ -206,39 +315,84 @@ Features:
 | **Docker** | 24+ | Containerization |
 | **GitHub Actions** | — | CI/CD |
 
-### AI & Analytics
+### AI, ML, and Analytics
 
 | Technology | Purpose |
 |------------|---------|
-| **LangChain** | Agent orchestration |
-| **OpenAI API** | Language models |
-| **MLflow** | Experiment tracking |
-| **Superset** | Dashboards |
+| **LangChain** | Agent orchestration, MCP server integration |
+| **LangGraph** | Workflow state management |
+| **LlamaIndex** | Content indexing (Notion integration) |
+| **MLflow** | Experiment tracking, model registry |
+| **scikit-learn / PyTorch** | Model training |
+| **Custom ML Model** | Domain-specific predictions (in development) |
+
+---
+
+## Layer 6: Governance and Logging Layer
+
+**Purpose:** Ensure compliance, auditability, and risk management
+
+### Compliance Framework
+
+FRAMES handles educational data subject to FERPA and institutional policies:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| **FERPA Compliance** | Student data anonymization, access logging |
+| **Audit Trails** | Every operation logged with timestamp, actor, action |
+| **Data Retention** | Configurable retention policies per data type |
+| **Access Control** | Role-based permissions, university isolation |
+
+### Risk-Based Agent Autonomy
+
+Agent operations are classified by risk level:
+
+| Risk Level | Examples | Approval Required |
+|------------|----------|-------------------|
+| **Low** | Reading docs, generating reports | None |
+| **Medium** | Creating draft records, suggestions | Human review |
+| **High** | Modifying production data, bulk operations | Explicit approval |
+
+### Logging Architecture
+
+```text
+All Operations → Governance Layer → Audit Database
+                      ↓
+              Risk Assessment
+                      ↓
+         ┌──────────┴──────────┐
+    Auto-approve          Queue for
+    (low risk)          human review
+```
 
 ---
 
 ## Security Architecture
 
-### Authentication & Authorization
+### Authentication and Authorization
 
-- OAuth 2.0 / OIDC integration
-- Role-based access control (RBAC)
-- Per-university data isolation
+- OAuth 2.0 / OIDC integration with university identity providers
+- Role-based access control (RBAC) with granular permissions
+- Per-university data isolation (multi-tenant)
 - API key management for integrations
+- Session management with secure token handling
 
 ### Data Protection
 
 - Encryption at rest (AES-256)
 - Encryption in transit (TLS 1.3)
 - Automated PII detection and handling
+- SQL injection prevention (parameterized queries)
+- XSS protection (Content Security Policy)
 - Regular security audits
 
-### AI Safety
+### AI Safety Controls
 
-- Sandboxed agent execution
+- Sandboxed agent execution environments
 - Rate limiting and circuit breakers
 - Human-in-the-loop for sensitive operations
-- Comprehensive audit logging
+- Comprehensive audit logging of all agent actions
+- Rollback capability for agent-initiated changes
 
 ---
 
@@ -246,7 +400,7 @@ Features:
 
 The FRAMES API follows RESTful principles with 50+ endpoints organized by resource:
 
-```
+```text
 /api/v1/
 ├── /auth           # Authentication
 ├── /users          # User management
@@ -255,7 +409,9 @@ The FRAMES API follows RESTful principles with 50+ endpoints organized by resour
 ├── /modules        # Learning content
 ├── /assessments    # Evaluations
 ├── /analytics      # Research queries
-└── /agents         # AI operations
+├── /agents         # AI operations
+├── /ml             # Model predictions (new)
+└── /governance     # Audit and compliance
 ```
 
 **API Features:**
@@ -274,14 +430,18 @@ Here's how information flows through FRAMES when a team lead documents a design 
 
 1. **Capture:** Team lead writes decision in Notion
 2. **Detect:** Webhook notifies FRAMES of new content
-3. **Extract:** Agent Alpha identifies decision elements
-4. **Connect:** Agent Beta links to relevant modules and teams
-5. **Validate:** Agent Gamma checks consistency, flags if needed
-6. **Store:** Validated data written to PostgreSQL
-7. **Distribute:** 
-   - Student LMS receives new learning context
-   - Dashboards update with fresh data
-   - Analytics pipeline processes for research
+3. **Index:** LlamaIndex processes content for semantic search
+4. **Interpret:** Interpreter agent identifies decision elements
+5. **Build:** Builder agent proposes database updates (staged)
+6. **Validate:** Validator agent checks consistency, FERPA compliance
+7. **Approve:** Human reviews and approves changes (if medium/high risk)
+8. **Store:** Validated data written to PostgreSQL
+9. **Log:** Governance layer records complete audit trail
+10. **Distribute:**
+    - Student LMS receives new learning context
+    - ML pipeline updates training features
+    - Dashboards reflect fresh data
+    - Analytics available for research
 
 ---
 

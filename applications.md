@@ -167,14 +167,24 @@ When team leads document activities:
 
 ## Researcher Platform
 
-**For:** Faculty, graduate students, and research staff  
-**Technology:** Jupyter + MLflow + Apache Superset
+**For:** Faculty, graduate students, and research staff
+**Technology:** MLflow + Jupyter + Analytics Dashboard
 
 ### Overview
 
-The Researcher Platform provides secure, ethical access to FRAMES data for studying collaboration, learning, and organizational dynamics.
+The Researcher Platform provides secure, ethical access to FRAMES data for studying collaboration, learning, and organizational dynamics. It also serves as the hub for ML experimentation and model development.
 
 ### Key Components
+
+#### MLflow Experiment Tracking
+
+The centerpiece for reproducible research and ML workflows:
+
+- **Experiment tracking** — Full provenance for all runs
+- **Model registry** — Version control for trained models
+- **A/B testing** — Compare model variants in production
+- **Artifact storage** — Datasets, parameters, metrics
+- **Collaboration** — Share findings across research teams
 
 #### Jupyter Notebooks
 
@@ -183,18 +193,10 @@ Pre-configured environments for data analysis:
 - **Python 3.9+** with scientific stack
 - **Pandas, NumPy, SciPy** for data manipulation
 - **Matplotlib, Seaborn, Plotly** for visualization
-- **Scikit-learn, TensorFlow** for modeling
+- **scikit-learn, PyTorch** for modeling
+- **LangChain integration** for agent experimentation
 
-#### MLflow Experiment Tracking
-
-For reproducible research workflows:
-
-- Track experiments with full provenance
-- Version datasets and models
-- Compare results across runs
-- Share findings with collaborators
-
-#### Apache Superset Dashboards
+#### Analytics Dashboard
 
 Interactive visualizations for:
 
@@ -202,6 +204,41 @@ Interactive visualizations for:
 - Learning analytics
 - Cross-institutional comparisons
 - Longitudinal trends
+
+### ML Pipeline Access
+
+Researchers can experiment with and contribute to the FRAMES ML pipeline:
+
+```python
+# Load the current production model
+import mlflow
+model = mlflow.sklearn.load_model("models:/frames_module_recommender/production")
+
+# Run predictions on student engagement features
+features = frames.get_student_features(student_hash="abc123")
+recommendations = model.predict(features)
+
+# Track your own experiments
+with mlflow.start_run(experiment_name="module_optimization"):
+    # Train custom model variant
+    custom_model = train_custom_model(training_data)
+    
+    # Log parameters, metrics, artifacts
+    mlflow.log_params({"learning_rate": 0.01, "n_estimators": 100})
+    mlflow.log_metrics({"accuracy": 0.87, "f1_score": 0.84})
+    mlflow.sklearn.log_model(custom_model, "model")
+```
+
+### Prediction API
+
+Researchers can access model predictions through a dedicated API:
+
+| Endpoint | Purpose |
+|----------|---------|
+| `/ml/predict/module` | Next module recommendations |
+| `/ml/predict/outcome` | Student success probability |
+| `/ml/predict/engagement` | Content engagement score |
+| `/ml/features/{student}` | Feature vector for a student |
 
 ### Data Access Principles
 
@@ -255,6 +292,8 @@ module_performance = frames.query("""
 | **Collaboration Patterns** | Team interaction frequencies | Aggregated |
 | **Project Outcomes** | Mission completion, quality metrics | Aggregated |
 | **Survey Responses** | Self-reported data (consented) | IRB Approved |
+| **ML Training Data** | Engineered features for model training | Researcher Access |
+| **Model Artifacts** | Trained models and evaluation metrics | MLflow Registry |
 
 ---
 
@@ -262,7 +301,7 @@ module_performance = frames.query("""
 
 The three applications work together through the shared canonical data layer:
 
-```
+```text
 ┌───────────────┐     ┌───────────────┐     ┌───────────────┐
 │   Student     │     │   Team Lead   │     │   Researcher  │
 │     LMS       │     │   Workspace   │     │   Platform    │
@@ -274,25 +313,29 @@ The three applications work together through the shared canonical data layer:
              │   (Authentication, RBAC)        │
              └────────────────┬────────────────┘
                               │
-                 ┌────────────┴────────────┐
-                 │                         │
-                 │   Canonical Database    │
-                 │   (Neon PostgreSQL)     │
-                 │                         │
-                 └─────────────────────────┘
+          ┌──────────────────┴───────────────────┐
+          │                                      │
+          │   Canonical Database + ML Pipeline   │
+          │   (Neon PostgreSQL + MLflow)         │
+          │                                      │
+          └──────────────────────────────────────┘
 ```
 
 ### Data Flow Examples
 
 **Student completes module:**
+
 1. LMS records completion → Database
-2. Researcher Platform sees analytics update
-3. Team Lead dashboard shows team readiness
+2. ML pipeline updates feature store
+3. Researcher Platform sees analytics update
+4. Team Lead dashboard shows team readiness
 
 **Team Lead documents decision:**
+
 1. Notion entry → Agent processing → Database
 2. LMS receives new context for relevant modules
-3. Researcher Platform has new collaboration data
+3. ML pipeline retrains on new data (scheduled)
+4. Researcher Platform has new collaboration data
 
 ---
 
