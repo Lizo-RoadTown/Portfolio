@@ -10,25 +10,25 @@ FRAMES employs a sophisticated five-layer architecture designed for scalability,
 
 ---
 
-## 🏗️ The Five-Layer Model
+## The Five-Layer Model
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    🌐 REAL WORK LAYER                           │
-│         Team Leads document missions in Notion                  │
-│                          ↓                                      │
+│                      REAL WORK LAYER                            │
+│           Team Leads document missions in Notion                │
+│                            ↓                                    │
 ├─────────────────────────────────────────────────────────────────┤
-│                   🤖 AI INTERPRETATION LAYER                    │
+│                   AI INTERPRETATION LAYER                       │
 │         Alpha · Beta · Gamma agents (safe, controlled)          │
-│                          ↓                                      │
+│                            ↓                                    │
 ├─────────────────────────────────────────────────────────────────┤
-│                   💾 CANONICAL DATA LAYER                       │
-│              Neon PostgreSQL · 37+ Tables                       │
-│                          ↓                                      │
+│                    CANONICAL DATA LAYER                         │
+│                Neon PostgreSQL · 37+ Tables                     │
+│                            ↓                                    │
 ├──────────────────┬──────────────────┬──────────────────────────┤
-│   📱 Student     │   📋 Team        │   📊 Research            │
-│      LMS         │      Tools       │      Platform            │
-│   React PWA      │   Notion Space   │   Jupyter + MLflow       │
+│    Student       │    Team          │    Research              │
+│    LMS           │    Tools         │    Platform              │
+│    React PWA     │    Notion Space  │    Jupyter + MLflow      │
 └──────────────────┴──────────────────┴──────────────────────────┘
 ```
 
@@ -135,7 +135,7 @@ Agent Output    ──┘     Storage      └──→  Analytics Tools
 
 Three distinct applications serve different stakeholder needs:
 
-### 📱 Student Learning Management System
+### Student Learning Management System
 
 **Technology:** React 18+ PWA  
 **Purpose:** Personalized learning for individual contributors
@@ -148,7 +148,7 @@ Features:
 - Assessment and validation
 - Offline capability (PWA)
 
-### 📋 Team Lead Workspace
+### Team Lead Workspace
 
 **Technology:** Notion + Integrations  
 **Purpose:** Mission coordination and documentation
@@ -161,7 +161,7 @@ Features:
 - Integration with external tools
 - Automated reporting
 
-### 📊 Researcher Platform
+### Researcher Platform
 
 **Technology:** Jupyter + MLflow + Superset  
 **Purpose:** Data analysis and research workflows
@@ -176,7 +176,7 @@ Features:
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 
@@ -217,7 +217,7 @@ Features:
 
 ---
 
-## 🔐 Security Architecture
+## Security Architecture
 
 ### Authentication & Authorization
 
@@ -242,7 +242,7 @@ Features:
 
 ---
 
-## 📊 API Architecture
+## API Architecture
 
 The FRAMES API follows RESTful principles with 50+ endpoints organized by resource:
 
@@ -268,7 +268,7 @@ The FRAMES API follows RESTful principles with 50+ endpoints organized by resour
 
 ---
 
-## 🔄 Data Flow Example
+## Data Flow Example
 
 Here's how information flows through FRAMES when a team lead documents a design decision:
 
@@ -285,7 +285,7 @@ Here's how information flows through FRAMES when a team lead documents a design 
 
 ---
 
-## 📚 Learn More
+## Learn More
 
 - [Applications]({{ site.baseurl }}/applications) — User-facing platforms in detail
 - [Documentation]({{ site.baseurl }}/documentation) — Developer resources

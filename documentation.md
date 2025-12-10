@@ -10,7 +10,7 @@ This page provides links to technical documentation, developer resources, and re
 
 ---
 
-## 📁 Canonical Documentation
+## Canonical Documentation
 
 The FRAMES canonical documentation provides authoritative specifications for the system:
 
@@ -41,17 +41,17 @@ The FRAMES canonical documentation provides authoritative specifications for the
 
 ---
 
-## 💻 Developer Resources
+## Developer Resources
 
 ### Getting Started
 
 #### Prerequisites
 
 ```
-- Python 3.9+
-- Node.js 18+
-- PostgreSQL 15+ (or Neon account)
-- Docker 24+ (recommended)
+Python 3.9+
+Node.js 18+
+PostgreSQL 15+ (or Neon account)
+Docker 24+ (recommended)
 ```
 
 #### Quick Start
@@ -111,7 +111,7 @@ FRAMES-Python/
 
 ---
 
-## 🤖 Agent System Documentation
+## Agent System Documentation
 
 ### Agent Roles
 
@@ -148,7 +148,7 @@ FRAMES-Python/
 
 ---
 
-## 📊 Database Reference
+## Database Reference
 
 ### Core Tables Overview
 
@@ -228,7 +228,7 @@ GROUP BY u.id;
 
 ---
 
-## 🔬 Research References
+## Research References
 
 ### Foundational Theory
 
@@ -249,7 +249,7 @@ GROUP BY u.id;
 
 ---
 
-## 📬 Support & Contact
+## Support & Contact
 
 ### For Developers
 
@@ -271,7 +271,7 @@ GROUP BY u.id;
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Home]({{ site.baseurl }}/) — Project overview
 - [About]({{ site.baseurl }}/about) — Background and team

@@ -10,7 +10,7 @@ FRAMES provides three distinct applications, each designed for a specific stakeh
 
 ---
 
-## 📱 Student Learning Management System
+## Student Learning Management System
 
 **For:** Individual contributors and new team members  
 **Technology:** React 18+ Progressive Web App
@@ -32,21 +32,21 @@ The Student LMS is the primary interface for learners joining university enginee
 Each learning module follows a consistent pedagogical approach:
 
 ```
-📚 Module: [Topic Name]
-├── 🎯 Learning Objectives
-├── 📖 Core Content
+Module: [Topic Name]
+├── Learning Objectives
+├── Core Content
 │   ├── Concepts & Theory
 │   ├── Real-World Context (from actual projects)
 │   └── Worked Examples
-├── 💡 Hint System
+├── Hint System
 │   ├── Progressive hints
 │   ├── Scaffolded support
 │   └── "Ask for help" integration
-├── ✅ Knowledge Checks
+├── Knowledge Checks
 │   ├── Self-assessment questions
 │   ├── Practical exercises
 │   └── Scenario-based challenges
-└── 🏆 Module Completion
+└── Module Completion
     ├── Competency badge
     └── Recommended next modules
 ```
@@ -73,7 +73,7 @@ As a Progressive Web App (PWA), students can:
 
 ```
 ┌────────────────────────────────────────────────┐
-│  🏠 Dashboard                                  │
+│  Dashboard                                     │
 │  ┌──────────────────────────────────────────┐  │
 │  │ Your Progress: ████████░░░░ 67%          │  │
 │  │                                          │  │
@@ -83,12 +83,12 @@ As a Progressive Web App (PWA), students can:
 │  │ [Continue Learning →]                    │  │
 │  └──────────────────────────────────────────┘  │
 │                                                │
-│  📊 Your Achievements                          │
-│  🏅 Systems Basics    ✓ Complete              │
-│  🏅 Safety Protocols  ✓ Complete              │
-│  🏅 Team Workflows    ⚪ In Progress          │
+│  Your Achievements                             │
+│  • Systems Basics      Complete               │
+│  • Safety Protocols    Complete               │
+│  • Team Workflows      In Progress            │
 │                                                │
-│  📅 Upcoming                                   │
+│  Upcoming                                      │
 │  • Lab session: Thursday 2pm                  │
 │  • Design review: Friday 10am                 │
 └────────────────────────────────────────────────┘
@@ -96,7 +96,7 @@ As a Progressive Web App (PWA), students can:
 
 ---
 
-## 📋 Team Lead Workspace
+## Team Lead Workspace
 
 **For:** Team leads and project managers  
 **Technology:** Notion with custom integrations
@@ -124,13 +124,13 @@ The Team Lead Workspace provides mission coordination tools built on Notion's fl
 │  Phase: Design Review █████░░░░░ 52%           │
 │                                                 │
 │  Team Status:                                   │
-│  ├─ 🛰️ Avionics      ██████░░░░ On Track      │
-│  ├─ 🔋 Power         ████████░░ Ahead         │
-│  ├─ 📡 Communications ████░░░░░░ At Risk      │
-│  └─ 🖥️ Software       ██████░░░░ On Track      │
+│  ├─ Avionics         ██████░░░░ On Track      │
+│  ├─ Power            ████████░░ Ahead         │
+│  ├─ Communications   ████░░░░░░ At Risk       │
+│  └─ Software         ██████░░░░ On Track      │
 │                                                 │
-│  🚨 Active Concerns: 2                          │
-│  📅 Next Milestone: PDR (Dec 15)               │
+│  Active Concerns: 2                             │
+│  Next Milestone: PDR (Dec 15)                  │
 │                                                 │
 └─────────────────────────────────────────────────┘
 ```
@@ -165,7 +165,7 @@ When team leads document activities:
 
 ---
 
-## 📊 Researcher Platform
+## Researcher Platform
 
 **For:** Faculty, graduate students, and research staff  
 **Technology:** Jupyter + MLflow + Apache Superset
@@ -258,7 +258,7 @@ module_performance = frames.query("""
 
 ---
 
-## 🔗 Application Integration
+## Application Integration
 
 The three applications work together through the shared canonical data layer:
 
@@ -296,7 +296,7 @@ The three applications work together through the shared canonical data layer:
 
 ---
 
-## 📚 Learn More
+## Learn More
 
 - [Architecture]({{ site.baseurl }}/architecture) — Technical deep dive
 - [Documentation]({{ site.baseurl }}/documentation) — Developer resources
