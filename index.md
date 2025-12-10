@@ -2,6 +2,15 @@
 layout: article
 title: FRAMES
 key: page-home
+header:
+  theme: dark
+  background: 'linear-gradient(135deg, rgba(30, 30, 46, 0.9), rgba(30, 30, 46, 0.7))'
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#1e1e2e'
+  background_image:
+    src: /Portfolio/assets/images/hero-banner.png
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)
