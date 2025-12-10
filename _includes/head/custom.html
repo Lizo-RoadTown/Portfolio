@@ -8,7 +8,23 @@
       startOnLoad: true,
       theme: 'dark',
       securityLevel: 'loose',
-      flowchart: { useMaxWidth: true, htmlLabels: true }
+      flowchart: { useMaxWidth: true, htmlLabels: true },
+      themeVariables: {
+        primaryColor: '#1a1a2e',
+        primaryTextColor: '#e0e0e0',
+        primaryBorderColor: '#4a4a6a',
+        lineColor: '#6a6a8a',
+        secondaryColor: '#16213e',
+        tertiaryColor: '#0f3460',
+        background: 'transparent',
+        mainBkg: '#1a1a2e',
+        secondBkg: '#16213e',
+        nodeBorder: '#4a4a6a',
+        clusterBkg: '#1a1a2e',
+        clusterBorder: '#4a4a6a',
+        titleColor: '#e0e0e0',
+        edgeLabelBackground: '#1a1a2e'
+      }
     });
     // Find all mermaid code blocks and render them
     document.querySelectorAll('pre code.language-mermaid').forEach(function(el) {
@@ -30,9 +46,29 @@
   .mermaid {
     text-align: center;
     margin: 2rem 0;
+    background: transparent;
   }
   .mermaid svg {
     max-width: 100%;
+    background: transparent;
+  }
+  /* Override mermaid default backgrounds */
+  .mermaid .node rect,
+  .mermaid .node polygon,
+  .mermaid .cluster rect {
+    fill: #1a1a2e !important;
+    stroke: #4a4a6a !important;
+  }
+  .mermaid .nodeLabel,
+  .mermaid .label {
+    color: #e0e0e0 !important;
+    fill: #e0e0e0 !important;
+  }
+  .mermaid .edgePath .path {
+    stroke: #6a6a8a !important;
+  }
+  .mermaid .arrowheadPath {
+    fill: #6a6a8a !important;
   }
 </style>
 
