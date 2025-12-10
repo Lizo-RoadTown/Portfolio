@@ -44,32 +44,45 @@ FRAMES is a collaborative project spanning **8 institutions**:
 
 ## Theoretical Foundations
 
-FRAMES is built on established research from multiple disciplines:
+FRAMES is grounded in Herbert Simon's work on complex systems and organizational behavior. This isn't just academic framing—it directly shapes how the system works.
 
-### 1. Nearly Decomposable Architecture (Herbert Simon)
+### How Knowledge Actually Lives in Teams
 
-Simon's theory of hierarchical systems provides the foundation for how FRAMES models semi-independent organizational modules. University engineering teams naturally organize into subsystems that interact through well-defined interfaces—FRAMES captures and supports this structure.
+Simon's research revealed that complex organizations self-organize into **near-decomposable systems**:
 
-### 2. Hybrid Autonomous Organizations (Champenois & Etzkowitz)
+- **Strong bonds within subsystems** — The power team talks constantly; they know each other's work intimately
+- **Weak bonds between subsystems** — Power and comms teams interact at defined interfaces, not continuously
+- **Knowledge lives in the bonds** — Expertise isn't just in people's heads; it's in *how people work together*
 
-University space labs occupy unique "boundary spaces" between academia, government, and industry. This theoretical lens helps FRAMES understand and support the complex stakeholder relationships in university aerospace programs.
+### Why Knowledge Walks Out the Door
 
-### 3. OATutor Pedagogy
+When a student graduates, they don't just take their individual knowledge—they take their **interfaces**:
 
-FRAMES' learning modules incorporate research-backed educational approaches:
+| What's Lost | Why It Matters |
+|-------------|----------------|
+| **Communication patterns** | Who to ask about what |
+| **Handoff protocols** | How work flows between subsystems |
+| **Error recovery knowledge** | What to do when things break |
+| **Dependency awareness** | What affects what |
 
-- **Scaffolding** — Breaking complex tasks into manageable steps
-- **Hint Pathways** — Progressive disclosure of supporting information
-- **Validation Steps** — Confirming understanding before advancing
+The next cohort doesn't just need to learn the technical content—they need to *rebuild the interfaces* that made the team functional. This is why onboarding feels like starting over every semester.
 
-### 4. Knowledge Transfer & Organizational Resilience
+### What FRAMES Captures
 
-FRAMES explicitly tracks both:
+FRAMES treats team behavior as a measurable system:
 
-- **Codified Knowledge** — Documentation, procedures, technical specs
-- **Tacit Knowledge** — Expertise, intuition, experience-based insights
+- **Interfaces** — Connections between people/subsystems measured by frequency, reciprocity, bandwidth, error recovery
+- **Journeys** — The sequence of tasks a student performs over time (what they touched, who they worked with, where they struggled)
+- **Digital surfaces** — Notion, GitHub, Slack as observation layers that reveal behavior without distorting it
+- **Modules** — Structured learning artifacts *extracted from* real engineering work, not invented
 
-This distinction helps programs understand where knowledge is secure versus vulnerable.
+### The Research Basis
+
+- **Simon, H. A. (1962)** — *The Architecture of Complexity* — Near-decomposable systems
+- **Simon, H. A. (1969)** — *The Sciences of the Artificial* — Bounded rationality, satisficing
+- **Simon, H. A. (1991)** — *Bounded Rationality and Organizational Learning*
+- **Champenois & Etzkowitz** — Hybrid Autonomous Organizations (university space labs as boundary spaces)
+- **OATutor Research** — Scaffolding, hint pathways, validation steps
 
 ---
 
@@ -103,25 +116,35 @@ FRAMES serves multiple communities:
 
 ---
 
-## AI Philosophy: Human-First Collaboration
+## AI Philosophy: Agents Feed the Model, Humans Stay in Control
 
-FRAMES incorporates AI agents (Alpha, Beta, Gamma), but with a fundamental principle: **AI assists, humans decide**.
+FRAMES uses three specialized agents (Interpreter, Builder, Validator), but they don't make decisions—they structure observations into training data for the Space Lab Predictive Model.
 
-Our agents are designed to:
+### What Agents Do
 
-- Summarize and organize information
-- Flag potential issues for human review
-- Generate drafts for human refinement
-- Track patterns across large datasets
+- **Interpreter** — Reads digital traces, identifies decisions and dependencies
+- **Builder** — Structures observations into module candidates and feature vectors
+- **Validator** — Checks consistency, flags issues, ensures FERPA compliance
 
-Our agents do **not**:
+### What the Model Does
 
-- Make autonomous decisions about student progress
-- Replace human mentorship or judgment
-- Access data beyond their defined scope
-- Operate without human oversight
+The Space Lab Predictive Model learns from real student outcomes:
 
-This controlled approach demonstrates responsible AI integration in educational contexts.
+- Which learning paths led to success
+- Where students struggled
+- What content actually helped
+- Which interfaces are weak or strong
+
+### Human-First Principles
+
+Agents and model operate under strict constraints:
+
+- **Risk-based autonomy** — Low-risk actions proceed; high-risk actions require human approval
+- **No invention** — Modules are *extracted* from real work, never fabricated
+- **Surfaces are sacred** — Agents observe Notion; they don't restructure it
+- **Full audit trail** — Every agent action logged for research and accountability
+
+The goal: automate the repetitive burden so team leads can focus on what only humans can do—connect with students, guide projects, share hard-won expertise.
 
 ---
 
