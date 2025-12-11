@@ -105,132 +105,129 @@ FRAMES exists to **give team leads their time back**:
 
 ## The Predictive Model: From Theory to Application
 
-FRAMES is operationalizing Herbert Simon's research on complex organizations into a **predictive model for mission success**.
+FRAMES operationalizes Herbert Simon's research on Nearly Decomposable Architecture (NDA) into a **diagnostic framework for organizational resilience**.
 
-### The Molecular Model of Organizations
+### The Molecular Analogy
+
+Simon (1962) described complex systems using a molecular analogy:
+
+- **Modules** act like cells or molecular groups—performing most work internally with strong internal bonds
+- **Interfaces** are the connection points where modules exchange information, resources, or coordinate actions
+- **Couplings** describe bond strength—strong within modules, weaker across external interfaces
+- **Interface Mechanisms** are the roles, processes, and tools that maintain connections and prevent degradation
+
+This separation allows modules to adapt internally without destabilizing the whole system. But Simon noted that **weaker external bonds can erode if not reinforced**, leading to fragmentation.
 
 ```mermaid
 graph TB
-    subgraph PEOPLE["👥 KNOWLEDGE HOLDERS"]
-        P1((Power Lead))
-        P2((Comms Lead))
-        P3((Software Lead))
-        P4((Systems Eng))
-        P5((Junior Eng))
+    subgraph MOD1["MODULE A"]
+        A1((Member))
+        A2((Member))
+        A3((Member))
+        A1 -->|strong| A2
+        A2 -->|strong| A3
+        A1 -->|strong| A3
     end
     
-    subgraph FORMAL["📋 FORMAL INTERFACES"]
-        F1[Contracts]
-        F2[Requirements Docs]
-        F3[ICDs]
-        F4[Test Procedures]
-        F5[Review Boards]
+    subgraph MOD2["MODULE B"]
+        B1((Member))
+        B2((Member))
+        B3((Member))
+        B1 -->|strong| B2
+        B2 -->|strong| B3
+        B1 -->|strong| B3
     end
     
-    subgraph TOOLS["🔧 TOOL INTERFACES"]
-        T1[JIRA / Asana]
-        T2[Git Repos]
-        T3[Confluence]
-        T4[Slack Channels]
-        T5[Shared Drives]
+    subgraph INTERFACE["INTERFACE"]
+        I1[Mechanism]
+        I2[Mechanism]
     end
     
-    subgraph TACIT["💬 TACIT INTERFACES"]
-        X1[Hallway Conversations]
-        X2[Mentorship]
-        X3[Tribal Knowledge]
-        X4[Informal Networks]
-        X5[Institutional Memory]
-    end
-    
-    subgraph INSTITUTIONAL["🏛️ INSTITUTIONAL SUPPORT"]
-        I1[Funding Lines]
-        I2[Lab Access]
-        I3[Vendor Relationships]
-        I4[University Policies]
-        I5[Safety Protocols]
-    end
-
-    P1 --> F1
-    P1 --> F3
-    P2 --> F2
-    P3 --> T2
-    P4 --> F4
-    P4 --> F5
-    
-    P1 --> T1
-    P2 --> T4
-    P3 --> T3
-    P5 --> T5
-    
-    P1 --> X2
-    P4 --> X1
-    P5 --> X3
-    P2 --> X4
-    P3 --> X5
-    
-    F1 --> I1
-    F2 --> I4
-    T1 --> I2
-    X2 --> I5
-    F4 --> I3
-    
-    P1 -.-> P4
-    P2 -.-> P4
-    P3 -.-> P4
-    P4 -.-> P5
+    A2 -.->|weak coupling| I1
+    I1 -.->|weak coupling| B1
+    A3 -.->|weak coupling| I2
+    I2 -.->|weak coupling| B2
 ```
+
+### Interface Categories
+
+The research identifies three categories of interfaces:
 
 ```mermaid
 graph LR
-    subgraph RISK["⚠️ WHEN SOMEONE LEAVES..."]
-        PERSON((Person<br/>Departs))
-        
-        KNOW[Knowledge<br/>They Held]
-        INT[Interfaces<br/>They Maintained]
-        REL[Relationships<br/>They Had]
-        ACCESS[Access<br/>They Provided]
-        
-        PERSON --> KNOW
-        PERSON --> INT
-        PERSON --> REL
-        PERSON --> ACCESS
+    subgraph CONCURRENT["CONCURRENT INTERFACES"]
+        C1[Between active modules<br/>working in parallel]
     end
     
-    subgraph BREAK["💥 WHAT BREAKS"]
-        B1[Contract knowledge<br/>undocumented]
-        B2[Tool configurations<br/>unknown]
-        B3[Vendor contacts<br/>lost]
-        B4[Mentorship<br/>ends]
-        B5[Informal networks<br/>severed]
-        B6[Institutional memory<br/>gone]
+    subgraph EXTERNAL["EXTERNAL INTERFACES"]
+        E1[Connecting to outside<br/>institutional modules]
     end
     
-    KNOW --> B1
-    INT --> B2
-    REL --> B3
-    REL --> B4
-    ACCESS --> B5
-    ACCESS --> B6
+    subgraph INTERGEN["INTERGENERATIONAL INTERFACES"]
+        G1[Linking outgoing and<br/>incoming cohorts]
+    end
 ```
 
-**The model captures multiple interface types:**
+### Knowledge Types at Interfaces
 
-| Interface Type | Examples | Risk When Lost |
-|----------------|----------|----------------|
-| **Formal** | Contracts, ICDs, Requirements, Review Boards | Compliance gaps, scope creep |
-| **Tool-Based** | JIRA, Git, Confluence, Slack | Configuration knowledge, workflow breaks |
-| **Tacit** | Mentorship, hallway talks, tribal knowledge | Undocumented expertise disappears |
-| **Institutional** | Funding, lab access, vendor relationships | Operational capability loss |
+Two primary knowledge-transfer types exist at interfaces, each with different fragility patterns:
 
-**Key insight:** When someone leaves, they don't just take knowledge—they **break interfaces**. The contract they managed, the vendor they knew, the junior engineer they mentored, the Slack channel they monitored—all become at-risk bonds.
+| Knowledge Type | Description | Transfer Mechanism | Fragility |
+|----------------|-------------|-------------------|-----------|
+| **Codified** | Documented, transferable independent of individuals | Walkthroughs, documentation repositories, design reviews | More resilient |
+| **Institutional** | Tacit, experience-based, held by individuals | In-person experience, repetition, mentorship | Prone to degradation |
 
-- **Nodes** = People holding localized knowledge
-- **Bonds** = Interface mechanisms (formal, tool-based, tacit, institutional)
-- **Bond Strength** = Frequency, documentation, redundancy, formalization
-- **Subsystems** = Functional clusters with strong internal bonds
+Interfaces dominated by institutional knowledge are more prone to degradation when personnel rotate out. Codified interfaces demonstrate greater resilience.
 
-When someone leaves an organization, they don't just remove knowledge—they **break bonds**. The model predicts which bond breaks will cause structural failure.
+### Rotational Micro-Modules
+
+In university space labs, the boundary module is internally composed of overlapping, rotational **micro-modules**—student cohorts, sub-teams, and project groups that cycle in and out over time (typically 1-4 semesters).
+
+```mermaid
+graph TB
+    subgraph TIME["TEMPORAL ROTATION"]
+        direction LR
+        T1["Semester 1"]
+        T2["Semester 2"]
+        T3["Semester 3"]
+        T4["Semester 4"]
+    end
+    
+    subgraph INCOMING["INCOMING COHORT"]
+        I1((New<br/>Members))
+    end
+    
+    subgraph ESTABLISHED["ESTABLISHED COHORT"]
+        E1((Active<br/>Members))
+    end
+    
+    subgraph OUTGOING["OUTGOING COHORT"]
+        O1((Graduating<br/>Members))
+    end
+    
+    I1 -->|onboarding| E1
+    E1 -->|knowledge transfer| O1
+    O1 -.->|handoff| I1
+```
+
+This creates **predictable knowledge-transfer vulnerabilities**:
+
+- Incoming cohorts join mid-project, receiving information they cannot immediately act on
+- Middle cohorts pass along knowledge tied only to their current project phase
+- Outgoing cohorts graduate before projects complete, leaving incomplete work and undocumented context
+
+### Six Diagnostic Dimensions
+
+The framework assesses interfaces using six NDA diagnostic dimensions:
+
+| Dimension | Question |
+|-----------|----------|
+| **Actor Autonomy** | How independently do interdependent actors operate? Are objectives conflicting? |
+| **Partitioned Knowledge** | Is knowledge siloed? What integration mechanisms exist? |
+| **Emergent Outputs** | How often do goals shift or remain undefined during development? |
+| **Temporal Misalignment** | Do timelines differ across modules (academic calendars vs. project cycles)? |
+| **Integration Cost** | Is coordination effort sustainable at each interface? |
+| **Coupling Degradation** | Are planned interfaces still occurring? Are modules disengaging? |
 
 ### What the Model Predicts
 
