@@ -233,42 +233,31 @@ RESTful API endpoints:
 
 ---
 
-## Getting Started
+## Stack Summary
 
-### Prerequisites
+- **Frontend:** React 18+, TypeScript, PWA
+- **Backend:** Flask 3.0, Python 3.9+
+- **Database:** Neon PostgreSQL 15+ (37+ tables)
+- **AI/ML:** LangChain, LangGraph, OpenAI GPT-4
+- **Research:** Jupyter, MLflow, Apache Superset
+- **Infrastructure:** Docker, GitHub Actions
 
-- Python 3.9+
-- Node.js 18+
-- PostgreSQL 15+ (or Neon account)
-- Docker 24+ (recommended)
+---
 
-### Repository
+## Repository & Documentation
 
-```bash
-git clone https://github.com/Lizo-RoadTown/FRAMES-Python.git
-cd FRAMES-Python
-```
+**Full implementation details, setup instructions, and API documentation:**
+[github.com/Lizo-RoadTown/FRAMES-Python](https://github.com/Lizo-RoadTown/FRAMES-Python)
 
-### Environment Setup
-
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure environment
-cp .env.example .env
-# Edit .env with your credentials
-```
+**Prerequisites:** Python 3.9+, Node.js 18+, PostgreSQL 15+, Docker 24+
 
 ---
 
 ## Contact
 
-**Project Lead:** Elizabeth Osborn  
-**Email:** [eosborn@cpp.edu](mailto:eosborn@cpp.edu)  
-**Repository:** [github.com/Lizo-RoadTown/FRAMES-Python](https://github.com/Lizo-RoadTown/FRAMES-Python)
+**Elizabeth Osborn** | Cal Poly Pomona
+[eosborn@cpp.edu](mailto:eosborn@cpp.edu)
+Available for technical discussions, integration consulting, and collaboration.
+
+[View Full Repository →](https://github.com/Lizo-RoadTown/FRAMES-Python)
 

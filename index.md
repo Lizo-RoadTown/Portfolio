@@ -21,9 +21,9 @@ article_header:
 
 > **Can we predict mission success or failure based on organizational structure?**
 
-88% of university CubeSat programs fail to persist long enough to achieve mission success. These failures are not technical—they are structural. Critical knowledge concentrates in too few people, interfaces between teams degrade, and expertise walks out the door when students graduate.
+University space programs don't fail because of bad engineering—they fail because knowledge concentrates in too few heads, team connections degrade, and expertise graduates before projects finish.
 
-FRAMES is building a diagnostic framework, grounded in Herbert Simon's work on complex systems, that identifies these structural vulnerabilities before they cause mission failure.
+FRAMES maps organizational structure to predict where teams will break before they do.
 
 ---
 
@@ -56,19 +56,22 @@ graph LR
 
 <div class="card">
 <h3>Researchers</h3>
-<p>Study organizational resilience using instrumented engineering teams as your research environment.</p>
+<p><em>If you study organizational resilience, engineering education, or sociotechnical systems:</em></p>
+<p>Instrumented engineering teams, validated predictive models, natural experiments in knowledge transfer.</p>
 <p><a href="/Portfolio/researchers/">Learn more →</a></p>
 </div>
 
 <div class="card">
 <h3>Program Administrators</h3>
-<p>Identify and address organizational vulnerabilities before they cause mission failure.</p>
+<p><em>If you run university labs, space programs, or complex engineering teams:</em></p>
+<p>Identify vulnerabilities before they cause failure, predict knowledge crises, design evidence-based interventions.</p>
 <p><a href="/Portfolio/administrators/">Learn more →</a></p>
 </div>
 
 <div class="card">
 <h3>Technical Leads</h3>
-<p>Understand the architecture, API, and implementation details for integration.</p>
+<p><em>If you want to integrate, extend, or understand the implementation:</em></p>
+<p>Six-layer architecture, AI agent workflows, PostgreSQL schema, API documentation.</p>
 <p><a href="/Portfolio/technical/">Learn more →</a></p>
 </div>
 
@@ -145,8 +148,9 @@ Cal Poly Pomona (Lead) · Columbia University · Texas State University · Virgi
 
 ## Contact
 
-**Project Lead:** Elizabeth Osborn  
-**Email:** [eosborn@cpp.edu](mailto:eosborn@cpp.edu)  
-**Institution:** Cal Poly Pomona  
-**Repository:** [GitHub](https://github.com/Lizo-RoadTown/Portfolio)
+**Elizabeth Osborn** | Cal Poly Pomona
+[eosborn@cpp.edu](mailto:eosborn@cpp.edu)
+Available for research collaboration, consulting, and graduate program inquiries.
+
+[View GitHub Repository →](https://github.com/Lizo-RoadTown/Portfolio)
 

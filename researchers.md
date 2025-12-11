@@ -15,7 +15,7 @@ FRAMES provides a research platform for studying **organizational resilience in 
 
 > **Can we predict mission success or failure based on organizational structure?**
 
-University CubeSat programs provide the ideal research environment: 88% fail to persist long enough to achieve mission success (Pham, 2024). These failures are not a reflection of student capability—they result from programs operating in boundary spaces where institutional classifications, funding categories, and embedded support are unclear or absent.
+University CubeSat programs are the ideal research environment. 88% fail to persist long enough to achieve mission success (Pham, 2024)—not due to student capability, but because they operate in boundary spaces where institutional classifications, funding, and embedded support are unclear or absent.
 
 ---
 
@@ -23,51 +23,17 @@ University CubeSat programs provide the ideal research environment: 88% fail to 
 
 ### Nearly Decomposable Architecture (NDA)
 
-FRAMES operationalizes Herbert Simon's (1962) research on complex systems using a molecular analogy:
+FRAMES operationalizes Simon's (1962) nearly decomposable systems theory:
 
-- **Modules** act like cells or molecular groups—performing most work internally with strong internal bonds
-- **Interfaces** are the connection points where modules exchange information, resources, or coordinate actions
-- **Couplings** describe bond strength—strong within modules, weaker across external interfaces
-- **Interface Mechanisms** are the roles, processes, and tools that maintain connections and prevent degradation
+- **Modules** — Strong internal bonds (like atoms in molecules)
+- **Interfaces** — Weaker connections between modules
+- **Interface Mechanisms** — Roles, processes, and tools that maintain connections
 
-This separation allows modules to adapt internally without destabilizing the whole system. But Simon noted that **weaker external bonds can erode if not reinforced**, leading to fragmentation.
-
-```mermaid
-graph TB
-    subgraph MOD1["MODULE A"]
-        A1((Member))
-        A2((Member))
-        A3((Member))
-        A1 -->|strong| A2
-        A2 -->|strong| A3
-        A1 -->|strong| A3
-    end
-    
-    subgraph MOD2["MODULE B"]
-        B1((Member))
-        B2((Member))
-        B3((Member))
-        B1 -->|strong| B2
-        B2 -->|strong| B3
-        B1 -->|strong| B3
-    end
-    
-    subgraph INTERFACE["INTERFACE"]
-        I1[Mechanism]
-        I2[Mechanism]
-    end
-    
-    A2 -.->|weak coupling| I1
-    I1 -.->|weak coupling| B1
-    A3 -.->|weak coupling| I2
-    I2 -.->|weak coupling| B2
-```
+Key insight: Modules can adapt internally without destabilizing the system, but weaker external bonds erode if not maintained. When interfaces fail, systems fragment.
 
 ### Hybrid Autonomous Organizations (HAOs)
 
-Student-led space labs exemplify HAOs (Champenois & Etzkowitz, 2018). Operating outside traditional academic hierarchies, they integrate functions typically distributed across universities, government agencies, and industry: acquiring external funding, managing partnerships, and coordinating complex technical projects.
-
-Their lack of formal classification makes them vulnerable—they must constantly navigate misaligned institutional logics and maintain tenuous connections to surrounding institutions.
+Student space labs exemplify HAOs (Champenois & Etzkowitz, 2018)—operating outside traditional academic hierarchies, integrating functions typically distributed across universities, government, and industry. Their lack of formal classification creates vulnerability: they must navigate misaligned institutional logics while maintaining tenuous external connections.
 
 ---
 
@@ -88,22 +54,11 @@ FRAMES assesses interfaces using six NDA diagnostic dimensions:
 
 ## Interface Categories
 
-The research identifies three categories of interfaces:
+Three interface types with distinct failure patterns:
 
-```mermaid
-graph LR
-    subgraph CONCURRENT["CONCURRENT INTERFACES"]
-        C1[Between active modules<br/>working in parallel]
-    end
-
-    subgraph EXTERNAL["EXTERNAL INTERFACES"]
-        E1[Connecting to outside<br/>institutional modules]
-    end
-
-    subgraph INTERGEN["INTERGENERATIONAL INTERFACES"]
-        G1[Linking outgoing and<br/>incoming cohorts]
-    end
-```
+- **Concurrent** — Between active modules working in parallel
+- **External** — Connecting to outside institutional modules
+- **Intergenerational** — Linking outgoing and incoming cohorts
 
 ---
 
@@ -122,36 +77,7 @@ Interfaces dominated by institutional knowledge are more prone to degradation wh
 
 ## Rotational Micro-Modules
 
-In university space labs, the boundary module is internally composed of overlapping, rotational **micro-modules**—student cohorts, sub-teams, and project groups that cycle in and out over time (typically 1-4 semesters).
-
-```mermaid
-graph TB
-    subgraph TIME["TEMPORAL ROTATION"]
-        direction LR
-        T1["Semester 1"]
-        T2["Semester 2"]
-        T3["Semester 3"]
-        T4["Semester 4"]
-    end
-
-    subgraph INCOMING["INCOMING COHORT"]
-        I1((New<br/>Members))
-    end
-
-    subgraph ESTABLISHED["ESTABLISHED COHORT"]
-        E1((Active<br/>Members))
-    end
-
-    subgraph OUTGOING["OUTGOING COHORT"]
-        O1((Graduating<br/>Members))
-    end
-
-    I1 -->|onboarding| E1
-    E1 -->|knowledge transfer| O1
-    O1 -.->|handoff| I1
-```
-
-This creates **predictable knowledge-transfer vulnerabilities**:
+University space labs contain overlapping, rotational micro-modules—student cohorts cycling in and out over 1-4 semesters. This creates predictable knowledge-transfer vulnerabilities:
 
 - Incoming cohorts join mid-project, receiving information they cannot immediately act on
 - Middle cohorts pass along knowledge tied only to their current project phase
@@ -246,8 +172,21 @@ FRAMES is a collaborative project spanning **8 institutions**:
 
 ## References
 
-- Simon, H. A. (1962). The Architecture of Complexity. *Proceedings of the American Philosophical Society*, 106(6), 467-82.
-- Champenois, C., & Etzkowitz, H. (2018). From Boundary Line to Boundary Space. *Technovation*, 76-77, 28-39.
-- Pham, M., et al. (2024). The Any% Method. *AIAA/USU Conference on Small Satellites*.
-- Cho, M., et al. (2022). Program Management for Sustainable University CubeSat Programs. *AIAA/USU Conference on Small Satellites*.
+Simon, H. A. (1962). The Architecture of Complexity. *Proceedings of the American Philosophical Society*, 106(6), 467-82.
+
+Champenois, C., & Etzkowitz, H. (2018). From Boundary Line to Boundary Space. *Technovation*, 76-77, 28-39.
+
+Pham, M., et al. (2024). The Any% Method. *AIAA/USU Conference on Small Satellites*.
+
+Cho, M., et al. (2022). Program Management for Sustainable University CubeSat Programs. *AIAA/USU Conference on Small Satellites*.
+
+---
+
+## Collaboration
+
+**Elizabeth Osborn** | Cal Poly Pomona
+[eosborn@cpp.edu](mailto:eosborn@cpp.edu)
+Open to research collaboration, data partnerships, and graduate program discussions.
+
+[View GitHub Repository →](https://github.com/Lizo-RoadTown/Portfolio)
 

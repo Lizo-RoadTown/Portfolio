@@ -9,154 +9,56 @@ FRAMES uses AI agents to interpret team activities, support documentation, and r
 
 ---
 
-## Why Agents?
+## The Problem
 
-Team leads are overwhelmed. They're responsible for:
-
-- Technical work on the mission
-- Training new team members  
-- Documenting decisions and procedures
-- Coordinating across subsystems
-- Managing handoffs as people leave
-
-This is unsustainable. Critical knowledge goes undocumented because there's no time. Handoffs fail because capturing institutional knowledge takes effort that competes with technical work.
+Team leads are overwhelmed—responsible for technical work, training, documentation, coordination, and handoff management. Critical knowledge goes undocumented because there's no time.
 
 **FRAMES agents help by:**
-- Extracting knowledge from natural team activities
+
+- Extracting knowledge from team activities
 - Drafting documentation for human review
-- Identifying patterns and potential issues
-- Reducing the administrative burden on technical leads
+- Identifying patterns and risks
+- Reducing administrative burden
 
 ---
 
-## Agent Architecture
+## Three-Level Architecture
 
-FRAMES agents operate at three autonomy levels, with human control at every stage:
+FRAMES agents operate at three autonomy levels with human oversight:
 
-```mermaid
-flowchart TB
-    subgraph ALPHA["ALPHA AGENTS"]
-        A1["Read-only observation"]
-        A2["Pattern recognition"]
-        A3["Analysis and reporting"]
-    end
-    
-    subgraph BETA["BETA AGENTS"]
-        B1["Draft suggestions"]
-        B2["Propose documentation"]
-        B3["Flag potential issues"]
-    end
-    
-    subgraph GAMMA["GAMMA AGENTS"]
-        G1["Controlled actions"]
-        G2["Human approval required"]
-        G3["Audit logged"]
-    end
-    
-    ALPHA -->|insights| BETA
-    BETA -->|proposals| GAMMA
-```
+| Agent Level | Role | Autonomy | Example |
+|-------------|------|----------|---------|
+| **Alpha** | Observation | None | Analyze patterns, generate reports |
+| **Beta** | Drafting | Low | Propose documentation, flag risks |
+| **Gamma** | Execution | Medium | Update records (with approval), trigger notifications |
 
-| Agent Level | Role | Autonomy | Example Actions |
-|-------------|------|----------|-----------------|
-| **Alpha** | Observation | None | Read documentation, analyze patterns, generate reports |
-| **Beta** | Drafting | Low | Propose documentation updates, suggest procedures, flag risks |
-| **Gamma** | Execution | Medium | Update records with approval, trigger notifications, schedule reminders |
+All actions are logged and audited. Nothing changes without human approval.
 
 ---
 
-## Workflow Orchestration
+## Workflow (LangGraph-Powered)
 
-Agents follow a controlled workflow powered by LangGraph:
+Four-stage workflow: **Explore** → **Draft** → **Execute** → **Commit**
 
-```mermaid
-graph TB
-    subgraph EXPLORE["EXPLORATION MODE"]
-        E1[Agent reads sources]
-        E2[Analyzes context]
-        E3[Identifies patterns]
-        E1 --> E2 --> E3
-    end
-    
-    subgraph DRAFT["DRAFTING MODE"]
-        D1[Proposes changes]
-        D2[Changes staged]
-        D3[Not committed]
-        D1 --> D2 --> D3
-    end
-    
-    subgraph EXECUTE["EXECUTION MODE"]
-        X1[Human reviews]
-        X2[Human approves]
-        X3[Changes applied]
-        X1 --> X2 --> X3
-    end
-    
-    subgraph COMMIT["COMMIT MODE"]
-        C1[Validator verifies]
-        C2[Audit log written]
-        C3[Finalized]
-        C1 --> C2 --> C3
-    end
-    
-    EXPLORE --> DRAFT
-    DRAFT --> EXECUTE
-    EXECUTE --> COMMIT
-```
+1. **Explore** — Agent reads sources, analyzes context, identifies patterns
+2. **Draft** — Agent proposes changes (staged, not committed)
+3. **Execute** — Human reviews and approves
+4. **Commit** — Validator verifies, audit log written, finalized
 
-**Nothing changes without human approval.** Agents propose, humans decide.
+Agents propose. Humans decide.
 
 ---
 
 ## What Agents Do
 
-### Knowledge Extraction
+**Knowledge Extraction:**
+Parse team activities (meeting notes, GitHub commits, design reviews) → identify procedures and decisions → draft documentation (SOPs, decision records, handoff guides).
 
-Agents read team activities and extract knowledge that would otherwise go undocumented:
+**Risk Detection:**
+Monitor for knowledge concentration, inactive interfaces, upcoming departures without handoff plans, and siloed expertise.
 
-```mermaid
-flowchart TB
-    subgraph INPUT["TEAM ACTIVITIES"]
-        A1["Meeting notes"]
-        A2["Slack messages"]
-        A3["GitHub commits"]
-        A4["Design reviews"]
-    end
-    
-    subgraph PROCESS["AGENT PROCESSING"]
-        B1["Parse & understand"]
-        B2["Identify procedures"]
-        B3["Extract decisions"]
-        B4["Draft documentation"]
-    end
-    
-    subgraph OUTPUT["CAPTURED KNOWLEDGE"]
-        C1["Standard Operating Procedures"]
-        C2["Decision Records"]
-        C3["Handoff Guides"]
-        C4["Risk Flags"]
-    end
-    
-    INPUT --> PROCESS --> OUTPUT
-```
-
-### Risk Detection
-
-Alpha agents continuously monitor for structural risks:
-
-- Knowledge concentrating in too few people
-- Interfaces that haven't been active recently
-- Upcoming departures without handoff plans
-- Siloed expertise with no documentation
-
-### Documentation Support
-
-Beta agents draft documentation based on observed activities:
-
-- Convert meeting notes into structured procedures
-- Propose updates to existing documentation when practices change
-- Generate handoff checklists based on departing member's activities
-- Create onboarding guides based on common questions
+**Documentation Support:**
+Convert meeting notes to structured procedures, propose updates when practices change, generate handoff checklists, create onboarding guides from common questions.
 
 ---
 
@@ -216,6 +118,13 @@ Agents are tools to reduce burden, not replacements for human judgment.
 
 ## Technical Details
 
-For implementation details, API documentation, and integration guides:
+For implementation, API documentation, and integration:
+[Technical Documentation →](/Portfolio/technical/) | [GitHub Repository](https://github.com/Lizo-RoadTown/Portfolio)
 
-[See Technical Documentation →](/Portfolio/technical/)
+---
+
+## Contact
+
+**Elizabeth Osborn** | Cal Poly Pomona
+[eosborn@cpp.edu](mailto:eosborn@cpp.edu)
+Available for technical discussions and collaboration.
