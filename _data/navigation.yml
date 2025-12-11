@@ -1,19 +1,17 @@
 header:
   - title: Home
     url: /
-  - title: For Researchers
+  - title: Researchers
     url: /researchers/
-  - title: For Administrators
+  - title: Administrators
     url: /administrators/
-  - title: For Technical Leads
+  - title: Technical
     url: /technical/
-  - title: Features
-    children:
-      - title: Predictive Model
-        url: /predictive-model/
-      - title: AI Agents
-        url: /agents/
-      - title: Onboarding & Learning
-        url: /onboarding/
-      - title: Team Lead Tools
-        url: /team-tools/
+  - title: Model
+    url: /predictive-model/
+  - title: Agents
+    url: /agents/
+  - title: Onboarding
+    url: /onboarding/
+  - title: Team Tools
+    url: /team-tools/
