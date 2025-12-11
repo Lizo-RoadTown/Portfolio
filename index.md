@@ -2,14 +2,12 @@
 layout: article
 title: FRAMES
 key: page-home
-header:
-  theme: dark
-  background: 'linear-gradient(135deg, rgba(30, 30, 46, 0.9), rgba(30, 30, 46, 0.7))'
 article_header:
   type: overlay
   theme: dark
   background_color: '#1e1e2e'
   background_image:
+    gradient: 'linear-gradient(135deg, rgba(30, 30, 46, 0.8), rgba(30, 30, 46, 0.6))'
     src: /Portfolio/assets/images/hero-banner.png
 ---
 
