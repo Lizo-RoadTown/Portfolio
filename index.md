@@ -21,9 +21,11 @@ article_header:
 
 > **Can we predict mission success or failure based on organizational structure?**
 
-University space programs train the next generation of aerospace engineers while delivering real NASA-contracted missions. Yet structural challenges—student rotation, knowledge handoffs, team interface maintenance—limit documented success rates to 12-15%.
+Emergent technology development—where requirements evolve, solutions aren't predetermined, and teams must adapt continuously—is notoriously difficult to predict using traditional project management approaches.
 
-These programs provide an ideal research environment: real stakes, fully observable structure, clear success metrics. Insights developed here apply directly to NASA centers, commercial space companies, startups, and R&D organizations facing similar knowledge continuity challenges.
+University space programs provide a rare opportunity: real NASA-contracted missions with high stakes, fully observable team structures, measurable outcomes, and natural knowledge-transfer challenges from student rotation. These characteristics make them ideal environments for developing and validating predictive models for emergent technology projects.
+
+Models trained on university programs apply directly to NASA centers, commercial space companies, R&D labs, and any organization building complex technology with evolving requirements and rotating personnel.
 
 ---
 
