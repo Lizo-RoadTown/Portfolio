@@ -52,21 +52,21 @@ graph LR
 
 ## Who Uses FRAMES
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;">
+<div class="card-grid card-grid-3">
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>Researchers</h3>
 <p>Study organizational resilience using instrumented engineering teams as your research environment.</p>
 <p><a href="/Portfolio/researchers/">Learn more →</a></p>
 </div>
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>Program Administrators</h3>
 <p>Identify and address organizational vulnerabilities before they cause mission failure.</p>
 <p><a href="/Portfolio/administrators/">Learn more →</a></p>
 </div>
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>Technical Leads</h3>
 <p>Understand the architecture, API, and implementation details for integration.</p>
 <p><a href="/Portfolio/technical/">Learn more →</a></p>
@@ -92,27 +92,27 @@ graph LR
 
 ## Key Features
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 2rem 0;">
+<div class="card-grid card-grid-2">
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>Predictive Model</h3>
 <p>Uses Herbert Simon's research on complex systems to predict mission success based on organizational structure.</p>
 <p><a href="/Portfolio/predictive-model/">Learn more →</a></p>
 </div>
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>AI Agents</h3>
 <p>Extract knowledge from team activities and draft documentation—with human oversight at every step.</p>
 <p><a href="/Portfolio/agents/">Learn more →</a></p>
 </div>
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>Onboarding & Learning</h3>
 <p>Adaptive learning paths that reduce time-to-productivity for new team members.</p>
 <p><a href="/Portfolio/onboarding/">Learn more →</a></p>
 </div>
 
-<div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
+<div class="card">
 <h3>Team Lead Tools</h3>
 <p>Reduce burden on team leads with automated handoff management and documentation support.</p>
 <p><a href="/Portfolio/team-tools/">Learn more →</a></p>
