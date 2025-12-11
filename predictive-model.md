@@ -7,9 +7,9 @@ permalink: /predictive-model/
 
 **FRAMES predicts mission success for emergent technology projects by mapping organizational structure.**
 
-Emergent technology—where requirements evolve during development and solutions aren't predetermined—resists traditional prediction methods. University space programs provide high-stakes, real-world environments ideal for both training predictive models and applying them to improve program outcomes: NASA-contracted missions with observable team structures, documented outcomes, and controlled knowledge-transfer challenges from student rotation.
+Emergent technology—where requirements evolve during development and solutions aren't predetermined—resists traditional prediction methods. University space programs provide high-stakes, real-world environments ideal for developing predictive frameworks that program administrators can adapt to their own contexts: NASA-contracted missions with observable team structures, documented outcomes, and controlled knowledge-transfer challenges from student rotation.
 
-By measuring organizational structure in these environments, FRAMES develops models that serve dual purposes: advancing predictive methods for emergent technology research, and providing program administrators with actionable tools for managing mission-critical projects.
+By measuring organizational structure in these environments, FRAMES develops frameworks that serve dual purposes: advancing prediction methods for emergent technology research, and providing diagnostic dimensions that enable program administrators to model their own organizations and improve mission success probabilities.
 
 ---
 

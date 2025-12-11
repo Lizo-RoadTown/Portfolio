@@ -23,9 +23,9 @@ article_header:
 
 Emergent technology development—where requirements evolve, solutions aren't predetermined, and teams must adapt continuously—is notoriously difficult to predict using traditional project management approaches.
 
-University space programs provide a rare opportunity: real NASA-contracted missions with high stakes, fully observable team structures, measurable outcomes, and natural knowledge-transfer challenges from student rotation. These characteristics make them ideal environments for both developing predictive models (research) and applying those models to improve program management (practice).
+University space programs provide a rare opportunity: real NASA-contracted missions with high stakes, fully observable team structures, measurable outcomes, and natural knowledge-transfer challenges from student rotation. These characteristics make them ideal environments for both developing predictive frameworks (research) and enabling program administrators to build their own predictive models (practice).
 
-Models trained here serve dual purposes: advancing prediction methods for emergent technology research, and providing actionable insights for program administrators managing complex projects with rotating personnel.
+The research yields dual contributions: novel prediction methods and theoretical frameworks for emergent technology, and diagnostic dimensions that program administrators can use to model their own organizations and improve mission success probabilities.
 
 ---
 
