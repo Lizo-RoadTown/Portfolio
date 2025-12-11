@@ -7,3 +7,13 @@ header:
     url: /administrators/
   - title: For Technical Leads
     url: /technical/
+  - title: Features
+    children:
+      - title: Predictive Model
+        url: /predictive-model/
+      - title: AI Agents
+        url: /agents/
+      - title: Onboarding & Learning
+        url: /onboarding/
+      - title: Team Lead Tools
+        url: /team-tools/

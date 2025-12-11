@@ -7,6 +7,13 @@ permalink: /researchers/
 
 FRAMES provides a research platform for studying **organizational resilience in complex engineering environments**. This page describes the theoretical framework, methodology, and research capabilities.
 
+<div style="border: 1px solid #fc6423; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+<strong>Quick Links:</strong> 
+<a href="/Portfolio/predictive-model/">The Predictive Model</a> · 
+<a href="/Portfolio/agents/">AI Agents</a> · 
+<a href="/Portfolio/technical/">Technical Architecture</a>
+</div>
+
 ---
 
 ## The Research Question

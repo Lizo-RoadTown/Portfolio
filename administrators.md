@@ -5,19 +5,20 @@ key: page-administrators
 permalink: /administrators/
 ---
 
-FRAMES helps program administrators **identify and address organizational vulnerabilities** before they cause mission failure. This page describes how FRAMES supports program continuity, knowledge transfer, and risk management.
+FRAMES provides program administrators with **predictive capacity, onboarding support, team lead workload reduction, and comprehensive knowledge management** for complex engineering programs.
 
 ---
 
-## The Problem
+## The Challenge
 
-University engineering programs face persistent structural challenges:
+University engineering programs—especially those with NASA contracts—face structural challenges that cause mission failure:
 
 | Challenge | Impact |
 |-----------|--------|
 | **Knowledge Loss** | Critical expertise disappears every semester with graduating students |
-| **Weak Interfaces** | Connections between subsystems degrade without active maintenance |
-| **Temporal Misalignment** | Academic calendars don't match project timelines |
+| **Overwhelmed Team Leads** | Technical work competes with training, documentation, and coordination |
+| **Steep Learning Curves** | New members take too long to become productive |
+| **Invisible Degradation** | Interface failures aren't visible until missions fail |
 | **Classification Gaps** | Programs operate in boundary spaces without clear institutional support |
 
 88% of university CubeSat programs fail to persist long enough to achieve mission success. These failures are structural, not technical.
@@ -26,13 +27,130 @@ University engineering programs face persistent structural challenges:
 
 ## What FRAMES Provides
 
-### Organizational Mapping
+### 1. Predictive Capacity
 
-FRAMES instruments your program to visualize:
+Know where your program is vulnerable **before** failures occur.
 
-- **Who holds critical knowledge** — Identify single points of failure
-- **Interface strength** — See which connections between teams are weak
-- **Knowledge distribution** — Track how expertise is spread across cohorts
+The [Predictive Model](/Portfolio/predictive-model/) uses Herbert Simon's research on complex systems to identify structural risks:
+
+| Risk Factor | What You Learn |
+|-------------|----------------|
+| **Interface fragility** | Which connections between teams will fail under stress |
+| **Knowledge concentration** | Single points of failure—people whose departure would be catastrophic |
+| **Transition risk** | What breaks when key people leave |
+| **Subsystem isolation** | Which teams aren't communicating enough |
+| **Mission success probability** | Overall likelihood given current structure |
+
+```mermaid
+graph TB
+    subgraph MEASURE["MEASURE STRUCTURE"]
+        M1["Map interfaces"]
+        M2["Assess bond strength"]
+        M3["Track knowledge distribution"]
+    end
+    
+    subgraph PREDICT["PREDICT RISKS"]
+        P1["Interface fragility"]
+        P2["Knowledge concentration"]
+        P3["Transition vulnerabilities"]
+    end
+    
+    subgraph INTERVENE["DESIGN INTERVENTIONS"]
+        I1["Reinforce weak interfaces"]
+        I2["Distribute critical knowledge"]
+        I3["Structure handoffs"]
+    end
+    
+    MEASURE --> PREDICT --> INTERVENE
+```
+
+[Learn more about the Predictive Model →](/Portfolio/predictive-model/)
+
+---
+
+### 2. Onboarding & Learning Support
+
+Reduce time-to-productivity for new team members.
+
+The [Onboarding System](/Portfolio/onboarding/) provides:
+
+- **Adaptive learning paths** — Personalized to each learner's background and role
+- **Scaffolded skill building** — From foundations to project-specific knowledge
+- **Just-in-time support** — Information when learners need it, not all upfront
+- **Competency validation** — Confirm understanding before advancing
+
+| Before FRAMES | With FRAMES |
+|---------------|-------------|
+| Team leads train each person individually | Structured system handles foundational training |
+| Inconsistent quality depending on trainer | Consistent, validated learning paths |
+| Same questions answered repeatedly | Common questions handled systematically |
+| Training competes with technical work | Team leads focus on project-specific context |
+
+[Learn more about Onboarding →](/Portfolio/onboarding/)
+
+---
+
+### 3. Team Lead Workload Reduction
+
+Stop burning out your most valuable people.
+
+The [Team Lead Tools](/Portfolio/team-tools/) help team leads:
+
+- **Capture knowledge without extra work** — Extract documentation from existing activities
+- **Manage handoffs systematically** — Automated checklists, gap detection, verification
+- **Document decisions with context** — Why, not just what
+- **See risks before they hit** — Knowledge concentration, upcoming departures, weak interfaces
+
+```mermaid
+flowchart TB
+    subgraph BEFORE["WITHOUT FRAMES"]
+        B1["Training competes with technical work"]
+        B2["Documentation falls behind"]
+        B3["Handoffs are incomplete"]
+        B4["Knowledge walks out the door"]
+    end
+    
+    subgraph AFTER["WITH FRAMES"]
+        A1["System handles foundational training"]
+        A2["Agents draft documentation from activities"]
+        A3["Handoffs are tracked and verified"]
+        A4["Knowledge is captured and preserved"]
+    end
+```
+
+[Learn more about Team Lead Tools →](/Portfolio/team-tools/)
+
+---
+
+### 4. AI-Assisted Knowledge Management
+
+[AI Agents](/Portfolio/agents/) reduce administrative burden while keeping humans in control:
+
+| Agent Level | What It Does | Human Control |
+|-------------|--------------|---------------|
+| **Alpha** | Observes activities, recognizes patterns, generates reports | Read-only—no actions |
+| **Beta** | Drafts documentation, suggests procedures, flags risks | Proposes only—humans approve |
+| **Gamma** | Executes approved actions, sends notifications | Acts only with explicit approval |
+
+**Nothing changes without human approval.** Agents propose, humans decide.
+
+Example workflows:
+
+- Agent notices an undocumented procedure mentioned in meeting notes → drafts SOP for review
+- Agent detects knowledge concentration → flags for administrator attention
+- Agent sees upcoming graduation → generates handoff checklist from member's activities
+
+[Learn more about AI Agents →](/Portfolio/agents/)
+
+---
+
+## Organizational Visibility
+
+See your program's structure clearly:
+
+### Interface Mapping
+
+Visualize all connections between modules:
 
 ```mermaid
 graph TB
@@ -53,72 +171,15 @@ graph TB
     O1 -.->|handoff| I1
 ```
 
-### Risk Prediction
+### Dashboard Metrics
 
-The diagnostic framework identifies vulnerabilities across six dimensions:
-
-| Dimension | What We Measure |
-|-----------|-----------------|
-| **Actor Autonomy** | Are teams operating too independently with conflicting objectives? |
-| **Partitioned Knowledge** | Is expertise siloed without integration mechanisms? |
-| **Emergent Outputs** | Are goals shifting or undefined during development? |
-| **Temporal Misalignment** | Do timelines differ across teams and institutions? |
-| **Integration Cost** | Is coordination effort sustainable? |
-| **Coupling Degradation** | Are planned interfaces still occurring? |
-
-### Knowledge Continuity Tools
-
-#### Team Lead Workspace
-
-A Notion-based workspace for team leads to:
-
-- Document decisions and rationale
-- Capture procedures as they develop
-- Track handoff status across cohorts
-- Flag at-risk knowledge before people leave
-
-#### Automated Documentation
-
-FRAMES agents help extract and preserve knowledge:
-
-```mermaid
-flowchart TB
-    subgraph INPUT["TEAM LEAD INPUT"]
-        A1["Meeting notes"]
-        A2["Voice memos"]
-        A3["Slack messages"]
-    end
-    
-    subgraph PROCESS["FRAMES PROCESSING"]
-        B1["Parse & Extract"]
-        B2["Identify Procedures"]
-        B3["Format Documentation"]
-    end
-    
-    subgraph OUTPUT["PRESERVED KNOWLEDGE"]
-        C1["Standard Operating Procedures"]
-        C2["Decision Records"]
-        C3["Handoff Guides"]
-    end
-    
-    INPUT --> PROCESS --> OUTPUT
-```
-
----
-
-## What the Model Predicts
-
-FRAMES analyzes organizational structure to predict:
-
-| Risk Factor | What It Tells You |
-|-------------|-------------------|
-| **Interface fragility** | Which connections between teams will fail under stress |
-| **Knowledge concentration** | Single points of failure where expertise is too centralized |
-| **Transition risk** | What breaks when key people leave |
-| **Subsystem isolation** | Which teams aren't communicating enough |
-| **Mission success probability** | Overall likelihood given current structure |
-
-This isn't abstract—it's actionable intelligence about where your program is vulnerable.
+| Metric | What It Tells You |
+|--------|-------------------|
+| **Knowledge concentration** | Who holds critical expertise |
+| **Interface health** | Which team connections are strong, which are degrading |
+| **Handoff status** | Are transitions being managed |
+| **Onboarding progress** | How quickly new members reach productivity |
+| **Documentation coverage** | What's captured vs. what's at risk |
 
 ---
 
@@ -128,24 +189,26 @@ FRAMES tracks three types of interfaces:
 
 | Interface Type | Description | Risk |
 |----------------|-------------|------|
-| **Concurrent** | Between active modules working in parallel | Coordination failures |
-| **External** | Connecting to outside institutional modules | Dependency on external support |
+| **Concurrent** | Between active teams working in parallel | Coordination failures |
+| **External** | Connecting to outside institutions | Dependency on external support |
 | **Intergenerational** | Linking outgoing and incoming cohorts | Knowledge loss during handoffs |
 
 Intergenerational interfaces are the most fragile—this is where knowledge transfer fails most often.
 
 ---
 
-## Knowledge Types
+## Six Diagnostic Dimensions
 
-Understanding what kind of knowledge is at risk helps prioritize interventions:
+Risk assessment across six dimensions:
 
-| Knowledge Type | Description | How to Preserve |
-|----------------|-------------|-----------------|
-| **Codified** | Documented, transferable independent of individuals | Documentation, repositories, design reviews |
-| **Institutional** | Tacit, experience-based, held by individuals | Mentorship, overlap periods, structured handoffs |
-
-Institutional knowledge requires **time and presence** to transfer. If a senior member graduates with no overlap with their replacement, that knowledge is lost.
+| Dimension | What We Measure |
+|-----------|-----------------|
+| **Actor Autonomy** | Are teams operating too independently with conflicting objectives? |
+| **Partitioned Knowledge** | Is expertise siloed without integration mechanisms? |
+| **Emergent Outputs** | Are goals shifting or undefined during development? |
+| **Temporal Misalignment** | Do timelines differ across teams and institutions? |
+| **Integration Cost** | Is coordination effort sustainable? |
+| **Coupling Degradation** | Are planned interfaces still occurring? |
 
 ---
 
@@ -193,4 +256,3 @@ To discuss implementing FRAMES in your program:
 **Project Lead:** Elizabeth Osborn  
 **Email:** [eosborn@cpp.edu](mailto:eosborn@cpp.edu)  
 **Institution:** Cal Poly Pomona
-
