@@ -95,25 +95,25 @@ graph LR
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 2rem 0;">
 
 <div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
-<h3>🔮 Predictive Model</h3>
+<h3>Predictive Model</h3>
 <p>Uses Herbert Simon's research on complex systems to predict mission success based on organizational structure.</p>
 <p><a href="/Portfolio/predictive-model/">Learn more →</a></p>
 </div>
 
 <div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
-<h3>🤖 AI Agents</h3>
+<h3>AI Agents</h3>
 <p>Extract knowledge from team activities and draft documentation—with human oversight at every step.</p>
 <p><a href="/Portfolio/agents/">Learn more →</a></p>
 </div>
 
 <div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
-<h3>📚 Onboarding & Learning</h3>
+<h3>Onboarding & Learning</h3>
 <p>Adaptive learning paths that reduce time-to-productivity for new team members.</p>
 <p><a href="/Portfolio/onboarding/">Learn more →</a></p>
 </div>
 
 <div style="border: 1px solid #fc6423; padding: 1.5rem; border-radius: 8px;">
-<h3>🛠️ Team Lead Tools</h3>
+<h3>Team Lead Tools</h3>
 <p>Reduce burden on team leads with automated handoff management and documentation support.</p>
 <p><a href="/Portfolio/team-tools/">Learn more →</a></p>
 </div>

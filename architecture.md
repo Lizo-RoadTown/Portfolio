@@ -23,7 +23,7 @@ flowchart TB
         B[Notion workspaces · GitHub · Manual entry]
     end
     
-    subgraph INT["🤖 INTERPRETATION / AGENT LAYER"]
+    subgraph INT["INTERPRETATION / AGENT LAYER"]
         C[LangChain · LangGraph · MCP servers]
     end
     
