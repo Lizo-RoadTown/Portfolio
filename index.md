@@ -8,7 +8,7 @@ article_header:
   background_color: '#1e1e2e'
   background_image:
     gradient: 'linear-gradient(135deg, rgba(30, 30, 46, 0.8), rgba(30, 30, 46, 0.6))'
-    src: /Portfolio/assets/images/hero-banner.png
+    src: /assets/images/hero-banner.png
 ---
 
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)
