@@ -117,23 +117,39 @@ Ensures data quality and system consistency:
 
 ### Workflow Orchestration (LangGraph)
 
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                     EXPLORATION MODE                            │
-│          Interpreter reads, analyzes, suggests                  │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                      DRAFTING MODE                              │
-│        Builder proposes changes (staged, not committed)         │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                     EXECUTION MODE                              │
-│         Human approves → Changes applied to database            │
-│                            ↓                                    │
-├─────────────────────────────────────────────────────────────────┤
-│                       COMMIT MODE                               │
-│       Validator verifies → Audit log → Finalization             │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph EXPLORE["EXPLORATION MODE"]
+        E1[Interpreter reads]
+        E2[Analyzes context]
+        E3[Suggests actions]
+        E1 --> E2 --> E3
+    end
+    
+    subgraph DRAFT["DRAFTING MODE"]
+        D1[Builder proposes changes]
+        D2[Changes staged]
+        D3[Not committed]
+        D1 --> D2 --> D3
+    end
+    
+    subgraph EXECUTE["EXECUTION MODE"]
+        X1[Human reviews]
+        X2[Human approves]
+        X3[Changes applied to database]
+        X1 --> X2 --> X3
+    end
+    
+    subgraph COMMIT["COMMIT MODE"]
+        C1[Validator verifies]
+        C2[Audit log written]
+        C3[Finalization]
+        C1 --> C2 --> C3
+    end
+    
+    EXPLORE --> DRAFT
+    DRAFT --> EXECUTE
+    EXECUTE --> COMMIT
 ```
 
 ### MCP Server Integration (LangChain)
