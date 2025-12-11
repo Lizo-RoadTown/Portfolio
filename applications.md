@@ -90,21 +90,45 @@ Team leads in university space labs face an impossible cycle: every semester, st
 Team leads drop notes, meeting minutes, or quick voice memos. FRAMES agents extract procedures and generate formatted Standard Operating Procedures automatically:
 
 ```mermaid
-flowchart LR
-    subgraph INPUT["📝 Team Lead Input"]
-        A["Meeting notes about thermal vacuum testing..."]
+flowchart TB
+    subgraph INPUT["📝 TEAM LEAD INPUT"]
+        A1["Meeting notes"]
+        A2["Voice memos"]
+        A3["Slack messages"]
+        A4["Email threads"]
     end
     
-    subgraph FRAMES["⚙️ FRAMES Processing"]
-        B[Extract procedures]
-        C[Format SOP]
+    subgraph FRAMES["⚙️ FRAMES PROCESSING"]
+        B1["Parse & Extract"]
+        B2["Identify Procedures"]
+        B3["Structure Steps"]
+        B4["Add Safety Warnings"]
+        B5["Format & Style"]
     end
     
-    subgraph OUTPUT["📄 Generated SOP"]
-        D["Thermal Vacuum Testing Procedure"]
+    subgraph OUTPUT["📄 GENERATED SOP"]
+        C1["Thermal Vacuum Testing"]
+        C2["Step 1: Pre-check chamber"]
+        C3["Step 2: Load specimen"]
+        C4["Step 3: Pump down sequence"]
+        C5["Step 4: Temperature cycling"]
+        C6["Step 5: Data collection"]
     end
     
-    INPUT --> FRAMES --> OUTPUT
+    A1 --> B1
+    A2 --> B1
+    A3 --> B1
+    A4 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> B5
+    B5 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
+    C4 --> C5
+    C5 --> C6
 ```
 
 #### Automated Documentation
