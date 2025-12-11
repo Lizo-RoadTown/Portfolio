@@ -111,62 +111,123 @@ FRAMES is operationalizing Herbert Simon's research on complex organizations int
 
 ```mermaid
 graph TB
-    subgraph POWER["⚡ POWER SUBSYSTEM"]
-        P1((Engineer A<br/>Lead))
-        P2((Engineer B))
-        P3((Engineer C))
-        P1 -->|strong| P2
-        P1 -->|strong| P3
-        P2 -->|moderate| P3
+    subgraph PEOPLE["👥 KNOWLEDGE HOLDERS"]
+        P1((Power Lead))
+        P2((Comms Lead))
+        P3((Software Lead))
+        P4((Systems Eng))
+        P5((Junior Eng))
     end
     
-    subgraph COMMS["📡 COMMUNICATIONS"]
-        C1((Engineer D<br/>Lead))
-        C2((Engineer E))
-        C3((Engineer F))
-        C1 -->|strong| C2
-        C2 -->|strong| C3
-        C1 -.->|weak| C3
+    subgraph FORMAL["📋 FORMAL INTERFACES"]
+        F1[Contracts]
+        F2[Requirements Docs]
+        F3[ICDs]
+        F4[Test Procedures]
+        F5[Review Boards]
     end
     
-    subgraph SOFTWARE["💻 SOFTWARE"]
-        S1((Engineer G<br/>Lead))
-        S2((Engineer H))
-        S3((Engineer I))
-        S1 -->|strong| S2
-        S1 -->|strong| S3
-        S2 -->|moderate| S3
+    subgraph TOOLS["🔧 TOOL INTERFACES"]
+        T1[JIRA / Asana]
+        T2[Git Repos]
+        T3[Confluence]
+        T4[Slack Channels]
+        T5[Shared Drives]
     end
     
-    subgraph INTEGRATION["🔧 INTEGRATION"]
-        I1((Systems Lead))
+    subgraph TACIT["💬 TACIT INTERFACES"]
+        X1[Hallway Conversations]
+        X2[Mentorship]
+        X3[Tribal Knowledge]
+        X4[Informal Networks]
+        X5[Institutional Memory]
     end
     
-    P1 -.->|interface| I1
-    C1 -.->|interface| I1
-    S1 -.->|interface| I1
+    subgraph INSTITUTIONAL["🏛️ INSTITUTIONAL SUPPORT"]
+        I1[Funding Lines]
+        I2[Lab Access]
+        I3[Vendor Relationships]
+        I4[University Policies]
+        I5[Safety Protocols]
+    end
+
+    P1 --> F1
+    P1 --> F3
+    P2 --> F2
+    P3 --> T2
+    P4 --> F4
+    P4 --> F5
     
-    P2 -.->|weak interface| C2
-    C3 -.->|weak interface| S2
-    P3 -.->|CRITICAL GAP| S3
+    P1 --> T1
+    P2 --> T4
+    P3 --> T3
+    P5 --> T5
     
-    style P1 fill:#2a5a2a,stroke:#fc6423,stroke-width:3px
-    style C1 fill:#2a5a2a,stroke:#fc6423,stroke-width:3px
-    style S1 fill:#2a5a2a,stroke:#fc6423,stroke-width:3px
-    style I1 fill:#4a4a2a,stroke:#fc6423,stroke-width:4px
-    style S3 fill:#5a2a2a,stroke:#ff0000,stroke-width:3px
-    style P3 fill:#5a2a2a,stroke:#ff0000,stroke-width:3px
+    P1 --> X2
+    P4 --> X1
+    P5 --> X3
+    P2 --> X4
+    P3 --> X5
+    
+    F1 --> I1
+    F2 --> I4
+    T1 --> I2
+    X2 --> I5
+    F4 --> I3
+    
+    P1 -.-> P4
+    P2 -.-> P4
+    P3 -.-> P4
+    P4 -.-> P5
 ```
 
-**The visualization shows:**
+```mermaid
+graph LR
+    subgraph RISK["⚠️ WHEN SOMEONE LEAVES..."]
+        PERSON((Person<br/>Departs))
+        
+        KNOW[Knowledge<br/>They Held]
+        INT[Interfaces<br/>They Maintained]
+        REL[Relationships<br/>They Had]
+        ACCESS[Access<br/>They Provided]
+        
+        PERSON --> KNOW
+        PERSON --> INT
+        PERSON --> REL
+        PERSON --> ACCESS
+    end
+    
+    subgraph BREAK["💥 WHAT BREAKS"]
+        B1[Contract knowledge<br/>undocumented]
+        B2[Tool configurations<br/>unknown]
+        B3[Vendor contacts<br/>lost]
+        B4[Mentorship<br/>ends]
+        B5[Informal networks<br/>severed]
+        B6[Institutional memory<br/>gone]
+    end
+    
+    KNOW --> B1
+    INT --> B2
+    REL --> B3
+    REL --> B4
+    ACCESS --> B5
+    ACCESS --> B6
+```
 
-- **Strong internal bonds** (solid lines) within subsystems
-- **Weak interfaces** (dashed lines) between subsystems  
-- **Critical gaps** where knowledge transfer is at risk
-- **At-risk nodes** (red) where departure would break critical bonds
+**The model captures multiple interface types:**
+
+| Interface Type | Examples | Risk When Lost |
+|----------------|----------|----------------|
+| **Formal** | Contracts, ICDs, Requirements, Review Boards | Compliance gaps, scope creep |
+| **Tool-Based** | JIRA, Git, Confluence, Slack | Configuration knowledge, workflow breaks |
+| **Tacit** | Mentorship, hallway talks, tribal knowledge | Undocumented expertise disappears |
+| **Institutional** | Funding, lab access, vendor relationships | Operational capability loss |
+
+**Key insight:** When someone leaves, they don't just take knowledge—they **break interfaces**. The contract they managed, the vendor they knew, the junior engineer they mentored, the Slack channel they monitored—all become at-risk bonds.
+
 - **Nodes** = People holding localized knowledge
-- **Bonds** = Interfaces (communication, handoffs, dependencies)  
-- **Bond Strength** = Frequency, reciprocity, error recovery
+- **Bonds** = Interface mechanisms (formal, tool-based, tacit, institutional)
+- **Bond Strength** = Frequency, documentation, redundancy, formalization
 - **Subsystems** = Functional clusters with strong internal bonds
 
 When someone leaves an organization, they don't just remove knowledge—they **break bonds**. The model predicts which bond breaks will cause structural failure.
