@@ -106,6 +106,22 @@ flowchart TB
 
 ---
 
+## What the Model Predicts
+
+FRAMES analyzes organizational structure to predict:
+
+| Risk Factor | What It Tells You |
+|-------------|-------------------|
+| **Interface fragility** | Which connections between teams will fail under stress |
+| **Knowledge concentration** | Single points of failure where expertise is too centralized |
+| **Transition risk** | What breaks when key people leave |
+| **Subsystem isolation** | Which teams aren't communicating enough |
+| **Mission success probability** | Overall likelihood given current structure |
+
+This isn't abstract—it's actionable intelligence about where your program is vulnerable.
+
+---
+
 ## Interface Categories
 
 FRAMES tracks three types of interfaces:

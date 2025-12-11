@@ -84,6 +84,27 @@ FRAMES assesses interfaces using six NDA diagnostic dimensions:
 
 ---
 
+## Interface Categories
+
+The research identifies three categories of interfaces:
+
+```mermaid
+graph LR
+    subgraph CONCURRENT["CONCURRENT INTERFACES"]
+        C1[Between active modules<br/>working in parallel]
+    end
+
+    subgraph EXTERNAL["EXTERNAL INTERFACES"]
+        E1[Connecting to outside<br/>institutional modules]
+    end
+
+    subgraph INTERGEN["INTERGENERATIONAL INTERFACES"]
+        G1[Linking outgoing and<br/>incoming cohorts]
+    end
+```
+
+---
+
 ## Knowledge Types at Interfaces
 
 Two primary knowledge-transfer types exist at interfaces, each with different fragility patterns:
@@ -94,6 +115,68 @@ Two primary knowledge-transfer types exist at interfaces, each with different fr
 | **Institutional** | Tacit, experience-based, held by individuals | In-person experience, repetition, mentorship | Prone to degradation |
 
 Interfaces dominated by institutional knowledge are more prone to degradation when personnel rotate out.
+
+---
+
+## Rotational Micro-Modules
+
+In university space labs, the boundary module is internally composed of overlapping, rotational **micro-modules**—student cohorts, sub-teams, and project groups that cycle in and out over time (typically 1-4 semesters).
+
+```mermaid
+graph TB
+    subgraph TIME["TEMPORAL ROTATION"]
+        direction LR
+        T1["Semester 1"]
+        T2["Semester 2"]
+        T3["Semester 3"]
+        T4["Semester 4"]
+    end
+
+    subgraph INCOMING["INCOMING COHORT"]
+        I1((New<br/>Members))
+    end
+
+    subgraph ESTABLISHED["ESTABLISHED COHORT"]
+        E1((Active<br/>Members))
+    end
+
+    subgraph OUTGOING["OUTGOING COHORT"]
+        O1((Graduating<br/>Members))
+    end
+
+    I1 -->|onboarding| E1
+    E1 -->|knowledge transfer| O1
+    O1 -.->|handoff| I1
+```
+
+This creates **predictable knowledge-transfer vulnerabilities**:
+
+- Incoming cohorts join mid-project, receiving information they cannot immediately act on
+- Middle cohorts pass along knowledge tied only to their current project phase
+- Outgoing cohorts graduate before projects complete, leaving incomplete work and undocumented context
+
+---
+
+## What the Model Predicts
+
+| Risk Factor | Prediction |
+|-------------|------------|
+| **Interface fragility** | Which connections between subsystems will fail under stress |
+| **Knowledge concentration** | Single points of failure where expertise is too centralized |
+| **Transition risk** | What breaks when key people leave |
+| **Subsystem isolation** | Which teams aren't communicating enough |
+| **Mission success probability** | Overall likelihood given current structure |
+
+---
+
+## Broader Implications
+
+If the model works here, it applies directly to:
+
+- NASA centers and commercial space programs
+- Startup engineering teams
+- R&D laboratories
+- Any organization undertaking complex emergent technology missions
 
 ---
 

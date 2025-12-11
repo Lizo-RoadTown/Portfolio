@@ -76,6 +76,18 @@ graph LR
 
 ---
 
+## What the Model Predicts
+
+| Risk Factor | Prediction |
+|-------------|------------|
+| **Interface fragility** | Which connections between subsystems will fail under stress |
+| **Knowledge concentration** | Single points of failure where expertise is too centralized |
+| **Transition risk** | What breaks when key people leave |
+| **Subsystem isolation** | Which teams aren't communicating enough |
+| **Mission success probability** | Overall likelihood given current structure |
+
+---
+
 ## Why University Space Labs?
 
 University CubeSat programs are the ideal research environment:
