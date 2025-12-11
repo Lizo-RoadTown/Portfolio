@@ -10,20 +10,20 @@
       securityLevel: 'loose',
       flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
       themeVariables: {
-        primaryColor: '#2a2a3e',
+        primaryColor: 'transparent',
         primaryTextColor: '#ffffff',
         primaryBorderColor: '#fc6423',
         lineColor: '#fc6423',
-        secondaryColor: '#1e1e2e',
-        tertiaryColor: '#252538',
-        background: '#1a1a2e',
-        mainBkg: '#2a2a3e',
-        secondBkg: '#1e1e2e',
+        secondaryColor: 'transparent',
+        tertiaryColor: 'transparent',
+        background: 'transparent',
+        mainBkg: 'transparent',
+        secondBkg: 'transparent',
         nodeBorder: '#fc6423',
-        clusterBkg: '#1e1e2e',
+        clusterBkg: 'transparent',
         clusterBorder: '#fc6423',
         titleColor: '#ffffff',
-        edgeLabelBackground: '#2a2a3e',
+        edgeLabelBackground: 'transparent',
         textColor: '#ffffff',
         nodeTextColor: '#ffffff'
       }
@@ -54,16 +54,16 @@
     max-width: 100%;
     background: transparent;
   }
-  /* Override mermaid colors - orange accents, white text */
+  /* Override mermaid colors - orange accents, white text, transparent backgrounds */
   .mermaid .node rect,
   .mermaid .node polygon,
   .mermaid .node circle {
-    fill: #2a2a3e !important;
+    fill: transparent !important;
     stroke: #fc6423 !important;
     stroke-width: 2px !important;
   }
   .mermaid .cluster rect {
-    fill: #1e1e2e !important;
+    fill: transparent !important;
     stroke: #fc6423 !important;
     stroke-width: 1px !important;
   }
