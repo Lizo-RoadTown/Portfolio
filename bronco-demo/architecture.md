@@ -1,0 +1,417 @@
+---
+layout: article
+title: Architecture - BSL Demo
+key: page-bsl-demo-architecture
+permalink: /bronco-demo/architecture/
+---
+
+<div style="font-size: 0.9em; margin-bottom: 2em;">
+<a href="/Portfolio/bronco-demo/solution/">← 2. The Solution</a> | <strong>3. Architecture</strong> | <a href="/Portfolio/bronco-demo/implementation/">4. Implementation →</a>
+</div>
+
+---
+
+# System Architecture: How FRAMES Works
+
+FRAMES uses a six-layer architecture to observe team activities, interpret patterns, and predict mission outcomes.
+
+---
+
+## Six-Layer Architecture
+
+```mermaid
+flowchart TB
+    subgraph RW["LAYER 1: REAL WORLD"]
+        A[Bronco Space Lab Activities<br/>Design reviews · GitHub commits · Team meetings · Documentation]
+    end
+
+    subgraph DO["LAYER 2: DIGITAL OBSERVATION"]
+        B1[Notion Workspace]
+        B2[GitHub Repositories]
+        B3[Direct Entry Forms]
+    end
+
+    subgraph INT["LAYER 3: INTERPRETATION (AI AGENTS)"]
+        C1[Alpha: Read & Analyze]
+        C2[Beta: Draft Suggestions]
+        C3[Gamma: Execute with Approval]
+    end
+
+    subgraph CAN["LAYER 4: CANONICAL DATA"]
+        D[PostgreSQL Database<br/>37+ Tables · Team structure · Knowledge maps · Risk scores]
+    end
+
+    subgraph APP["LAYER 5: APPLICATIONS"]
+        E1[Student LMS]
+        E2[Team Dashboard]
+        E3[Analytics Platform]
+    end
+
+    subgraph GOV["LAYER 6: GOVERNANCE"]
+        F[Audit Trails · FERPA Compliance · Access Control · Circuit Breakers]
+    end
+
+    RW --> DO
+    DO --> INT
+    INT --> CAN
+    CAN --> APP
+    APP --> GOV
+
+    style RW fill:#1e3a8a,stroke:#1e40af,color:#fff
+    style DO fill:#1e3a8a,stroke:#1e40af,color:#fff
+    style INT fill:#7c2d12,stroke:#9a3412,color:#fff
+    style CAN fill:#065f46,stroke:#047857,color:#fff
+    style APP fill:#6366f1,stroke:#4f46e5,color:#fff
+    style GOV fill:#4b5563,stroke:#374151,color:#fff
+```
+
+---
+
+## Layer 1: Real World
+
+**Where authentic engineering activities occur.**
+
+BSL team members:
+- Attend design reviews
+- Commit code to GitHub
+- Document decisions in Notion
+- Hold subsystem meetings
+- Transfer knowledge during handoffs
+
+**FRAMES Observes Without Interfering:**
+No change to workflows. Team works naturally. System learns from existing activities.
+
+---
+
+## Layer 2: Digital Observation
+
+**Captures team activities through digital touchpoints.**
+
+### Data Sources
+
+| Source | What It Captures | Access Method |
+|--------|------------------|---------------|
+| **Notion Workspace** | Meeting notes, decisions, documentation, handoff plans | API (read-only) |
+| **GitHub Organization** | Code commits, PRs, issues, collaboration patterns | API (read-only) |
+| **Direct Entry** | Assessments, surveys, structured observations | Web forms |
+
+**Privacy & Consent:**
+- Students consent to research participation (IRB protocol)
+- Read-only access (agents can't modify Notion/GitHub)
+- FERPA-compliant data handling
+
+---
+
+## Layer 3: Interpretation (AI Agents)
+
+**AI agents interpret observations with mandatory human oversight.**
+
+### Three Agent Types
+
+```mermaid
+flowchart TB
+    subgraph ALPHA["ALPHA AGENT: Exploration"]
+        A1[Read Notion pages]
+        A2[Analyze GitHub activity]
+        A3[Detect patterns]
+        A4[Generate reports]
+        A1 --> A2 --> A3 --> A4
+    end
+
+    subgraph BETA["BETA AGENT: Drafting"]
+        B1[Identify gaps]
+        B2[Draft documentation]
+        B3[Propose interventions]
+        B4{"Human Review<br/>Required"}
+        B1 --> B2 --> B3 --> B4
+    end
+
+    subgraph GAMMA["GAMMA AGENT: Execution"]
+        G1{"Human Approval<br/>Required"}
+        G2[Update database]
+        G3[Publish to LMS]
+        G4[Trigger notifications]
+        G5[Log audit trail]
+        G1 --> G2 --> G3 --> G4 --> G5
+    end
+
+    ALPHA --> BETA
+    B4 -->|Approved| GAMMA
+    B4 -->|Rejected| A1
+    G1 -->|Rejected| B1
+
+    style ALPHA fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    style BETA fill:#f59e0b,stroke:#d97706,color:#fff
+    style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
+```
+
+**Safety Features:**
+- No autonomous database writes
+- All changes require human approval
+- Complete audit trails
+- Rollback capability
+- Circuit breakers for anomalies
+
+### Agent Workflow (LangGraph)
+
+Four-stage process:
+
+1. **Explore** — Agent reads sources, analyzes context
+2. **Draft** — Agent proposes changes (staged, not committed)
+3. **Execute** — Human reviews and approves
+4. **Commit** — Validator verifies, audit log written
+
+**Example:**
+- Alpha reads weekly ADCS meeting notes
+- Detects new torque rod calibration procedure
+- Beta drafts SOP documentation
+- Team lead reviews, makes edits, approves
+- Gamma publishes to knowledge base
+- New members see it in onboarding automatically
+
+---
+
+## Layer 4: Canonical Data
+
+**Single source of truth: Neon PostgreSQL database (37+ tables)**
+
+### Data Model
+
+| Domain | Tables | Purpose |
+|--------|--------|---------|
+| **Organizations** | universities, teams, programs, subsystems | Institutional structure |
+| **People** | users, roles, permissions, cohorts | Identity and membership |
+| **Missions** | missions, phases, milestones, deliverables | Project tracking |
+| **Interfaces** | connections, health_scores, fragility_metrics | Relationship mapping |
+| **Knowledge** | documents, procedures, expertise_areas | What people know |
+| **Learning** | modules, steps, assessments, progress | Educational content |
+| **Analytics** | events, predictions, outcomes, validations | Research data |
+
+### Key Relationships
+
+**Team Structure Map:**
+```
+University → Programs → Missions → Subsystems → Team Members → Roles → Expertise
+```
+
+**Interface Health:**
+```
+Subsystem A ↔ Subsystem B → Interface → Six Diagnostic Dimensions → Risk Score
+```
+
+**Knowledge Distribution:**
+```
+Team Member → Expertise Areas → Documents Created → Handoffs Completed
+```
+
+---
+
+## Layer 5: Applications
+
+**Three user-facing applications built on canonical data.**
+
+### 1. Student LMS (Learning Management System)
+
+**Target Users:** BSL team members (students)
+
+**Features:**
+- Personalized learning paths based on background and role
+- Progress dashboard
+- Competency validation quizzes
+- Graduated hint system
+- Offline-capable (PWA)
+
+**Tech Stack:** React 18, TypeScript, PWA
+
+**BSL Example Path:**
+New ADCS team member → Assessment (prior knowledge) → Foundations (attitude determination basics) → BSL Context (current mission CDR) → ADCS Specifics (magnetometer calibration) → Hands-on (supervised task) → Validation (competency quiz) → Active contributor
+
+---
+
+### 2. Team Dashboard
+
+**Target Users:** Lab director, program managers, team leads
+
+**Features:**
+- Risk visualization (which interfaces are degrading)
+- Knowledge concentration alerts (single points of failure)
+- Handoff status tracking
+- Predicted mission success probability
+- Trend analysis over time
+
+**Metrics Displayed:**
+
+| Widget | Information |
+|--------|-------------|
+| **Risk Heat Map** | Interface fragility scores (color-coded) |
+| **Knowledge Map** | Who knows what; concentration indicators |
+| **Upcoming Transitions** | Departures in next 3-6 months with handoff status |
+| **Onboarding Pipeline** | New member progress through LMS |
+| **Mission Success Gauge** | Current probability with trend arrow |
+
+---
+
+### 3. Analytics Platform
+
+**Target Users:** Researchers, program evaluators
+
+**Features:**
+- Multi-semester data visualization
+- Predictive model validation (predicted vs. actual outcomes)
+- Interface-outcome correlations
+- Cohort performance comparisons
+- Export for publications
+
+**Tech Stack:** Jupyter, MLflow, Apache Superset
+
+---
+
+## Layer 6: Governance
+
+**Ensures compliance, security, and accountability.**
+
+### Compliance
+
+- **FERPA:** Educational data protected, consent required
+- **IRB Approval:** Research protocol approved by university
+- **Data Retention:** Policies for storage and deletion
+- **Access Control:** Role-based permissions (students see LMS; director sees dashboard)
+
+### Audit System
+
+All operations logged:
+- Who accessed what data when
+- All agent actions (proposed and executed)
+- Human approvals/rejections
+- Changes to team structure or knowledge base
+- Predictions made and outcomes observed
+
+**Audit Trail Example:**
+```
+2025-03-15 14:23 | Alpha Agent | READ | CDH meeting notes 2025-03-12
+2025-03-15 14:24 | Beta Agent | DRAFT | SOP for flight software testing
+2025-03-15 16:42 | User: J.Smith | REVIEW | Edited draft, approved
+2025-03-15 16:43 | Gamma Agent | WRITE | Published SOP to knowledge base
+2025-03-15 16:43 | System | NOTIFY | CDH team members notified of new SOP
+```
+
+### Circuit Breakers
+
+Automatic safeguards:
+- Pause agent operations if error rate >5%
+- Block writes if database health check fails
+- Require additional approval for high-risk operations
+- Alert lab director if critical thresholds exceeded
+
+---
+
+## Data Flow: End-to-End Example
+
+**Scenario:** New power budget procedure emerges during design review
+
+```mermaid
+flowchart TB
+    subgraph REAL["Real World"]
+        R1[Power team design review<br/>New procedure discussed]
+    end
+
+    subgraph OBS["Observation"]
+        O1[Meeting notes in Notion]
+    end
+
+    subgraph AGENT["Agent Processing"]
+        A1[Alpha reads notes]
+        A2[Detects new procedure]
+        A3[Beta drafts SOP]
+        A4[Team lead reviews]
+        A5{Approve?}
+    end
+
+    subgraph DATA["Database"]
+        D1[SOP stored]
+        D2[Linked to Power subsystem]
+        D3[Tagged for onboarding]
+    end
+
+    subgraph APP["Applications"]
+        P1[Published to knowledge base]
+        P2[Added to Power onboarding path]
+        P3[Team notified]
+    end
+
+    R1 --> O1 --> A1 --> A2 --> A3 --> A4 --> A5
+    A5 -->|Yes| D1 --> D2 --> D3
+    D3 --> P1 & P2 & P3
+    A5 -->|No| A3
+
+    style REAL fill:#1e3a8a,color:#fff
+    style OBS fill:#1e3a8a,color:#fff
+    style AGENT fill:#7c2d12,color:#fff
+    style DATA fill:#065f46,color:#fff
+    style APP fill:#6366f1,color:#fff
+```
+
+**Timeline:**
+- **Day 1, 2 PM:** Design review happens
+- **Day 1, 4 PM:** Notes published to Notion
+- **Day 1, 6 PM:** Alpha agent processes, Beta drafts SOP
+- **Day 2, 10 AM:** Team lead reviews, approves with edits
+- **Day 2, 10:15 AM:** Published to knowledge base
+- **Day 2, 10:16 AM:** Automatically added to next onboarding cohort's learning path
+
+**Impact:**
+- Knowledge captured within 24 hours
+- No additional work for team lead (just review)
+- New members see it automatically
+- Prevents knowledge loss when current power team graduates
+
+---
+
+## Technology Stack
+
+| Layer | Technology | Maturity | Why Chosen |
+|-------|------------|----------|------------|
+| **Frontend** | React 18, TypeScript | Production | Industry standard, PWA support |
+| **Backend** | Flask 3.0, Python 3.9+ | Production | Rapid development, ML integration |
+| **Database** | Neon PostgreSQL 15+ | Production | Serverless, scalable, relational |
+| **AI/ML** | LangChain, LangGraph | Established | Agent orchestration, tool calling |
+| **LLM** | OpenAI GPT-4 | Production API | Best-in-class reasoning, function calling |
+| **Research** | Jupyter, MLflow, Superset | Academic standard | Data science ecosystem |
+| **Infrastructure** | Docker, GitHub Actions | Production | Containerization, CI/CD |
+
+**Cost Structure:**
+- **Database:** $20/month (Neon serverless, scales with usage)
+- **OpenAI API:** ~$100-200/month (estimated for BSL scale)
+- **Hosting:** $50/month (frontend + backend)
+- **Total:** ~$200/month operating cost
+
+---
+
+## Security & Privacy
+
+### Data Protection
+
+- **Encryption:** At rest and in transit (TLS 1.3)
+- **Authentication:** OAuth 2.0 for user login
+- **Authorization:** Role-based access control (RBAC)
+- **API Keys:** Secure vault storage (not in code)
+
+### Privacy Controls
+
+- **Consent:** Students opt in to research participation
+- **Anonymization:** Research datasets de-identified before export
+- **Access Logging:** All data access audited
+- **Right to Deletion:** Students can request data removal
+
+---
+
+<div style="background: #6366f1; color: white; padding: 1.5em; border-radius: 8px; margin: 2em 0;">
+<h3 style="margin-top: 0; color: white;">Ready to See the Implementation Plan?</h3>
+<p style="margin-bottom: 0;">The next section covers timeline, resources, budget, and phased deployment at BSL.</p>
+</div>
+
+---
+
+<div style="text-align: center; margin-top: 3em; font-size: 1.1em;">
+<a href="/Portfolio/bronco-demo/solution/">← Previous: The Solution</a> | <a href="/Portfolio/bronco-demo/implementation/" style="font-weight: bold;">Next: Implementation →</a>
+</div>
