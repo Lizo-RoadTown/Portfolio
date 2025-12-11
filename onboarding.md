@@ -84,7 +84,7 @@ Rather than front-loading all training, FRAMES provides information when learner
 The Student LMS provides personalized learning experiences:
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph STUDENT["STUDENT EXPERIENCE"]
         S1["Dashboard"]
         S2["Current modules"]
