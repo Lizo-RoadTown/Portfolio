@@ -1,11 +1,9 @@
 header:
   - title: Home
     url: /
-  - title: About
-    url: /about/
-  - title: Architecture
-    url: /architecture/
-  - title: Applications
-    url: /applications/
-  - title: Documentation
-    url: /documentation/
+  - title: For Researchers
+    url: /researchers/
+  - title: For Administrators
+    url: /administrators/
+  - title: For Technical Leads
+    url: /technical/
