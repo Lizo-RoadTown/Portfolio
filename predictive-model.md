@@ -5,11 +5,11 @@ key: page-predictive-model
 permalink: /predictive-model/
 ---
 
-**FRAMES predicts which engineering teams will fail—before they do.**
+**FRAMES predicts mission success by mapping organizational structure.**
 
-University space programs don't fail because of bad engineering. They fail because critical knowledge lives in too few heads, team connections degrade silently, and expertise graduates before projects finish.
+University space programs operate at a critical intersection: training aerospace engineers while delivering NASA-contracted missions. Structural challenges—student rotation, knowledge transfer, interface maintenance—create measurable patterns that correlate with mission outcomes.
 
-If we can measure organizational structure, we can predict where it will break. This is what FRAMES does.
+If we can measure organizational structure, we can predict vulnerabilities before they cause failure. This is what FRAMES does.
 
 ---
 

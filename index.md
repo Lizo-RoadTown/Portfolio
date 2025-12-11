@@ -21,9 +21,9 @@ article_header:
 
 > **Can we predict mission success or failure based on organizational structure?**
 
-University space programs don't fail because of bad engineering—they fail because knowledge concentrates in too few heads, team connections degrade, and expertise graduates before projects finish.
+University space programs train the next generation of aerospace engineers while delivering real NASA-contracted missions. Yet structural challenges—student rotation, knowledge handoffs, team interface maintenance—limit documented success rates to 12-15%.
 
-FRAMES maps organizational structure to predict where teams will break before they do.
+These programs provide an ideal research environment: real stakes, fully observable structure, clear success metrics. Insights developed here apply directly to NASA centers, commercial space companies, startups, and R&D organizations facing similar knowledge continuity challenges.
 
 ---
 
