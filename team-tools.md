@@ -82,32 +82,34 @@ Everything is staged for human review—agents propose, leads approve.
 When team members leave, FRAMES helps ensure knowledge transfers:
 
 ```mermaid
-flowchart LR
-    subgraph DETECT["DETECT"]
+flowchart TB
+    subgraph DETECT["1. DETECT"]
         D1["Departure announced"]
         D2["Agent scans activities"]
         D3["Knowledge map generated"]
     end
     
-    subgraph PLAN["PLAN"]
+    subgraph PLAN["2. PLAN"]
         P1["Handoff checklist created"]
         P2["Overlap period scheduled"]
         P3["Successor identified"]
     end
     
-    subgraph EXECUTE["EXECUTE"]
+    subgraph EXECUTE["3. EXECUTE"]
         E1["Knowledge sessions tracked"]
         E2["Documentation reviewed"]
         E3["Competency validated"]
     end
     
-    subgraph VERIFY["VERIFY"]
+    subgraph VERIFY["4. VERIFY"]
         V1["Gaps identified"]
         V2["Follow-up scheduled"]
         V3["Handoff complete"]
     end
     
-    DETECT --> PLAN --> EXECUTE --> VERIFY
+    DETECT --> PLAN
+    PLAN --> EXECUTE
+    EXECUTE --> VERIFY
 ```
 
 ### Handoff Checklist
