@@ -109,71 +109,64 @@ No change to workflows. Team works naturally. System learns from existing activi
 ### Agent Collaboration & Learning Workflow
 
 ```mermaid
-flowchart TB
-    START([Continuous Monitoring])
+flowchart LR
+    START([Continuous<br/>Monitoring])
 
-    subgraph AUTONOMOUS["AUTONOMOUS OPERATION"]
-        subgraph ALPHA["ALPHA: Exploration"]
-            A1[Monitor data sources]
-            A2[Analyze patterns]
-            A3[Share insights with Beta]
-        end
-
-        subgraph BETA["BETA: Content Generation"]
-            B1[Receive Alpha insights]
-            B2[Access learned patterns<br/>from past approvals]
-            B3[Draft content]
-            B4[Self-evaluate quality]
-            B5{Confidence<br/>Score}
-        end
-
-        subgraph LEARNING["LEARNING MEMORY"]
-            L1[(Past approvals)]
-            L2[(Past rejections)]
-            L3[(Student outcomes)]
-            L4[Pattern recognition]
-        end
+    subgraph ALPHA["ALPHA: Exploration"]
+        A1[Monitor data<br/>sources]
+        A2[Analyze<br/>patterns]
+        A3[Share insights]
     end
 
-    subgraph GAMMA["GAMMA: Publication (Human-in-Loop)"]
-        G1{Human Review<br/>Before Publishing}
-        G2[Write to database]
-        G3[Publish to LMS]
-        G4[Notify users]
+    subgraph LEARNING["LEARNING MEMORY"]
+        L1[(Past<br/>approvals)]
+        L2[(Past<br/>rejections)]
+        L3[(Student<br/>outcomes)]
+    end
+
+    subgraph BETA["BETA: Content Generation"]
+        B1[Receive<br/>insights]
+        B2[Access learned<br/>patterns]
+        B3[Draft<br/>content]
+        B4[Self-evaluate<br/>quality]
+        B5{Confidence<br/>Score?}
+    end
+
+    subgraph GAMMA["GAMMA: Publication"]
+        G1{Human<br/>Review}
+        G2[Write to<br/>database]
+        G3[Publish<br/>to LMS]
     end
 
     subgraph FEEDBACK["CONTINUOUS LEARNING"]
-        F1[Outcome tracking]
-        F2[Student performance]
-        F3[Update learned patterns]
+        F1[Track<br/>outcomes]
+        F2[Student<br/>performance]
+        F3[Update<br/>patterns]
     end
 
-    START --> A1
-    A1 --> A2
-    A2 --> A3
+    START --> A1 --> A2 --> A3
     A3 --> B1
 
-    L1 & L2 & L3 --> B2
-    B2 --> L4
-    L4 --> B2
+    L1 --> B2
+    L2 --> B2
+    L3 --> B2
 
     B1 --> B2 --> B3 --> B4 --> B5
 
-    B5 -->|High confidence| G1
-    B5 -->|Low confidence| B3
+    B5 -->|High| G1
+    B5 -->|Low| B3
 
     G1 -->|Approved| G2
     G1 -->|Rejected| L2
-    G2 --> G3 --> G4
 
-    G4 --> F1
-    F1 --> F2
-    F2 --> F3
-    F3 --> L1 & L3
+    G2 --> G3 --> F1
+    F1 --> F2 --> F3
 
-    A2 -.->|Continuous loop| START
+    F3 --> L1
+    F3 --> L3
 
-    style AUTONOMOUS fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    A2 -.->|Loop| START
+
     style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
     style BETA fill:#fbbf24,stroke:#f59e0b,color:#fff
     style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
