@@ -194,6 +194,127 @@ Four-stage process:
 
 ---
 
+### How Agents Create Adaptive Learning Modules
+
+**The agents don't just capture knowledge—they feed a custom AI model that generates personalized learning content.**
+
+```mermaid
+flowchart TB
+    subgraph HISTORICAL["HISTORICAL DATA"]
+        H1[Past Contracts<br/>NASA mission records]
+        H2[Past Cohorts<br/>Student performance data]
+        H3[Lesson Learned<br/>What worked/failed]
+    end
+
+    subgraph CURRENT["CURRENT DATA (via 3 Agents)"]
+        C1[Alpha: Team activities<br/>Meeting notes, decisions]
+        C2[Beta: Knowledge gaps<br/>What's undocumented]
+        C3[Gamma: Validated content<br/>Approved procedures]
+    end
+
+    subgraph MODEL["CUSTOM AI MODEL"]
+        M1[Data ingestion]
+        M2[Pattern recognition]
+        M3[Content generation engine]
+        M4[OATutor pedagogy adapter]
+    end
+
+    subgraph OUTPUT["ADAPTIVE MODULES"]
+        O1[Engineering-specific content]
+        O2[Personalized learning paths]
+        O3[Competency-based assessments]
+        O4[Just-in-time hints]
+    end
+
+    subgraph DELIVERY["STUDENT LMS"]
+        D1[Individual student profile]
+        D2{Prior<br/>Experience?}
+        D3[Customized module sequence]
+        D4[Real-time adaptation]
+    end
+
+    H1 & H2 & H3 --> M1
+    C1 & C2 & C3 --> M1
+
+    M1 --> M2 --> M3 --> M4
+
+    M4 --> O1 & O2 & O3 & O4
+
+    O1 & O2 & O3 & O4 --> D1
+    D1 --> D2
+    D2 -->|Experienced| D3
+    D2 -->|Novice| D3
+    D3 --> D4
+
+    style HISTORICAL fill:#6366f1,stroke:#4f46e5,color:#fff
+    style CURRENT fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    style MODEL fill:#dc2626,stroke:#991b1b,color:#fff
+    style OUTPUT fill:#f59e0b,stroke:#d97706,color:#fff
+    style DELIVERY fill:#10b981,stroke:#059669,color:#fff
+```
+
+**How It Works:**
+
+1. **Data Collection**
+   - **Historical**: Past NASA contracts, previous student cohorts, documented successes/failures
+   - **Current**: Three agents continuously capture team activities, identify gaps, validate new content
+
+2. **Custom AI Model Processing**
+   - Ingests both historical and real-time data
+   - Recognizes patterns in how students learn engineering concepts
+   - Generates content tailored to BSL's specific mission context
+   - Adapts **OATutor pedagogy** (proven edtech framework) to engineering domain
+
+3. **Module Generation**
+   - Creates engineering-specific learning content (not generic tutorials)
+   - Builds personalized paths based on student background
+   - Generates competency-based assessments
+   - Provides context-aware hints when students struggle
+
+4. **Reactive Delivery**
+   - Student logs in, system assesses prior experience
+   - Model dynamically sequences modules (novice vs. experienced paths differ)
+   - Real-time adaptation: if student struggles, model adjusts difficulty/hints
+   - Continuous feedback loop: student performance → model refinement
+
+**Why This Matters:**
+
+| Traditional LMS | FRAMES Adaptive Model |
+|-----------------|----------------------|
+| Static content, same for everyone | Dynamic content, personalized per student |
+| Generic engineering tutorials | BSL mission-specific procedures |
+| Manual updates by instructors | Automated updates from live team activities |
+| Fixed learning sequence | Adaptive paths based on competency |
+| No context awareness | Knows current mission state, recent design decisions |
+
+**Example: New ADCS Team Member**
+
+1. **Model receives data:**
+   - Alpha detected new magnetometer calibration procedure (current)
+   - Historical data shows students struggle with quaternion math (past cohorts)
+   - Beta identified gap in attitude determination documentation (current)
+
+2. **Model generates modules:**
+   - Foundations: Quaternion basics (because historical data shows struggle)
+   - BSL Context: Current mission's attitude requirements (from recent design review)
+   - Hands-on: Magnetometer calibration with new procedure (from Alpha's detection)
+   - Assessment: Competency quiz validating understanding
+
+3. **Delivered adaptively:**
+   - Student with aerospace background: skip quaternion basics, go straight to BSL specifics
+   - Student from mechanical engineering: start with math foundations, build up
+   - Both paths lead to same competency, different routes based on starting point
+
+**The Black Box (Current R&D):**
+
+The custom AI model's internal workings are proprietary research. Key components:
+- Transfer learning from general engineering → BSL-specific domain
+- Reinforcement learning from student performance outcomes
+- Natural language processing to convert procedures → learning content
+- Pedagogical rule engine (OATutor framework) ensuring sound instructional design
+
+---
+
 ## Layer 4: Canonical Data
 
 **Single source of truth: Neon PostgreSQL database (37+ tables)**
