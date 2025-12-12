@@ -45,7 +45,7 @@ article_header:
 
 ## Latest Announcements
 
-**December 2024:** FRAMES hub now live. Applications coming soon as we complete Phase 1 deployment.
+**December 2025:** FRAMES hub now live. Applications coming soon as we complete Phase 1 deployment.
 
 Check back here for system updates, new features, and important announcements.
 
@@ -81,7 +81,7 @@ Check back here for system updates, new features, and important announcements.
 
 **Phase 1 deployment in progress.** All applications currently in development.
 
-Last updated: December 2024
+Last updated: December 2025
 
 ---
 
