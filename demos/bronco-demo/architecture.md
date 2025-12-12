@@ -109,68 +109,77 @@ No change to workflows. Team works naturally. System learns from existing activi
 ### Agent Collaboration & Learning Workflow
 
 ```mermaid
-flowchart TD
-    %% Central Learning Memory
-    subgraph LEARNING["LEARNING MEMORY (Center)"]
-        L1[(Past<br/>approvals)]
-        L2[(Past<br/>rejections)]
-        L3[(Student<br/>outcomes)]
-    end
-
-    %% Circle Block 1: ALPHA (Top)
+flowchart LR
+    %% Outside the circle: ALPHA
     subgraph ALPHA["ALPHA: Exploration"]
         A1[Monitor data<br/>sources]
         A2[Analyze<br/>patterns]
         A3[Share insights]
     end
 
-    %% Circle Block 2: BETA (Right)
+    %% Circle Block 1 (LEFT): Access Learned Patterns
+    subgraph PATTERNS["Access Learned Patterns"]
+        P1[Retrieve past<br/>approvals]
+        P2[Retrieve past<br/>rejections]
+        P3[Retrieve student<br/>outcomes]
+    end
+
+    %% Circle Block 2 (TOP): Beta Content Generation
     subgraph BETA["BETA: Content Generation"]
         B1[Receive<br/>insights]
-        B2[Access learned<br/>patterns]
         B3[Draft<br/>content]
         B4[Self-evaluate<br/>quality]
         B5{Confidence<br/>Score?}
     end
 
-    %% Circle Block 3: GAMMA (Bottom)
+    %% Circle Block 3 (RIGHT): Gamma Publication
     subgraph GAMMA["GAMMA: Publication"]
         G1{Human<br/>Review}
         G2[Write to<br/>database]
         G3[Publish<br/>to LMS]
     end
 
-    %% Circle Block 4: FEEDBACK (Left)
+    %% Circle Block 4 (BOTTOM): Continuous Learning
     subgraph FEEDBACK["CONTINUOUS LEARNING"]
         F1[Track<br/>outcomes]
         F2[Student<br/>performance]
         F3[Update<br/>patterns]
     end
 
-    %% Circular flow between the 4 blocks
-    A3 --> B1
+    %% Center: Learning Memory
+    subgraph LEARNING["LEARNING MEMORY"]
+        L1[(Past<br/>approvals)]
+        L2[(Past<br/>rejections)]
+        L3[(Student<br/>outcomes)]
+    end
+
+    %% Alpha feeds into Access Learned Patterns (outside → circle)
+    A3 --> PATTERNS
     A2 -.->|Loop| A1
 
-    B1 --> B2 --> B3 --> B4 --> B5
+    %% Circular flow: Patterns → Beta → Gamma → Feedback → Patterns
+    PATTERNS --> B1
+    B1 --> B3 --> B4 --> B5
     B5 -- High --> G1
     B5 -- Low --> B3
+    G1 -- Approved --> G2
+    G2 --> G3 --> F1
+    F1 --> F2 --> F3
+    F3 --> PATTERNS
 
-    G1 -- Approved --> G2 --> G3 --> F1
-
-    F1 --> F2 --> F3 --> A1
-
-    %% All blocks connect to/from central LEARNING MEMORY
-    LEARNING --> B2
+    %% Learning Memory (center) connections
+    LEARNING --> PATTERNS
     G1 -- Approved --> L1
     G1 -- Rejected --> L2
     F3 --> L3
 
-    %% Style (preserved from original)
+    %% Style
     style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
+    style PATTERNS fill:#a855f7,stroke:#9333ea,color:#fff
     style BETA fill:#fbbf24,stroke:#f59e0b,color:#fff
-    style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
     style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
     style FEEDBACK fill:#10b981,stroke:#059669,color:#fff
+    style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
 ```
 
 **How LangGraph Enables This:**
