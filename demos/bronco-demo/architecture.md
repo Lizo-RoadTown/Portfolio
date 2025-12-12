@@ -111,7 +111,7 @@ No change to workflows. Team works naturally. System learns from existing activi
 ```mermaid
 %%{init: {'theme':'base', 'themeVariables': { 'fontSize':'18px'}, 'flowchart': {'curve': 'basis'}, 'scale': 1.5}}%%
 stateDiagram-v2
-    direction LR
+    direction TB
 
     [*] --> Alpha
 
