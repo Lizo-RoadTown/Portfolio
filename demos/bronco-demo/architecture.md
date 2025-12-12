@@ -110,12 +110,21 @@ No change to workflows. Team works naturally. System learns from existing activi
 
 ```mermaid
 flowchart TD
+    %% Central Learning Memory
+    subgraph LEARNING["LEARNING MEMORY (Center)"]
+        L1[(Past<br/>approvals)]
+        L2[(Past<br/>rejections)]
+        L3[(Student<br/>outcomes)]
+    end
+
+    %% Circle Block 1: ALPHA (Top)
     subgraph ALPHA["ALPHA: Exploration"]
         A1[Monitor data<br/>sources]
         A2[Analyze<br/>patterns]
         A3[Share insights]
     end
 
+    %% Circle Block 2: BETA (Right)
     subgraph BETA["BETA: Content Generation"]
         B1[Receive<br/>insights]
         B2[Access learned<br/>patterns]
@@ -124,37 +133,37 @@ flowchart TD
         B5{Confidence<br/>Score?}
     end
 
+    %% Circle Block 3: GAMMA (Bottom)
     subgraph GAMMA["GAMMA: Publication"]
         G1{Human<br/>Review}
         G2[Write to<br/>database]
         G3[Publish<br/>to LMS]
     end
 
-    subgraph LEARNING["LEARNING MEMORY"]
-        L1[(Past<br/>approvals)]
-        L2[(Past<br/>rejections)]
-        L3[(Student<br/>outcomes)]
-    end
-
+    %% Circle Block 4: FEEDBACK (Left)
     subgraph FEEDBACK["CONTINUOUS LEARNING"]
         F1[Track<br/>outcomes]
         F2[Student<br/>performance]
         F3[Update<br/>patterns]
     end
 
-    %% Circular flow
+    %% Circular flow between the 4 blocks
     A3 --> B1
-    L1 --> B2
-    L2 --> B2
-    L3 --> B2
+    A2 -.->|Loop| A1
+
     B1 --> B2 --> B3 --> B4 --> B5
     B5 -- High --> G1
     B5 -- Low --> B3
-    G1 -- Approved --> G2 --> G3 --> F1 --> F2 --> F3 --> L1
+
+    G1 -- Approved --> G2 --> G3 --> F1
+
+    F1 --> F2 --> F3 --> A1
+
+    %% All blocks connect to/from central LEARNING MEMORY
+    LEARNING --> B2
+    G1 -- Approved --> L1
     G1 -- Rejected --> L2
     F3 --> L3
-    F3 -.-> B2
-    A2 -.->|Loop| A1
 
     %% Style (preserved from original)
     style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
