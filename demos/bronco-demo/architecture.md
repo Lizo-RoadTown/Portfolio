@@ -110,33 +110,58 @@ No change to workflows. Team works naturally. System learns from existing activi
 
 ```mermaid
 flowchart TD
-    Alpha["ALPHA: Exploration<br>Monitor data sources<br>Analyze patterns<br>Share insights"] --> Access["Access Learned Patterns"]
+    subgraph ALPHA["ALPHA: Exploration"]
+        A1[Monitor data<br/>sources]
+        A2[Analyze<br/>patterns]
+        A3[Share insights]
+    end
 
-    %% Main Circle
-    Access --> Beta["BETA: Content Generation<br>Receive insights<br>Access learned patterns<br>Draft content<br>Self-evaluate quality<br>Confidence Score?"]
-    Beta --> Gamma["GAMMA: Publication<br>Human Review<br>Write to database<br>Publish to LMS"]
-    Gamma -->|Rejected| Memory["LEARNING MEMORY<br>Past rejections"]
-    Gamma -->|Approved| Outcome["Student Outcome/Approvals"]
-    Memory --> Continuous["CONTINUOUS LEARNING<br>Track outcomes<br>Student performance<br>Update patterns"]
-    Outcome --> Memory
-    Continuous --> Access
+    subgraph BETA["BETA: Content Generation"]
+        B1[Receive<br/>insights]
+        B2[Access learned<br/>patterns]
+        B3[Draft<br/>content]
+        B4[Self-evaluate<br/>quality]
+        B5{Confidence<br/>Score?}
+    end
 
-    %% Visual arrangement for circle
-    classDef alpha fill:#60a5fa,stroke:#3b82f6,color:#fff;
-    classDef beta fill:#fbbf24,stroke:#f59e0b,color:#fff;
-    classDef gamma fill:#dc2626,stroke:#991b1b,color:#fff;
-    classDef memory fill:#8b5cf6,stroke:#7c3aed,color:#fff;
-    classDef continuous fill:#10b981,stroke:#059669,color:#fff;
-    classDef access fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef outcome fill:#bff,stroke:#333,stroke-width:2px;
+    subgraph GAMMA["GAMMA: Publication"]
+        G1{Human<br/>Review}
+        G2[Write to<br/>database]
+        G3[Publish<br/>to LMS]
+    end
 
-    class Alpha alpha;
-    class Beta beta;
-    class Gamma gamma;
-    class Memory memory;
-    class Continuous continuous;
-    class Access access;
-    class Outcome outcome;
+    subgraph LEARNING["LEARNING MEMORY"]
+        L1[(Past<br/>approvals)]
+        L2[(Past<br/>rejections)]
+        L3[(Student<br/>outcomes)]
+    end
+
+    subgraph FEEDBACK["CONTINUOUS LEARNING"]
+        F1[Track<br/>outcomes]
+        F2[Student<br/>performance]
+        F3[Update<br/>patterns]
+    end
+
+    %% Circular flow
+    A3 --> B1
+    L1 --> B2
+    L2 --> B2
+    L3 --> B2
+    B1 --> B2 --> B3 --> B4 --> B5
+    B5 -- High --> G1
+    B5 -- Low --> B3
+    G1 -- Approved --> G2 --> G3 --> F1 --> F2 --> F3 --> L1
+    G1 -- Rejected --> L2
+    F3 --> L3
+    F3 -.-> B2
+    A2 -.->|Loop| A1
+
+    %% Style (preserved from original)
+    style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
+    style BETA fill:#fbbf24,stroke:#f59e0b,color:#fff
+    style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
+    style FEEDBACK fill:#10b981,stroke:#059669,color:#fff
 ```
 
 **How LangGraph Enables This:**
