@@ -23,7 +23,6 @@ This walkthrough will show you how FRAMES can solve critical challenges facing B
 2. **The Solution** — How FRAMES predicts and prevents these failures
 3. **The Architecture** — How the system works technically
 4. **Implementation** — What it takes to deploy at BSL
-5. **Next Steps** — How to approve and proceed
 
 ---
 
@@ -57,7 +56,6 @@ Bronco Space Lab faces NASA mission deadlines with rotating student teams. Every
 <li><a href="/Portfolio/bronco-demo/solution/">2. The Solution</a></li>
 <li><a href="/Portfolio/bronco-demo/architecture/">3. Architecture</a></li>
 <li><a href="/Portfolio/bronco-demo/implementation/">4. Implementation</a></li>
-<li><a href="/Portfolio/bronco-demo/approval/">5. Next Steps</a></li>
 </ul>
 </div>
 

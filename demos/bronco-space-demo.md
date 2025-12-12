@@ -189,7 +189,7 @@ Each dimension scored 0-10; interfaces scoring >7 flagged as high-risk.
 
 ## AI Agent Workflow (with Human Oversight)
 
-FRAMES uses three agent types with **mandatory human approval** at critical gates:
+FRAMES uses three agent types that **learn and collaborate autonomously**, with human approval required before publication:
 
 ```mermaid
 flowchart TB
@@ -527,7 +527,7 @@ Phase 3 validation compares structural metrics at semester start against mission
 
 ### "What if AI makes a mistake?"
 
-All AI actions require human approval. No autonomous writes to critical systems. Complete audit trail allows rollback. Incremental deployment catches issues early.
+Agents can learn and analyze autonomously, but can't write to databases or publish without human approval. Complete audit trail allows rollback. Incremental deployment catches issues early.
 
 ### "Can other labs use this?"
 

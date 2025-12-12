@@ -32,7 +32,7 @@ FRAMES agents operate at three autonomy levels with human oversight:
 | **Beta** | Drafting | Low | Propose documentation, flag risks |
 | **Gamma** | Execution | Medium | Update records (with approval), trigger notifications |
 
-All actions are logged and audited. Nothing changes without human approval.
+All actions are logged and audited. Agents can learn and improve autonomously, but can't make actual changes without human approval.
 
 ---
 
@@ -45,7 +45,7 @@ Four-stage workflow: **Explore** → **Draft** → **Execute** → **Commit**
 3. **Execute** — Human reviews and approves
 4. **Commit** — Validator verifies, audit log written, finalized
 
-Agents propose. Humans decide.
+Agents learn and collaborate autonomously. Humans approve actual changes.
 
 ---
 
@@ -77,14 +77,14 @@ Agents access external systems through Model Context Protocol (MCP) servers—se
 
 ## Human Oversight
 
-Every agent action is:
+Agents learn and analyze autonomously, but human approval is required for actual changes:
 
-1. **Logged** — Full audit trail of what was read, analyzed, and proposed
-2. **Staged** — Changes sit in draft until human review
-3. **Approved** — Humans decide what gets committed
-4. **Traceable** — Every change links back to the agent action that proposed it
+1. **Learning & Analysis** — Agents monitor data, recognize patterns, and improve autonomously
+2. **Collaboration** — Agents share insights and iterate on content without human gates
+3. **Publication Gate** — Human approval required before changes reach databases or users
+4. **Audit Trail** — Full logging of all agent activities and approved changes
 
-Agents are tools to reduce burden, not replacements for human judgment.
+Agents can get smart, but can't DO anything without human permission.
 
 ---
 

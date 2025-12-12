@@ -78,9 +78,9 @@ With FRAMES: system handles foundational work, agents draft documentation, hando
 - **Beta agents** — Draft documentation and flag risks (humans approve)
 - **Gamma agents** — Execute approved actions (audit logged)
 
-**Nothing changes without human approval.**
+**Agents learn and analyze autonomously, but can't make actual changes without human approval.**
 
-Example: Agent notices undocumented procedure in meeting notes → drafts SOP for review → human approves or rejects.
+Example: Agents notice undocumented procedure in meeting notes → collaborate to draft SOP → learn from past approvals to improve quality → human reviews before publication.
 
 [Learn more about AI Agents →](/Portfolio/agents/)
 

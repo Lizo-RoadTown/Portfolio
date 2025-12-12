@@ -121,12 +121,13 @@ Three-level AI agent architecture with **mandatory human oversight**:
 **Example Scenario:**
 - Meeting notes mention new power budget procedure
 - Alpha agent identifies this as undocumented process
-- Beta agent drafts SOP based on meeting discussion
-- Team lead reviews, edits, approves
-- Gamma agent adds to knowledge base
+- Beta agent drafts SOP, learns from past approvals to improve quality
+- Agents iterate and refine autonomously
+- Team lead reviews final draft before publication
+- Gamma agent publishes to knowledge base
 - New members see it in onboarding module automatically
 
-**Nothing changes without human approval.**
+**Agents learn and collaborate autonomously, but can't publish without human approval.**
 
 ---
 

@@ -118,38 +118,32 @@ Ensures data quality and system consistency:
 ### Workflow Orchestration (LangGraph)
 
 ```mermaid
-graph TB
-    subgraph EXPLORE["EXPLORATION MODE"]
-        E1[Interpreter reads]
-        E2[Analyzes context]
-        E3[Suggests actions]
-        E1 --> E2 --> E3
+flowchart TB
+    START([Continuous Monitoring])
+
+    subgraph AUTO["AUTONOMOUS OPERATION"]
+        A1[Monitor & Analyze]
+        A2[Collaborate & Learn]
+        A3[Draft & Iterate]
     end
-    
-    subgraph DRAFT["DRAFTING MODE"]
-        D1[Builder proposes changes]
-        D2[Changes staged]
-        D3[Not committed]
-        D1 --> D2 --> D3
+
+    subgraph APPROVAL["PUBLICATION GATE"]
+        H1{Human Review}
+        H2[Publish Changes]
     end
-    
-    subgraph EXECUTE["EXECUTION MODE"]
-        X1[Human reviews]
-        X2[Human approves]
-        X3[Changes applied to database]
-        X1 --> X2 --> X3
+
+    subgraph FEEDBACK["LEARNING"]
+        F1[Track Outcomes]
+        F2[Update Patterns]
     end
-    
-    subgraph COMMIT["COMMIT MODE"]
-        C1[Validator verifies]
-        C2[Audit log written]
-        C3[Finalization]
-        C1 --> C2 --> C3
-    end
-    
-    EXPLORE --> DRAFT
-    DRAFT --> EXECUTE
-    EXECUTE --> COMMIT
+
+    START --> A1 --> A2 --> A3
+    A3 --> H1
+    H1 -->|Approved| H2
+    H1 -->|Rejected| F2
+    H2 --> F1 --> F2
+    F2 --> A2
+    A1 -.->|Continuous| START
 ```
 
 ### MCP Server Integration (LangChain)
@@ -166,8 +160,8 @@ Model Context Protocol servers provide secure, controlled access to external sys
 **Safety Principles:**
 
 - All operations logged to governance layer
-- Risk-based approval workflows
-- No autonomous changes to production data without human approval
+- Agents can learn and analyze autonomously
+- Human approval required for actual changes (database writes, publication)
 - Circuit breakers for runaway operations
 
 ---
