@@ -104,76 +104,108 @@ No change to workflows. Team works naturally. System learns from existing activi
 
 ## Layer 3: Interpretation (AI Agents)
 
-**AI agents interpret observations with mandatory human oversight.**
+**LangGraph-powered agents work autonomously, learn from outcomes, and collaborate—with human oversight only at publication.**
 
-### Complete Agent Workflow
+### Agent Collaboration & Learning Workflow
 
 ```mermaid
 flowchart TB
-    START([START:<br/>New Activity Detected])
+    START([Continuous Monitoring])
 
-    subgraph ALPHA["ALPHA AGENT: Exploration"]
-        A1[Read data sources]
-        A2[Analyze content]
-        A3[Detect patterns]
-        A4{Action<br/>Needed?}
+    subgraph AUTONOMOUS["AUTONOMOUS OPERATION"]
+        subgraph ALPHA["ALPHA: Exploration"]
+            A1[Monitor data sources]
+            A2[Analyze patterns]
+            A3[Share insights with Beta]
+        end
+
+        subgraph BETA["BETA: Content Generation"]
+            B1[Receive Alpha insights]
+            B2[Access learned patterns<br/>from past approvals]
+            B3[Draft content]
+            B4[Self-evaluate quality]
+            B5{Confidence<br/>Score}
+        end
+
+        subgraph LEARNING["LEARNING MEMORY"]
+            L1[(Past approvals)]
+            L2[(Past rejections)]
+            L3[(Student outcomes)]
+            L4[Pattern recognition]
+        end
     end
 
-    subgraph BETA["BETA AGENT: Drafting"]
-        B1[Identify gaps]
-        B2[Draft documentation]
-        B3[Generate proposal]
-        B4{Human<br/>Review}
-    end
-
-    subgraph GAMMA["GAMMA AGENT: Execution"]
-        G1{Human<br/>Approval}
+    subgraph GAMMA["GAMMA: Publication (Human-in-Loop)"]
+        G1{Human Review<br/>Before Publishing}
         G2[Write to database]
         G3[Publish to LMS]
-        G4[Send notifications]
-        G5[Log audit trail]
+        G4[Notify users]
     end
 
-    VALIDATE[Validator verifies changes]
-    VERIFY{Verify<br/>Success?}
+    subgraph FEEDBACK["CONTINUOUS LEARNING"]
+        F1[Outcome tracking]
+        F2[Student performance]
+        F3[Update learned patterns]
+    end
 
-    END_SUCCESS([END: Changes Applied])
-    END_NO_ACTION([END: No Action Needed])
-    END_REJECTED([END: Proposal Rejected])
+    START --> A1
+    A1 --> A2
+    A2 --> A3
+    A3 --> B1
 
-    START --> A1 --> A2 --> A3 --> A4
+    L1 & L2 & L3 --> B2
+    B2 --> L4
+    L4 --> B2
 
-    A4 -->|No| END_NO_ACTION
-    A4 -->|Yes| B1 --> B2 --> B3 --> B4
+    B1 --> B2 --> B3 --> B4 --> B5
 
-    B4 -->|Rejected| END_REJECTED
-    B4 -->|Needs Revision| B1
-    B4 -->|Approved| G1
+    B5 -->|High confidence| G1
+    B5 -->|Low confidence| B3
 
-    G1 -->|Rejected| END_REJECTED
-    G1 -->|Approved| G2 --> G3 --> G4 --> G5
+    G1 -->|Approved| G2
+    G1 -->|Rejected| L2
+    G2 --> G3 --> G4
 
-    G5 --> VALIDATE --> VERIFY
+    G4 --> F1
+    F1 --> F2
+    F2 --> F3
+    F3 --> L1 & L3
 
-    VERIFY -->|Success| END_SUCCESS
-    VERIFY -->|Failed| B1
+    A2 -.->|Continuous loop| START
 
-    style ALPHA fill:#3b82f6,stroke:#1d4ed8,color:#fff
-    style BETA fill:#f59e0b,stroke:#d97706,color:#fff
+    style AUTONOMOUS fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
+    style BETA fill:#fbbf24,stroke:#f59e0b,color:#fff
+    style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
     style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
+    style FEEDBACK fill:#10b981,stroke:#059669,color:#fff
     style START fill:#6366f1,stroke:#4f46e5,color:#fff
-    style END_SUCCESS fill:#10b981,stroke:#059669,color:#fff
-    style END_NO_ACTION fill:#64748b,stroke:#475569,color:#fff
-    style END_REJECTED fill:#ef4444,stroke:#dc2626,color:#fff
-    style VALIDATE fill:#059669,stroke:#047857,color:#fff
 ```
 
-**Safety Features:**
-- No autonomous database writes
-- All changes require human approval
-- Complete audit trails
-- Rollback capability
-- Circuit breakers for anomalies
+**How LangGraph Enables This:**
+
+1. **Autonomous Collaboration**
+   - Alpha continuously monitors without human intervention
+   - Beta accesses shared memory and learned patterns
+   - Agents communicate context through LangGraph state
+
+2. **Learning from Outcomes**
+   - Past approvals → Beta learns what quality looks like
+   - Past rejections → Beta avoids similar mistakes
+   - Student performance → System refines content generation
+   - Confidence scores improve over time
+
+3. **Strategic Human Oversight**
+   - **Only at publication** (when content goes to students)
+   - Not at every drafting step
+   - System learns from human decisions
+   - Over time, approval rate increases as agents improve
+
+4. **Safety Through Learning, Not Gates**
+   - Self-evaluation before requesting human review
+   - Confidence scoring (low confidence = iterate more)
+   - Memory of what works vs. what doesn't
+   - Continuous improvement, not rigid rules
 
 ### Agent Workflow (LangGraph)
 
