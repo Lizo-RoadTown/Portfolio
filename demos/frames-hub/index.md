@@ -24,40 +24,19 @@ article_header:
 <div class="card">
 <h3>Student LMS</h3>
 <p><strong>Status:</strong> Coming Soon</p>
-<p>Personalized learning paths tailored to your experience level. Get onboarded faster with adaptive content and competency validation.</p>
-<ul>
-  <li>Customized learning modules</li>
-  <li>Progress tracking</li>
-  <li>Interactive assessments</li>
-  <li>Offline-capable (PWA)</li>
-</ul>
-<p><a href="#">Launch LMS (Coming Soon)</a></p>
+<p><a href="#">Launch LMS →</a></p>
 </div>
 
 <div class="card">
 <h3>Team Dashboard</h3>
 <p><strong>Status:</strong> Coming Soon</p>
-<p>Real-time risk visualization and knowledge mapping. See interface health, upcoming transitions, and mission success probability.</p>
-<ul>
-  <li>Risk heat maps</li>
-  <li>Knowledge concentration alerts</li>
-  <li>Handoff tracking</li>
-  <li>Mission success gauge</li>
-</ul>
-<p><a href="#">Launch Dashboard (Coming Soon)</a></p>
+<p><a href="#">Launch Dashboard →</a></p>
 </div>
 
 <div class="card">
 <h3>Analytics Platform</h3>
 <p><strong>Status:</strong> Coming Soon</p>
-<p>Research-grade data visualization and predictive model validation. Explore multi-semester trends and interface-outcome correlations.</p>
-<ul>
-  <li>Multi-semester visualization</li>
-  <li>Predictive model validation</li>
-  <li>Cohort comparisons</li>
-  <li>Export for publications</li>
-</ul>
-<p><a href="#">Launch Analytics (Coming Soon)</a></p>
+<p><a href="#">Launch Analytics →</a></p>
 </div>
 
 </div>
