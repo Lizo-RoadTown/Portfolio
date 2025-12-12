@@ -147,25 +147,20 @@ stateDiagram-v2
         StudentPerformance --> UpdatePatterns
     }
 
-    state "LEARNING MEMORY\n(Center)" as Memory {
-        [*] --> PastApprovals
-        PastApprovals --> PastRejections
-        PastRejections --> StudentOutcomes
-    }
+    state "LEARNING MEMORY\n(Center)" as Memory
 
     %% Alpha feeds into Patterns (outside the circle)
     Alpha --> Patterns: Share insights
 
-    %% Circular flow: Patterns → Beta → Gamma → Feedback → Patterns
+    %% Circular flow with Memory connections interwoven
+    Patterns --> Memory: Request data
+    Memory --> Patterns: Provide patterns
     Patterns --> Beta: Retrieved patterns
     Beta --> Gamma: High confidence
+    Gamma --> Memory: Store approvals/rejections
     Gamma --> Feedback: Published
+    Feedback --> Memory: Store outcomes
     Feedback --> Patterns: Updated
-
-    %% Memory connections
-    Memory --> Patterns: Feed learned data
-    Gamma --> Memory: Approvals & rejections
-    Feedback --> Memory: Student outcomes
 ```
 
 **How LangGraph Enables This:**
