@@ -109,77 +109,63 @@ No change to workflows. Team works naturally. System learns from existing activi
 ### Agent Collaboration & Learning Workflow
 
 ```mermaid
-flowchart LR
-    %% Outside the circle: ALPHA
-    subgraph ALPHA["ALPHA: Exploration"]
-        A1[Monitor data<br/>sources]
-        A2[Analyze<br/>patterns]
-        A3[Share insights]
-    end
+stateDiagram-v2
+    direction LR
 
-    %% Circle Block 1 (LEFT): Access Learned Patterns
-    subgraph PATTERNS["Access Learned Patterns"]
-        P1[Retrieve past<br/>approvals]
-        P2[Retrieve past<br/>rejections]
-        P3[Retrieve student<br/>outcomes]
-    end
+    [*] --> Alpha
 
-    %% Circle Block 2 (TOP): Beta Content Generation
-    subgraph BETA["BETA: Content Generation"]
-        B1[Receive<br/>insights]
-        B3[Draft<br/>content]
-        B4[Self-evaluate<br/>quality]
-        B5{Confidence<br/>Score?}
-    end
+    state "ALPHA: Exploration" as Alpha {
+        [*] --> Monitor
+        Monitor --> Analyze
+        Analyze --> ShareInsights
+        Analyze --> Monitor: Loop
+    }
 
-    %% Circle Block 3 (RIGHT): Gamma Publication
-    subgraph GAMMA["GAMMA: Publication"]
-        G1{Human<br/>Review}
-        G2[Write to<br/>database]
-        G3[Publish<br/>to LMS]
-    end
+    state "Access Learned Patterns" as Patterns {
+        [*] --> RetrieveApprovals
+        RetrieveApprovals --> RetrieveRejections
+        RetrieveRejections --> RetrieveOutcomes
+    }
 
-    %% Circle Block 4 (BOTTOM): Continuous Learning
-    subgraph FEEDBACK["CONTINUOUS LEARNING"]
-        F1[Track<br/>outcomes]
-        F2[Student<br/>performance]
-        F3[Update<br/>patterns]
-    end
+    state "BETA: Content Generation" as Beta {
+        [*] --> ReceiveInsights
+        ReceiveInsights --> DraftContent
+        DraftContent --> SelfEvaluate
+        SelfEvaluate --> CheckConfidence
+        CheckConfidence --> DraftContent: Low confidence
+    }
 
-    %% Center: Learning Memory
-    subgraph LEARNING["LEARNING MEMORY"]
-        L1[(Past<br/>approvals)]
-        L2[(Past<br/>rejections)]
-        L3[(Student<br/>outcomes)]
-    end
+    state "GAMMA: Publication" as Gamma {
+        [*] --> HumanReview
+        HumanReview --> WriteDB: Approved
+        WriteDB --> PublishLMS
+    }
 
-    %% Alpha feeds into Access Learned Patterns (outside → circle)
-    A3 --> PATTERNS
-    A2 -.->|Loop| A1
+    state "Continuous Learning" as Feedback {
+        [*] --> TrackOutcomes
+        TrackOutcomes --> StudentPerformance
+        StudentPerformance --> UpdatePatterns
+    }
+
+    state "LEARNING MEMORY\n(Center)" as Memory {
+        [*] --> PastApprovals
+        PastApprovals --> PastRejections
+        PastRejections --> StudentOutcomes
+    }
+
+    %% Alpha feeds into Patterns (outside the circle)
+    Alpha --> Patterns: Share insights
 
     %% Circular flow: Patterns → Beta → Gamma → Feedback → Patterns
-    PATTERNS --> B1
-    B1 --> B3 --> B4 --> B5
-    B5 -- High --> G1
-    B5 -- Low --> B3
-    G1 -- Approved --> G2
-    G2 --> G3 --> F1
-    F1 --> F2 --> F3
-    F3 --> PATTERNS
+    Patterns --> Beta: Retrieved patterns
+    Beta --> Gamma: High confidence
+    Gamma --> Feedback: Published
+    Feedback --> Patterns: Updated
 
-    %% Learning Memory (center) connections
-    LEARNING --> PATTERNS
-    G1 -- Approved --> L1
-    G1 -- Rejected --> L2
-    F3 --> L3
-
-    %% Style
-    style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
-    style PATTERNS fill:#a855f7,stroke:#9333ea,color:#fff
-    style BETA fill:#fbbf24,stroke:#f59e0b,color:#fff
-    style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
-    style FEEDBACK fill:#10b981,stroke:#059669,color:#fff
-    style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    %% Memory connections
+    Memory --> Patterns: Feed learned data
+    Gamma --> Memory: Approvals & rejections
+    Feedback --> Memory: Student outcomes
 ```
 
 **How LangGraph Enables This:**
