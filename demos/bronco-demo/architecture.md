@@ -109,59 +109,70 @@ No change to workflows. Team works naturally. System learns from existing activi
 ### Agent Collaboration & Learning Workflow
 
 ```mermaid
-flowchart TD
-    subgraph ALPHA["ALPHA: Exploration"]
-        A1[Monitor data<br/>sources]
-        A2[Analyze<br/>patterns]
-        A3[Share insights]
+flowchart TB
+    %% Node definitions (with explicit IDs for layout)
+    subgraph Alpha["ALPHA: Exploration"]
+        alpha1[Monitor data sources]
+        alpha2[Analyze patterns]
+        alpha3[Share insights]
     end
 
-    subgraph BETA["BETA: Content Generation"]
-        B1[Receive<br/>insights]
-        B2[Access learned<br/>patterns]
-        B3[Draft<br/>content]
-        B4[Self-evaluate<br/>quality]
-        B5{Confidence<br/>Score?}
+    subgraph Beta["BETA: Content Generation"]
+        beta1[Receive insights]
+        beta2[Access learned patterns]
+        beta3[Draft content]
+        beta4[Self-evaluate quality]
+        beta5{Confidence Score?}
     end
 
-    subgraph GAMMA["GAMMA: Publication"]
-        G1{Human<br/>Review}
-        G2[Write to<br/>database]
-        G3[Publish<br/>to LMS]
+    subgraph Gamma["GAMMA: Publication"]
+        gamma1{Human Review}
+        gamma2[Write to database]
+        gamma3[Publish to LMS]
     end
 
-    subgraph LEARNING["LEARNING MEMORY"]
-        L1[(Past<br/>approvals)]
-        L2[(Past<br/>rejections)]
-        L3[(Student<br/>outcomes)]
+    subgraph Feedback["CONTINUOUS LEARNING"]
+        feedback1[Track outcomes]
+        feedback2[Student performance]
+        feedback3[Update patterns]
     end
 
-    subgraph FEEDBACK["CONTINUOUS LEARNING"]
-        F1[Track<br/>outcomes]
-        F2[Student<br/>performance]
-        F3[Update<br/>patterns]
+    subgraph Access["ACCESS LEARNED PATTERNS"]
+        access1[Access learned patterns]
     end
 
-    %% Circular flow
-    A3 --> B1
-    L1 --> B2
-    L2 --> B2
-    L3 --> B2
-    B1 --> B2 --> B3 --> B4 --> B5
-    B5 -- High --> G1
-    B5 -- Low --> B3
-    G1 -- Approved --> G2 --> G3 --> F1 --> F2 --> F3 --> L1
-    G1 -- Rejected --> L2
-    F3 --> L3
-    F3 -.-> B2
-    A2 -.->|Loop| A1
+    subgraph Memory["LEARNING MEMORY"]
+        memory1[(Past approvals)]
+        memory2[(Past rejections)]
+        memory3[(Student outcomes)]
+    end
 
-    %% Style (preserved from original)
-    style ALPHA fill:#60a5fa,stroke:#3b82f6,color:#fff
-    style BETA fill:#fbbf24,stroke:#f59e0b,color:#fff
-    style LEARNING fill:#8b5cf6,stroke:#7c3aed,color:#fff
-    style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
-    style FEEDBACK fill:#10b981,stroke:#059669,color:#fff
+    %% Layout hints for circle
+    Alpha -.->|Feeds| access1
+    access1 -.->|Feeds| beta2
+    beta1 --> beta2 --> beta3 --> beta4 --> beta5
+    beta5 -- High --> gamma1
+    beta5 -- Low --> beta3
+    gamma1 -- Approved --> gamma2 --> gamma3 -.-> feedback1
+    gamma1 -- Rejected --> memory2
+    feedback1 --> feedback2 --> feedback3 -.-> memory1
+    feedback3 -.-> memory3
+    memory1 -.-> beta2
+    memory2 -.-> beta2
+    memory3 -.-> beta2
+    feedback3 -.-> access1
+
+    %% Positioning (pseudo-circular)
+    %% Beta at top, Gamma right, Feedback bottom, Alpha left, Access left-center, Memory center
+    %% (Mermaid does not support absolute positioning, but this order helps)
+
+    %% Style
+    style Alpha fill:#60a5fa,stroke:#3b82f6,color:#fff
+    style Beta fill:#fbbf24,stroke:#f59e0b,color:#fff
+    style Gamma fill:#dc2626,stroke:#991b1b,color:#fff
+    style Feedback fill:#10b981,stroke:#059669,color:#fff
+    style Access fill:#6366f1,stroke:#4f46e5,color:#fff
+    style Memory fill:#8b5cf6,stroke:#7c3aed,color:#fff
 ```
 
 **How LangGraph Enables This:**
