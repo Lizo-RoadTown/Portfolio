@@ -109,6 +109,7 @@ No change to workflows. Team works naturally. System learns from existing activi
 ### Agent Collaboration & Learning Workflow
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'18px'}, 'stateDiagram': {'fontSize': 18}}}%%
 stateDiagram-v2
     direction LR
 
