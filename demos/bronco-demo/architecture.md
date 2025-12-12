@@ -110,69 +110,37 @@ No change to workflows. Team works naturally. System learns from existing activi
 
 ```mermaid
 flowchart TB
-    %% Node definitions (with explicit IDs for layout)
-    subgraph Alpha["ALPHA: Exploration"]
-        alpha1[Monitor data sources]
-        alpha2[Analyze patterns]
-        alpha3[Share insights]
-    end
+    %% Outer circle nodes
+    Beta["BETA<br>Content Generation"]
+    Gamma["GAMMA<br>Publication"]
+    Continuous["CONTINUOUS<br>LEARNING"]
+    Alpha["ALPHA<br>Exploration"]
+    Access["ACCESS<br>LEARNED PATTERNS"]
 
-    subgraph Beta["BETA: Content Generation"]
-        beta1[Receive insights]
-        beta2[Access learned patterns]
-        beta3[Draft content]
-        beta4[Self-evaluate quality]
-        beta5{Confidence Score?}
-    end
+    %% Center node
+    Memory["LEARNING MEMORY<br>(Past approvals, rejections, outcomes)"]
 
-    subgraph Gamma["GAMMA: Publication"]
-        gamma1{Human Review}
-        gamma2[Write to database]
-        gamma3[Publish to LMS]
-    end
+    %% Circular flow
+    Alpha --> Access
+    Access --> Beta
+    Beta --> Gamma
+    Gamma --> Continuous
+    Continuous --> Alpha
 
-    subgraph Feedback["CONTINUOUS LEARNING"]
-        feedback1[Track outcomes]
-        feedback2[Student performance]
-        feedback3[Update patterns]
-    end
-
-    subgraph Access["ACCESS LEARNED PATTERNS"]
-        access1[Access learned patterns]
-    end
-
-    subgraph Memory["LEARNING MEMORY"]
-        memory1[(Past approvals)]
-        memory2[(Past rejections)]
-        memory3[(Student outcomes)]
-    end
-
-    %% Layout hints for circle
-    Alpha -.->|Feeds| access1
-    access1 -.->|Feeds| beta2
-    beta1 --> beta2 --> beta3 --> beta4 --> beta5
-    beta5 -- High --> gamma1
-    beta5 -- Low --> beta3
-    gamma1 -- Approved --> gamma2 --> gamma3 -.-> feedback1
-    gamma1 -- Rejected --> memory2
-    feedback1 --> feedback2 --> feedback3 -.-> memory1
-    feedback3 -.-> memory3
-    memory1 -.-> beta2
-    memory2 -.-> beta2
-    memory3 -.-> beta2
-    feedback3 -.-> access1
-
-    %% Positioning (pseudo-circular)
-    %% Beta at top, Gamma right, Feedback bottom, Alpha left, Access left-center, Memory center
-    %% (Mermaid does not support absolute positioning, but this order helps)
+    %% All outer nodes connect to center
+    Beta --- Memory
+    Gamma --- Memory
+    Continuous --- Memory
+    Alpha --- Memory
+    Access --- Memory
 
     %% Style
-    style Alpha fill:#60a5fa,stroke:#3b82f6,color:#fff
-    style Beta fill:#fbbf24,stroke:#f59e0b,color:#fff
-    style Gamma fill:#dc2626,stroke:#991b1b,color:#fff
-    style Feedback fill:#10b981,stroke:#059669,color:#fff
-    style Access fill:#6366f1,stroke:#4f46e5,color:#fff
-    style Memory fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style Beta fill:#fbbf24,stroke:#f59e0b,color:#fff,stroke-width:2px
+    style Gamma fill:#dc2626,stroke:#991b1b,color:#fff,stroke-width:2px
+    style Continuous fill:#10b981,stroke:#059669,color:#fff,stroke-width:2px
+    style Alpha fill:#60a5fa,stroke:#3b82f6,color:#fff,stroke-width:2px
+    style Access fill:#6366f1,stroke:#4f46e5,color:#fff,stroke-width:2px
+    style Memory fill:#8b5cf6,stroke:#7c3aed,color:#fff,stroke-width:3px
 ```
 
 **How LangGraph Enables This:**
