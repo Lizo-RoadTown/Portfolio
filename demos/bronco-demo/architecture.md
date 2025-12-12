@@ -106,43 +106,66 @@ No change to workflows. Team works naturally. System learns from existing activi
 
 **AI agents interpret observations with mandatory human oversight.**
 
-### Three Agent Types
+### Complete Agent Workflow
 
 ```mermaid
 flowchart TB
+    START([START:<br/>New Activity Detected])
+
     subgraph ALPHA["ALPHA AGENT: Exploration"]
-        A1[Read Notion pages]
-        A2[Analyze GitHub activity]
+        A1[Read data sources]
+        A2[Analyze content]
         A3[Detect patterns]
-        A4[Generate reports]
-        A1 --> A2 --> A3 --> A4
+        A4{Action<br/>Needed?}
     end
 
     subgraph BETA["BETA AGENT: Drafting"]
         B1[Identify gaps]
         B2[Draft documentation]
-        B3[Propose interventions]
-        B4{"Human Review<br/>Required"}
-        B1 --> B2 --> B3 --> B4
+        B3[Generate proposal]
+        B4{Human<br/>Review}
     end
 
     subgraph GAMMA["GAMMA AGENT: Execution"]
-        G1{"Human Approval<br/>Required"}
-        G2[Update database]
+        G1{Human<br/>Approval}
+        G2[Write to database]
         G3[Publish to LMS]
-        G4[Trigger notifications]
+        G4[Send notifications]
         G5[Log audit trail]
-        G1 --> G2 --> G3 --> G4 --> G5
     end
 
-    ALPHA --> BETA
-    B4 -->|Approved| GAMMA
-    B4 -->|Rejected| A1
-    G1 -->|Rejected| B1
+    VALIDATE[Validator verifies changes]
+    VERIFY{Verify<br/>Success?}
+
+    END_SUCCESS([END: Changes Applied])
+    END_NO_ACTION([END: No Action Needed])
+    END_REJECTED([END: Proposal Rejected])
+
+    START --> A1 --> A2 --> A3 --> A4
+
+    A4 -->|No| END_NO_ACTION
+    A4 -->|Yes| B1 --> B2 --> B3 --> B4
+
+    B4 -->|Rejected| END_REJECTED
+    B4 -->|Needs Revision| B1
+    B4 -->|Approved| G1
+
+    G1 -->|Rejected| END_REJECTED
+    G1 -->|Approved| G2 --> G3 --> G4 --> G5
+
+    G5 --> VALIDATE --> VERIFY
+
+    VERIFY -->|Success| END_SUCCESS
+    VERIFY -->|Failed| B1
 
     style ALPHA fill:#3b82f6,stroke:#1d4ed8,color:#fff
     style BETA fill:#f59e0b,stroke:#d97706,color:#fff
     style GAMMA fill:#dc2626,stroke:#991b1b,color:#fff
+    style START fill:#6366f1,stroke:#4f46e5,color:#fff
+    style END_SUCCESS fill:#10b981,stroke:#059669,color:#fff
+    style END_NO_ACTION fill:#64748b,stroke:#475569,color:#fff
+    style END_REJECTED fill:#ef4444,stroke:#dc2626,color:#fff
+    style VALIDATE fill:#059669,stroke:#047857,color:#fff
 ```
 
 **Safety Features:**
